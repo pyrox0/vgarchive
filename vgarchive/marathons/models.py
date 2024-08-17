@@ -11,7 +11,7 @@ class Marathon(models.Model):
     banner = models.ImageField("Banner Image")
     twitch = models.CharField("Twitch Channel", max_length=25, blank=True)
     twitter = models.CharField("Twitter Username", max_length=15, blank=True)
-    youtube = models.URLField("Youtube Channel", blank=True)
+    youtube = models.CharField("Youtube Channel", max_length=200, blank=True)
 
     class Meta:
         db_table_comment = "Marathons"
