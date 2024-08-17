@@ -1,16 +1,32 @@
+{% extends "vgarchive/base.html" %}
 {% load slippers %}
-<head>
-  <title>Marathons | vgarchive.run</title>
-  {% head %}
-</head>
-<body>
-{% navbar %}
-<h1>Marathons</h1>
-<ul>
+{% load bootstrap_icons %}
+{% block title %}Marathons | vgarchive.run{% endblock %}
+{% block content %}
+<h1 class="text-3xl my-10 md:ml-10">Marathons</h1>
+<hr class="border-secondary border-2 mb-5">
+<table class="table table-zebra border-accent md:ml-5 object-center lg:max-w-4xl w-full table-sm table-pin-rows overflow-x-auto">
+  <thead>
+    <tr class="border-b-2 border-primary">
+      <th>Name</th>
+      <th>Active?</th>
+      <th><p class="float-start mr-2">Twitch</p> {% bs_icon 'twitch' extra_classes="mt-0.5 h-3 w-3" extra_attributes="{'aria-label': 'Twitch Logo', 'tabindex': '-1'}" %}</th>
+      <th><p class="float-start mr-2">Youtube</p> {% bs_icon 'youtube' extra_classes="mt-0.5 h-3 w-3" extra_attributes="{'aria-label': 'Youtube Logo', 'tabindex': '-1'}" %}</th>
+      <th><p class="float-start mr-2">Twitter</p> {% bs_icon 'twitter' extra_classes="mt-0.5 h-3 w-3" extra_attributes="{'aria-label': 'Twitter Logo', 'tabindex': '-1'}" %}</th>
+      <th><p class="float-start mr-2">Donation Total {% bs_icon 'currency-dollar' extra_classes="mt-0.5 h-3 w-3" extra_attributes="{'aria-label': 'Dollar Sign', 'tabindex': '-1'}" %}</p></th>
+    </tr>
+  </thead>
+  <tbody>
   {% for marathon in object_list %}
-  <li>{{ marathon.name }} - {{ marathon.description }}</li>
-  {% empty %}
-  <li>No articles yet.</li>
+    <tr class="border-r border-b-0 border-base-100 bg-base-100 hover:bg-base-200 text-base-content">
+      <th class="border-neutral border-r"><a class="link link-primary" href="/marathons/{{ marathon.id }}">{{ marathon.name }}</a></th>
+      <th class="border-neutral border-r">{% if marathon.active %}Yes! :D{% else %}No :({% endif %}</th>
+      <th class="border-neutral border-r"><a class="link link-primary" href="https://twitch.tv/{{ marathon.twitch }}">{{ marathon.twitch }}</a></th>
+      <th class="border-neutral border-r"><a class="link link-primary" href="https://youtube.com/{{ marathon.youtube }}">{{ marathon.youtube }}</a></th>
+      <th class="border-neutral border-r"><a class="link link-primary" href="https://twitter.com/{{ marathon.twitter }}">{{ marathon.twitter }}</a></th>
+      <th>$Placeholder</th>
+    </tr>
   {% endfor %}
-</ul>
-</body>
+  </tbody>
+</table>
+{% endblock %}

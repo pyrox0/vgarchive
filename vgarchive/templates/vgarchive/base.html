@@ -7,8 +7,25 @@
     {% head %}
     <title>{% block title %}vgarchive.run{% endblock %}</title>
   </head>
-  <body>
+  <body class="bg-base-100 text-base-content">
     {% navbar %}
     {% block content %} {% endblock %}
   </body>
+	<script>
+		var checkBox = document.getElementById('theme-controller');
+
+		var theme = window.localStorage.getItem('data-theme');
+		if(theme) document.documentElement.setAttribute('data-theme', theme);
+		checkBox.checked = theme == 'mocha' ? false : true;
+
+		checkBox.addEventListener('change', function () {
+		  if(this.checked){
+		    document.documentElement.setAttribute('data-theme', 'latte');
+		    window.localStorage.setItem('data-theme', 'latte');
+		  } else {
+		    document.documentElement.setAttribute('data-theme', 'mocha');
+		    window.localStorage.setItem('data-theme', 'mocha');
+		  }
+		});
+	</script>
 </html>
