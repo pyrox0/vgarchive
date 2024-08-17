@@ -1,0 +1,8 @@
+:8080 {
+  rewrite /favicon.ico /static/favicon.ico
+  handle_path /media/* {
+    root * ./uploaded/
+    file_server
+  }
+  reverse_proxy http://localhost:8000
+}

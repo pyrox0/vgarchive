@@ -1,0 +1,14 @@
+{% load slippers %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+<!doctype html>
+<html lang="{{ LANGUAGE_CODE }}">
+  <head>
+    {% head %}
+    <title>{% block title %}vgarchive.run{% endblock %}</title>
+  </head>
+  <body>
+    {% navbar %}
+    {% block content %} {% endblock %}
+  </body>
+</html>

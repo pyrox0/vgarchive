@@ -1,0 +1,12 @@
+result
+.venv
+.direnv
+__pycache__
+vgarchive.run.egg-info
+db.sqlite3
+db
+staticfiles
+uploaded
+
+vgarchive/theme/static/dist
+vgarchive/theme/static/css/dist/styles.css

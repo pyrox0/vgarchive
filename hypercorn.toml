@@ -1,0 +1,3 @@
+application_path = "vgarchive.asgi:application"
+use_reloader = true
+worker_class = "uvloop"

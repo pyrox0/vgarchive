@@ -1,0 +1,3 @@
+[submodule "vgarchive/static/bs_icons"]
+	path = vgarchive/static/bs_icons
+	url = https://github.com/twbs/icons

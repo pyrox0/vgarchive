@@ -1,0 +1,4 @@
+components:
+  navbar: "vgarchive/partials/navbar.html"
+  footer: "vgarchive/partials/footer.html"
+  head: "vgarchive/partials/head.html"

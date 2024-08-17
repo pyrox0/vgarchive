@@ -1,0 +1,16 @@
+{% load slippers %}
+<head>
+  <title>Marathons | vgarchive.run</title>
+  {% head %}
+</head>
+<body>
+{% navbar %}
+<h1>Marathons</h1>
+<ul>
+  {% for marathon in object_list %}
+  <li>{{ marathon.name }} - {{ marathon.description }}</li>
+  {% empty %}
+  <li>No articles yet.</li>
+  {% endfor %}
+</ul>
+</body>
