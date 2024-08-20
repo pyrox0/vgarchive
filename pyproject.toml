@@ -42,10 +42,6 @@ dependencies = [
   "django-bootstrap-icons@git+https://github.com/pyrox0/django-bootstrap-icons.git@master#0.10.1",
 ]
 
-
-[project.scripts]
-archive = "vgarchive:main"
-
 [project.urls]
 Homepage = "https://github.com/pyrox0/vgarchive.run"
 Documentation = "https://github.com/pyrox0/vgarchive.run"
@@ -54,3 +50,8 @@ Issues = "https://github.com/pyrox0/vgarchive.run/issues"
 
 [tool.setuptools]
 packages = ["vgarchive"]
+
+[tool.djlint]
+indent = 2
+profile = "django"
+use_gitignore = true
