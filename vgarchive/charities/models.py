@@ -1,7 +1,5 @@
 from django.db import models
 
-# Create your models here.
-
 
 class Charity(models.Model):
     """Represents a charity that can be donated to.
@@ -14,6 +12,7 @@ class Charity(models.Model):
 
     id = models.CharField("ID", primary_key=True, max_length=200)
     name = models.CharField("Display Name", max_length=200)
+    short_name = models.CharField("Short Name", max_length=20, blank=True)
     homepage = models.URLField("Charity Homepage", blank=True)
     icon = models.ImageField("Icon/Favicon", blank=True)
     founded = models.IntegerField("Founding Year", default=2024)
