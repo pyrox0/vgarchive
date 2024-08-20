@@ -1,5 +1,7 @@
 import catppuccin from '@catppuccin/daisyui'
 
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 module.exports = {
     content: [
 
@@ -10,7 +12,16 @@ module.exports = {
         '../../templates/**/*.html',
     ],
     theme: {
-        extend: {},
+        extend: {
+            fontFamily: {
+                'sans': ['"IBM Plex Sans"', ...defaultTheme.fontFamily.sans],
+                'serif': ['"IBM Plex Serif"', ...defaultTheme.fontFamily.serif],
+                'mono': ['"IBM Plex Mono"', ...defaultTheme.fontFamily.mono],
+            }
+        },
+        fontWeight: {
+            'bold': 600,
+        },
     },
     plugins: [
         require("@catppuccin/tailwindcss")({
