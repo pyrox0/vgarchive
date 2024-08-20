@@ -48,3 +48,4 @@ class Event(models.Model):
         Charity, CASCADE, verbose_name="Supported Charity", default="none"
     )
     youtube_playlist = models.URLField("Youtube VOD Playlist", blank=True)
+    banner = models.ImageField("Banner Image", blank=True)
