@@ -27,7 +27,7 @@ urlpatterns = [
     # Admin
     path("admin/", admin_site.urls),
     # Marathons
-    re_path(r"^marathons?/", include("vgarchive.marathons.urls")),
+    re_path(r"^organizations?/", include("vgarchive.organizations.urls")),
     re_path(r"^events?/", include("vgarchive.events.urls")),
     re_path(r"^(charity|charities)/", include("vgarchive.charities.urls")),
     re_path(r"^runs?/", include("vgarchive.runs.urls")),

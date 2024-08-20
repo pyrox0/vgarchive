@@ -1,0 +1,66 @@
+{% extends "vgarchive/base.html" %}
+{% load bootstrap_icons %}
+
+{% block title %}{{ object.name }} | vgarchive.run{% endblock %}
+
+{% block content %}
+<div class="hero min-h-screen h-full" style="background-image:url('{{object.banner.url}}')">
+  <div class="hero-overlay bg-opacity-60 bg-base-100"></div>
+  <div class="hero-content flex-col lg:flex-row">
+    <div class="flex flex-col lg:mx-20 lg:mr-40">
+      <img src="{{object.icon.url}}" alt="{{object.name}} Logo" class="max-h-[500px] max-w-[500px] self-center"/>
+		  <h1 class="text-7xl lg:text-6xl self-end py-5 ml-20 w-full font-bold text-base-content text-nowrap bg-base-100 bg-opacity-60 rounded-md text-center">{{ object.name }}</h1>
+		</div>
+		<div class="flex flex-col w-full lg:ml-10 space-y-5">
+			<b class="text-3xl lg:text-lg text-base-content lg:max-w-lg lg:mt-5 text-center lg:text-left glass bg-opacity-50 p-3 rounded-md ">{{ object.description}}</b>
+			<div class="flex flex-col lg:flex-row lg:space-x-5 space-y-5 lg:space-y-0">
+			  {% if object.homepage %}
+			  <a class="btn btn-lg rounded-btn btn-info text-info-content bg-opacity-70 border-none" href="{{ object.homepage }}">
+			    {% bs_icon 'globe2' extra_classes="size-12" extra_attributes="{'aria-label':'Marathon Website Icon','tabindex':'-1'}" %}
+			    <p class="lg:hidden ml-5 text-3xl">Website</p>
+			  </a>
+			  {% endif %}
+			  {% if object.twitter %}
+			  <a class="btn btn-lg rounded-btn btn-info text-info-content bg-opacity-70 border-none" role="button" href="https://twitter.com/{{ object.twitter }}">
+			    {% bs_icon 'twitter' extra_classes="size-12" extra_attributes="{'aria-label':'Twitter Icon','tabindex':'-1'}" %}
+			    <p class="lg:hidden ml-5 text-3xl">Twitter</p>
+			  </a>
+			  {% endif %}
+			  {% if object.youtube %}
+			  <a class="btn btn-lg rounded-btn btn-error text-error-content bg-opacity-70 border-none" role="button" href="https://youtube.com/{{ object.youtube }}">
+			    {% bs_icon 'youtube' extra_classes="size-12" extra_attributes="{'aria-label':'Youtube Icon','tabindex':'-1'}" %}
+			    <p class="lg:hidden ml-5 text-3xl">Youtube</p>
+			  </a>
+			  {% endif %}
+			  {% if object.twitch %}
+			  <a class="btn btn-lg rounded-btn btn-primary text-primary-content bg-opacity-70 border-none" role="button" href="https://twitch.tv/{{ object.twitch }}">
+			    {% bs_icon 'twitch' extra_classes="size-12" extra_attributes="{'aria-label':'Twitch Icon','tabindex':'-1'}" %}
+			    <p class="lg:hidden ml-5 text-3xl">Twitch</p>
+			  </a>
+			  {% endif %}
+			</div>
+			<div class="card stats bg-success bg-opacity-70 text-success-content items-center lg:items-start text-center lg:text-left lg:mr-20 my-5 lg:max-w-sm">
+			  <div class="stat card-body">
+			    <div class="stat-title card-title text-5xl lg:text-lg justify-center lg:justify-start text-success-content">
+		        {% bs_icon 'cash-stack' extra_classes="size-10 lg:size-6 text-info-content" extra_attributes="{'aria-label':'Donations Icon','tabindex':'-1'}" %}
+			      Total Raised
+			    </div>
+			    <div class="stat-value">$51,681,568.72</div>
+			  </div>
+			</div>
+			<div class="card stats bg-info bg-opacity-70 text-info-content items-center text-center lg:items-start lg:text-left lg:float-right lg:mr-20 lg:align-self-right lg:max-w-xs">
+			  <div class="stat card-body">
+			    <div class="stat-title card-title text-5xl lg:text-lg justify-center lg:justify-start text-info-content ">
+		        {% bs_icon 'people-fill' extra_classes="size-10 lg:size-6 text-info-content" extra_attributes="{'aria-label':'Donators Icon','tabindex':'-1'}" %}
+			      Total Donations 
+		      </div>
+			    <div class="stat-value">911,375</div>
+			  </div>
+			</div>
+		</div>
+	</div>
+</div>
+<div>
+	<h2>Events</h2>
+</div>
+{% endblock %}
