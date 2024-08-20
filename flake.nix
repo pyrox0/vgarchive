@@ -21,6 +21,7 @@
                 ps.cookiecutter
               ]))
               caddy
+              djlint
               just
               nixfmt-rfc-style
               nodejs
