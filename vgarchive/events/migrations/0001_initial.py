@@ -9,24 +9,64 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('charities', '0001_initial'),
-        ('marathons', '0001_initial'),
+        ("charities", "0001_initial"),
+        ("organizations", "0001_initial"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Event',
+            name="Event",
             fields=[
-                ('id', models.CharField(max_length=200, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=200, verbose_name='Display Name')),
-                ('source', models.CharField(choices=[('tracker', 'GDQ Tracker'), ('oengus', 'Oengus'), ('manual', 'Manual Import')], default='manual', max_length=10, verbose_name='Event Source')),
-                ('homepage', models.URLField(verbose_name='Event Homepage')),
-                ('schedule', models.URLField(verbose_name='Schedule Link')),
-                ('donation_total', models.DecimalField(decimal_places=2, max_digits=20, verbose_name='Donation Total')),
-                ('donations', models.URLField(verbose_name='Donations Page')),
-                ('youtube_playlist', models.URLField(verbose_name='Youtube VOD Playlist')),
-                ('charity_id', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='charities.charity')),
-                ('marathon_id', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='marathons.marathon')),
+                (
+                    "id",
+                    models.CharField(
+                        max_length=200,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=200, verbose_name="Display Name")),
+                (
+                    "source",
+                    models.CharField(
+                        choices=[
+                            ("tracker", "GDQ Tracker"),
+                            ("oengus", "Oengus"),
+                            ("manual", "Manual Import"),
+                        ],
+                        default="manual",
+                        max_length=10,
+                        verbose_name="Event Source",
+                    ),
+                ),
+                ("homepage", models.URLField(verbose_name="Event Homepage")),
+                ("schedule", models.URLField(verbose_name="Schedule Link")),
+                (
+                    "donation_total",
+                    models.DecimalField(
+                        decimal_places=2, max_digits=20, verbose_name="Donation Total"
+                    ),
+                ),
+                ("donations", models.URLField(verbose_name="Donations Page")),
+                (
+                    "youtube_playlist",
+                    models.URLField(verbose_name="Youtube VOD Playlist"),
+                ),
+                (
+                    "charity_id",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="charities.charity",
+                    ),
+                ),
+                (
+                    "marathon_id",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="marathons.marathon",
+                    ),
+                ),
             ],
         ),
     ]

@@ -2,7 +2,7 @@ from django.db import models
 from django.db.models import CASCADE
 from django.utils.translation import gettext_lazy as _
 
-from ..marathons.models import Marathon
+from ..organizations.models import Organization
 from ..charities.models import Charity
 
 # Create your models here.
@@ -31,8 +31,8 @@ class Event(models.Model):
         MANUAL = "manual", _("Manual Import")
 
     id = models.CharField("ID", primary_key=True, max_length=200)
-    marathon = models.ForeignKey(
-        Marathon, CASCADE, verbose_name="Marathon", default="none"
+    organization = models.ForeignKey(
+        Organization, CASCADE, verbose_name="Organization", default="none"
     )
     name = models.CharField("Display Name", max_length=200)
     source = models.CharField(
