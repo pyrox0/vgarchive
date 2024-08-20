@@ -26,6 +26,7 @@
               nodejs
               ruff
               uv
+              sqlite
             ];
           };
         }
