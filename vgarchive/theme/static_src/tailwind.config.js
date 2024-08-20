@@ -13,12 +13,16 @@ module.exports = {
         extend: {},
     },
     plugins: [
+        require("@catppuccin/tailwindcss")({
+            prefix: "ctp",
+            defaultFlavour: "mocha"
+        }),
         require('daisyui'),
     ],
     daisyui: {
         themes: [
-            catppuccin('mocha'),
-            catppuccin('latte'),
+            catppuccin('mocha', { primary: 'mauve' }),
+            catppuccin('latte', { primary: 'mauve' }),
         ]
     }
 }
