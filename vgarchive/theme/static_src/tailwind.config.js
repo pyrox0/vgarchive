@@ -31,6 +31,8 @@ module.exports = {
         require('daisyui'),
     ],
     daisyui: {
+        logs: false,
+        darkTheme: "mocha",
         themes: [
             catppuccin('mocha', { primary: 'mauve' }),
             catppuccin('latte', { primary: 'mauve' }),

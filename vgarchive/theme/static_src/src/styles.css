@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  .navbar-tab {
+    @apply mr-2 border-b-2 border-base-content rounded-none;
+  }
+  .org-button {
+    @apply btn btn-lg rounded-btn bg-opacity-70 border-none;
+  }
+  .org-button-text {
+    @apply lg:hidden ml-5 text-3xl text-success-content;
+  }
+  .org-button-icon {
+    @apply size-12 text-success-content;
+  }
+}
