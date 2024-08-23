@@ -14,21 +14,11 @@ from pathlib import Path
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-5pvrv(*#6@e=sk3&=zt6znv^0#9(b+5weaws_6et&fuph3*n#6"
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = ["100.125.9.36", ".localhost", "127.0.0.1", "[::1]"]
-INTERNAL_IPS = ["127.0.0.1", "100.64.0.0/10", "[::1]"]
-
 
 # Application definition
 
@@ -60,8 +50,6 @@ INSTALLED_APPS = [
     "django_bootstrap_icons",
     # Reusable components support
     "slippers",
-    # Hot reload
-    "django_browser_reload",
 ]
 
 TAILWIND_APP_NAME = "vgarchive.theme"
@@ -78,8 +66,6 @@ MIDDLEWARE = [
     "allauth.account.middleware.AccountMiddleware",
     # admindocs
     "django.contrib.admindocs.middleware.XViewMiddleware",
-    # Hot reload
-    "django_browser_reload.middleware.BrowserReloadMiddleware",
 ]
 
 ROOT_URLCONF = "vgarchive.urls"
@@ -111,13 +97,6 @@ AUTHENTICATION_BACKENDS = ("allauth.account.auth_backends.AuthenticationBackend"
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
-
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db/vgarchive.db",
-    }
-}
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -162,10 +141,7 @@ MEDIA_URL = "media/"
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "uploaded")
 
-
 # Bootstrap Icons Configuration
-
-# BS_ICONS_CACHE = os.path.join(STATIC_ROOT, "icon_cache")
 
 BS_ICONS_BASE_PATH = "vgarchive/static/bs_icons/"
 
