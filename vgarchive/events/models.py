@@ -35,6 +35,7 @@ class Event(models.Model):
         Organization, CASCADE, verbose_name="Organization", default="none"
     )
     name = models.CharField("Display Name", max_length=200)
+    short_name = models.CharField("Short Name(optional)", max_length=20, blank=True)
     source = models.CharField(
         "Event Source", max_length=10, choices=EventSources, default=EventSources.MANUAL
     )
