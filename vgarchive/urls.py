@@ -29,7 +29,7 @@ urlpatterns = [
     # Marathons
     re_path(r"^organizations?/", include("vgarchive.organizations.urls")),
     re_path(r"^events?/", include("vgarchive.events.urls")),
-    re_path(r"^(charity|charities)/", include("vgarchive.charities.urls")),
+    re_path(r"^charit(y|ies)/", include("vgarchive.charities.urls")),
     re_path(r"^runs?/", include("vgarchive.runs.urls")),
     path("search/", Search.as_view(), name="search"),
     # Hot reload
