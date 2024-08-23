@@ -1,17 +1,27 @@
 {% load slippers %}
 {% load i18n %}
 {% get_current_language as LANGUAGE_CODE %}
-<!doctype html>
+<!DOCTYPE html>
 <html lang="{{ LANGUAGE_CODE }}">
   <head>
+    <meta charset="utf-8" />
+    <meta name="keywords"
+          content="video games,archive,speedrun,games done quick,gdq,gaming" />
+    <meta name="description" content="Charity Marathon VOD Search and Archive" />
     {% head %}
-    <title>{% block title %}vgarchive.run{% endblock %}</title>
+    <title>
+      {% block title %}
+        vgarchive.run
+      {% endblock title %}
+    </title>
   </head>
   <body class="bg-base-100 text-base-content">
     {% navbar %}
-    {% block content %} {% endblock %}
+    {% block content %}
+    {% endblock content %}
+    {% footer %}
   </body>
-	<script>
+  <script>
 		var checkBox = document.getElementById('theme-controller');
 
 		var theme = window.localStorage.getItem('data-theme');
@@ -27,5 +37,6 @@
 		    window.localStorage.setItem('data-theme', 'mocha');
 		  }
 		});
-	</script>
+	
+  </script>
 </html>
