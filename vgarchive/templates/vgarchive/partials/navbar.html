@@ -1,8 +1,10 @@
 {% load bootstrap_icons %}
 <nav class="navbar bg-base-200 border-b-2 border-accent">
   <div class="navbar-start lg:w-[32rem]">
-    <a href="/" role="button" aria-label="Home">
-      <button class="btn btn-primary btn-block btn-wide" aria-hidden="true" tabindex="-1">
+    <a href="{% url 'home' %}" role="button" aria-label="Home">
+      <button class="btn btn-primary btn-block btn-wide"
+              aria-hidden="true"
+              tabindex="-1">
         {% bs_icon 'joystick' extra_classes='float-start h-6 w-6 mt-0.5' %}
         <p class="text-xl text-base hidden lg:block">vgarchive.run</p>
       </button>
@@ -10,49 +12,67 @@
   </div>
   <div class="hidden lg:block navbar-center">
     <ul class="menu menu-horizontal mx-2 text-base-content text-xl xl:text-2xl">
+      {# djlint: off #}
       <li>
-        <a class="mr-2 border-b-2 rounded-none" href="/charities">Charities</a>
+        <a class="navbar-tab"
+           href="/charities">Charities</a>
+      </li>
+      {# djlint: on #}
+      <li>
+        <a class="navbar-tab" href="{% url 'organization-list' %}">Organizations</a>
       </li>
       <li>
-        <a class="mr-2 border-b-2 rounded-none" href="/marathons">Marathons</a>
+        <a class="navbar-tab" href="{% url 'event-list' %}">Events</a>
       </li>
-      <li><a class="mr-2 border-b-2 rounded-none" href="/events">Events</a></li>
-      <li><a class="mr-3 border-b-2 rounded-none" href="/runs">Runs</a></li>
+      <li>
+        <a class="navbar-tab" href="{% url 'run-list' %}">Runs</a>
+      </li>
     </ul>
   </div>
   <div class="navbar-center lg:navbar-end">
-	  <form method="GET" action="{% url 'search' %}" class="-mt-[0.35rem] -mb-3.5 hover:bg-transparent active:bg-transparent">
-	    <label class="input input-md input-bordered flex items-center">
-	      <input
-	        type="text"
-	        placeholder="Search"
-	        class="placeholder:text-base-content placeholder:text-lg w-96"
-	      />
-	      {% bs_icon 'search' extra_classes="h-6 w-6 text-neutral" extra_attributes="{'aria-label': 'Search Icon', 'tabindex': '-1'}" %}
-	    </label>
-	  </form>
+    <form method="get"
+          action="{% url 'search' %}"
+          class="-mt-[0.35rem] -mb-3.5 hover:bg-transparent active:bg-transparent">
+      <label class="input input-md input-bordered flex items-center">
+        <input type="text"
+               placeholder="Search"
+               class="placeholder:text-base-content placeholder:text-lg w-96" />
+        {% bs_icon 'search' extra_classes="h-6 w-6 text-neutral" extra_attributes="{'aria-label': 'Search Icon', 'tabindex': '-1'}" %}
+      </label>
+    </form>
   </div>
   <div class="navbar-end lg:hidden">
     <div class="dropdown dropdown-end">
       <div tabindex="0" role="button" class="btn btn-ghost">
         {% bs_icon 'list' extra_classes="size-10 text-base-content" extra_attributes="{'aria-label':'Menu'}" %}
       </div>
-      <ul
-        tabindex="0"
-        class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-      <li><a class="my-2 rounded-none text-2xl" href="/charities">Charities</a></li>
-      <li><a class="my-2 rounded-none text-2xl" href="/organizations">Organizations</a></li>
-      <li><a class="my-2 rounded-none text-2xl" href="/events">Events</a></li>
-      <li><a class="my-2 rounded-none text-2xl" href="/runs">Runs</a></li>
+      <ul tabindex="0"
+          class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+        <li>
+          {# djlint: off #}
+          <a class="my-2 rounded-none text-2xl" href="/charities">Charities</a>
+          {# djlint: on #}
+        </li>
+        <li>
+          <a class="my-2 rounded-none text-2xl"
+             href="{% url 'organization-list' %}">Organizations</a>
+        </li>
+        <li>
+          <a class="my-2 rounded-none text-2xl" href="{% url 'event-list' %}">Events</a>
+        </li>
+        <li>
+          <a class="my-2 rounded-none text-2xl" href="{% url 'run-list' %}">Runs</a>
+        </li>
       </ul>
     </div>
   </div>
   <label class="swap mt-1 btn btn-base-100">
     <!-- this hidden checkbox controls the state -->
-    <input type="checkbox" id="theme-controller" class="theme-controller" value="latte" />
-
+    <input type="checkbox"
+           id="theme-controller"
+           class="theme-controller"
+           value="latte" />
     {% bs_icon 'sun' extra_classes="h-6 w-6 text-neutral stroke-2 swap-off" extra_attributes="{'aria-label': 'Switch Theme to Light', 'tabindex': '-1'}" %}
-
     {% bs_icon 'moon' extra_classes="h-6 w-6 text-neutral stroke-2 swap-on" extra_attributes="{'aria-label': 'Switch Theme to Dark', 'tabindex': '-1'}" %}
   </label>
 </nav>
