@@ -26,15 +26,13 @@
         {
           default = pkgs.mkShell {
             buildInputs = with pkgs; [
-              (python3.withPackages (ps: [
-                ps.pip
-                ps.cookiecutter
-              ]))
+              python3
               caddy
               djlint
               just
               nixfmt-rfc-style
               nodejs
+              pre-commit
               ruff
               uv
               sqlite

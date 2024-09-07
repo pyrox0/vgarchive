@@ -1,0 +1,32 @@
+repos:
+  # Misc checks
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      - id: check-added-large-files
+      - id: check-executables-have-shebangs
+      - id: check-shebang-scripts-are-executable
+      - id: check-symlinks
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+
+  # Lint and format all Python code
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.6.4
+    hooks:
+      - id: ruff
+      - id: ruff-format
+
+  # Lint and format Django templates
+  - repo: https://github.com/djlint/djLint
+    rev: v1.35.2
+    hooks:
+      - id: djlint-reformat-django
+      - id: djlint-django
+
+  # Ensure pyproject.toml is valid
+  - repo: https://github.com/abravalheri/validate-pyproject
+    rev: v0.19
+    hooks:
+      - id: validate-pyproject
+        additional_dependencies: ["validate-pyproject-schema-store[all]"]
