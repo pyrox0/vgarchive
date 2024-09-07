@@ -9,7 +9,7 @@ class OrganizationDetailView(DetailView):
     model = Organization
     template_name = "organizations/detail.html"
 
-    def get_context_data(self, **kwargs):
+    def get_context_data(self, **kwargs) -> dict:  # noqa
         # Get context
         context = super().get_context_data(**kwargs)
         context["events"] = Event.objects.filter(organization=self.kwargs.get("pk"))

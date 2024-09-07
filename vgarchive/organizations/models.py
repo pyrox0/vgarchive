@@ -3,7 +3,7 @@ from django.db import models
 
 class Organization(models.Model):
     id = models.CharField("ID", primary_key=True, max_length=200)
-    name = models.CharField("Title", max_length=100)
+    name = models.CharField("Name", max_length=100)
     description = models.TextField("Description")
     homepage = models.URLField("Organization Homepage", blank=True)
     active = models.BooleanField("Is Organization Active?", default=True)  # type:ignore
@@ -15,3 +15,6 @@ class Organization(models.Model):
 
     class Meta:
         db_table_comment = "Organizations"
+
+    def __str__(self) -> str:  # noqa
+        return self.name

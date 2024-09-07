@@ -16,3 +16,6 @@ class Charity(models.Model):
     homepage = models.URLField("Charity Homepage", blank=True)
     icon = models.ImageField("Icon/Favicon", blank=True)
     founded = models.IntegerField("Founding Year", default=2024)
+
+    def __str__(self) -> str:  # noqa
+        return f"{self.name}, founded in {self.founded}."

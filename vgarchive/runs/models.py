@@ -1,8 +1,6 @@
 from django.db import models
 
-from ..events.models import Event
-
-# Create your models here.
+from vgarchive.events.models import Event
 
 
 class Run(models.Model):
@@ -20,7 +18,10 @@ class Run(models.Model):
     """
 
     event = models.ForeignKey(
-        Event, models.CASCADE, verbose_name="Event", default="none"
+        Event,
+        models.CASCADE,
+        verbose_name="Event",
+        default="none",
     )
     game = models.CharField("Game Name", max_length=200)
     platform = models.CharField("Platform", max_length=200)
@@ -31,3 +32,6 @@ class Run(models.Model):
 
     class Meta:
         db_table_comment = "Runs"
+
+    def __str__(self) -> str:  # noqa
+        return f"{self.game} performed by {self.runners} on {self.platform} at {self.event.name} in {self.length}."
