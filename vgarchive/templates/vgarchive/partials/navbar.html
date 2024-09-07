@@ -24,9 +24,11 @@
       <li>
         <a class="navbar-tab" href="{% url 'event-list' %}">Events</a>
       </li>
+      {% comment %}
       <li>
         <a class="navbar-tab" href="{% url 'run-list' %}">Runs</a>
       </li>
+      {% endcomment %}
     </ul>
   </div>
   <div class="navbar-center lg:navbar-end">
@@ -60,14 +62,16 @@
         <li>
           <a class="my-2 rounded-none text-2xl" href="{% url 'event-list' %}">Events</a>
         </li>
+        {% comment %}
         <li>
           <a class="my-2 rounded-none text-2xl" href="{% url 'run-list' %}">Runs</a>
         </li>
+        {% endcomment %}
       </ul>
     </div>
   </div>
   <label class="swap mt-1 btn btn-base-100">
-    <!-- this hidden checkbox controls the state -->
+    {# this hidden checkbox controls the state #}
     <input type="checkbox"
            id="theme-controller"
            class="theme-controller"
