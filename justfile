@@ -1,8 +1,8 @@
-dev: django
+dev: stopdev django
   caddy start
 
 stopdev:
-  caddy stop
+  -caddy stop
 
 django:
   uv run ./manage.py runserver &
