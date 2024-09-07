@@ -11,6 +11,7 @@ DEBUG = True
 ALLOWED_HOSTS = ["*"]
 
 INSTALLED_APPS = common.INSTALLED_APPS + [
+    "django.contrib.staticfiles",
     # Admin shell
     "django_admin_shell",
     # Hot reload
@@ -28,3 +29,7 @@ DATABASES = {
         "NAME": BASE_DIR / "db/vgarchive.db",
     }
 }
+
+# django.contrib.staticfiles
+MEDIA_URL = "media/"
+MEDIA_ROOT = os.path.join(BASE_DIR, "uploaded")
