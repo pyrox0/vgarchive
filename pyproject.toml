@@ -56,6 +56,7 @@ use_gitignore = true
 indent-width = 4
 
 [tool.ruff.format]
+exclude = ["vgarchive/**/migrations/*.py", "manage.py"]
 line-ending = "lf"
 indent-style = "space"
 
@@ -89,7 +90,7 @@ select = [
   "TID",
   "UP",
 ]
-ignore = ["ANN003"]
+ignore = ["ANN003", "COM812"]
 
 [tool.ruff.lint.per-file-ignores]
 "vgarchive/settings/*.py" = ["ALL"]
