@@ -21,6 +21,8 @@ from django.contrib.admin import site as admin_site
 
 from .views import Home, Search
 
+admin_shell = 1
+
 urlpatterns = [
     # Admindoc
     path("admin/doc/", include("django.contrib.admindocs.urls"), name="admindoc"),
@@ -37,3 +39,11 @@ urlpatterns = [
     # Index
     path("", Home.as_view(), name="home"),
 ]
+
+try:
+    import django_admin_shell  # noqa
+except Exception:
+    admin_shell = 0
+
+if admin_shell != 0:
+    urlpatterns.insert(0, re_path(r"^admin/shell/", include("django_admin_shell.urls")))

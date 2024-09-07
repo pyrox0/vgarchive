@@ -1,5 +1,7 @@
 from vgarchive.settings.common import *
 
+from vgarchive.settings import common
+
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = "django-insecure-5pvrv(*#6@e=sk3&=zt6znv^0#9(b+5weaws_6et&fuph3*n#6"
 
@@ -8,12 +10,14 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
-INSTALLED_APPS += [
+INSTALLED_APPS = common.INSTALLED_APPS + [
+    # Admin shell
+    "django_admin_shell",
     # Hot reload
     "django_browser_reload",
 ]
 
-MIDDLEWARE += [
+MIDDLEWARE = common.MIDDLEWARE + [
     # Hot reload
     "django_browser_reload.middleware.BrowserReloadMiddleware",
 ]

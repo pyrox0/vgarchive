@@ -108,6 +108,7 @@ packages = ["vgarchive"]
 dev-dependencies = [
   "hypercorn[uvloop]>=0.17.0",
   "django-browser-reload~=1.15.0",
+  "django-admin-shell>=2.0.0",
 ]
 package = false
 
