@@ -11,3 +11,5 @@ uploaded
 vgarchive/theme/static/dist
 vgarchive/theme/static/css/dist/styles.css
 dist
+
+.pre-commit-config.yaml

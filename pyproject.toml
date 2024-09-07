@@ -52,6 +52,10 @@ indent = 2
 profile = "django"
 use_gitignore = true
 
+[tool.pyright]
+venvPath = "."
+venv = ".venv"
+
 [tool.ruff]
 indent-width = 4
 
