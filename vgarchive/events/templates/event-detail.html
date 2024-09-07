@@ -86,7 +86,10 @@
               {% endif %}
               <p class="card-title text-2xl font-semibold mt-1">{{ e.name }}</p>
               <p class="card-body text-xl text-wrap lg:-mt-5">
-                <p class="text-info text-lg">Charity: {{ e.charity.name }}</p>
+                {# djlint: off #}
+                <a class="text-lg link link-info"
+                href="/charity/{{ e.charity.id }}">Charity: {{ e.charity.name }}</a>
+                {# djlint: on #}
                 <p class="text-success text-lg">Donations: ${{ e.donation_total|floatformat:"-2g" }}</p>
               </p>
             </a>
