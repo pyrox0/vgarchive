@@ -46,20 +46,65 @@ Documentation = "https://github.com/pyrox0/vgarchive.run"
 Repository = "https://github.com/pyrox0/vgarchive.run"
 Issues = "https://github.com/pyrox0/vgarchive.run/issues"
 
-[tool.uv]
-dev-dependencies = [
-  "hypercorn[uvloop]>=0.17.0",
-  "django-browser-reload~=1.15.0",
-]
-
-[tool.uv.sources]
-django-bootstrap-icons = { git = "https://github.com/pyrox0/django-bootstrap-icons.git" }
-
-[tool.setuptools]
-packages = ["vgarchive"]
-
 [tool.djlint]
 ignore = "H006"
 indent = 2
 profile = "django"
 use_gitignore = true
+
+[tool.ruff]
+indent-width = 4
+
+[tool.ruff.format]
+line-ending = "lf"
+indent-style = "space"
+
+[tool.ruff.lint]
+select = [
+  "A",
+  "ANN",
+  "ARG",
+  "COM",
+  "DJ",
+  "DTZ",
+  "ERA",
+  "E4",
+  "E7",
+  "E9",
+  "F",
+  "FURB",
+  "FLY",
+  "INP",
+  "LOG",
+  "PERF",
+  "PIE",
+  "PTH",
+  "Q",
+  "RET",
+  "RUF",
+  "S",
+  "SIM",
+  "T20",
+  "TCH",
+  "TID",
+  "UP",
+]
+ignore = ["ANN003"]
+
+[tool.ruff.lint.per-file-ignores]
+"vgarchive/settings/*.py" = ["ALL"]
+"vgarchive/**/migrations/*.py" = ["ALL"]
+"manage.py" = ["ALL"]
+
+[tool.setuptools]
+packages = ["vgarchive"]
+
+[tool.uv]
+dev-dependencies = [
+  "hypercorn[uvloop]>=0.17.0",
+  "django-browser-reload~=1.15.0",
+]
+package = false
+
+[tool.uv.sources]
+django-bootstrap-icons = { git = "https://github.com/pyrox0/django-bootstrap-icons.git" }
