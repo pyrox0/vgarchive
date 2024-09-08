@@ -10,28 +10,16 @@
     <div class="hero-overlay bg-opacity-60 bg-base-100"></div>
     <div class="hero-content flex-col lg:flex-row">
       <div class="flex flex-col lg:mx-20 lg:mr-40">
-        <img src="{{ object.icon.url }}"
-             alt="{{ object.name }} Logo"
-             class="max-h-[500px] max-w-[500px] self-center" />
         <h1 class="text-7xl font-mono lg:text-6xl self-end py-5 ml-20 mt-5 w-full font-bold text-base-content text-nowrap bg-base-100 bg-opacity-60 rounded-md text-center">
-          {{ object.name }}
+          {{ object.short_name }}
         </h1>
       </div>
       <div class="flex flex-col w-full lg:ml-10 space-y-5">
-        <b class="text-3xl lg:text-lg text-base-content lg:max-w-lg lg:mt-5 text-center lg:text-left glass bg-opacity-50 p-3 rounded-md ">{{ object.description }}</b>
         <div class="flex flex-col lg:flex-row lg:space-x-5 space-y-5 lg:space-y-0">
           {% if object.homepage %}
             <a class="org-button btn-info" href="{{ object.homepage }}">
               {% bs_icon 'globe2' extra_classes="org-button-icon" extra_attributes="{'aria-label':'Marathon Website Icon','tabindex':'-1'}" %}
               <p class="org-button-text">Website</p>
-            </a>
-          {% endif %}
-          {% if object.twitter %}
-            <a class="org-button btn-info"
-               role="button"
-               href="https://twitter.com/{{ object.twitter }}">
-              {% bs_icon 'twitter' extra_classes="org-button-icon" extra_attributes="{'aria-label':'Twitter Icon','tabindex':'-1'}" %}
-              <p class="org-button-text">Twitter</p>
             </a>
           {% endif %}
           {% if object.youtube %}
@@ -42,14 +30,6 @@
               <p class="org-button-text">Youtube</p>
             </a>
           {% endif %}
-          {% if object.twitch %}
-            <a class="org-button btn-primary"
-               role="button"
-               href="https://twitch.tv/{{ object.twitch }}">
-              {% bs_icon 'twitch' extra_classes="org-button-icon" extra_attributes="{'aria-label':'Twitch Icon','tabindex':'-1'}" %}
-              <p class="org-button-text">Twitch</p>
-            </a>
-          {% endif %}
         </div>
         <div class="card stats bg-success bg-opacity-70 text-success-content items-center text-center lg:items-start lg:text-left lg:mr-20 my-5 lg:max-w-sm">
           <div class="stat card-body">
@@ -57,7 +37,7 @@
               {% bs_icon 'cash-stack' extra_classes="size-10 lg:size-6 text-success-content" extra_attributes="{'aria-label':'Donations Icon','tabindex':'-1'}" %}
               Total Raised
             </div>
-            <div class="stat-value font-mono">$51,681,568.72</div>
+            <div class="stat-value font-mono">${{ object.donation_total|floatformat:"-2g" }}</div>
           </div>
         </div>
         <div class="card stats bg-info bg-opacity-70 text-success-content items-center text-center lg:items-start lg:text-left lg:float-right lg:mr-20 lg:max-w-xs">
@@ -66,36 +46,10 @@
               {% bs_icon 'people-fill' extra_classes="size-10 lg:size-6 text-success-content" extra_attributes="{'aria-label':'Donators Icon','tabindex':'-1'}" %}
               Total Donations
             </div>
-            <div class="stat-value font-mono">911,375</div>
+            <div class="stat-value font-mono">{{ object.num_donations|floatformat:"0g" }}</div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-  <div>
-    <h2 class="text-5xl mb-5 lg:ml-2 font-bold">Events</h2>
-    <div class="carousel carousel-center bg-neutral rounded-box max-w-full space-x-4 p-4 lg:ml-5">
-      {% for e in events %}
-        <div class="carousel-item card card-compact bg-base-200 max-w-md">
-          <div class="card-body">
-            <a href="{% url 'event-details' e.id %}">
-              {% if e.banner %}
-                <img class=" rounded max-h-1/2"
-                     src="{{ e.banner.url }}"
-                     alt="{{ e.name }} Banner">
-              {% endif %}
-              <p class="card-title text-2xl font-semibold mt-1">{{ e.name }}</p>
-              <p class="card-body text-xl text-wrap lg:-mt-5">
-                {# djlint: off #}
-                <a class="text-lg link link-info"
-                href="/charity/{{ e.charity.id }}">Charity: {{ e.charity.name }}</a>
-                {# djlint: on #}
-                <p class="text-success text-lg">Donations: ${{ e.donation_total|floatformat:"-2g" }}</p>
-              </p>
-            </a>
-          </div>
-        </div>
-      {% endfor %}
     </div>
   </div>
 {% endblock content %}
