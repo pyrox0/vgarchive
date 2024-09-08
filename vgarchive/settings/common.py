@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
-import os
+import locale
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
@@ -48,6 +48,8 @@ INSTALLED_APPS = [
     "django_bootstrap_icons",
     # Reusable components support
     "slippers",
+    # Better tables
+    "django_tables2",
 ]
 
 TAILWIND_APP_NAME = "vgarchive.theme"
@@ -125,9 +127,12 @@ LANGUAGE_CODE = "en-us"
 TIME_ZONE = "America/New_York"
 
 USE_I18N = True
+USE_THOUSAND_SEPARATOR = True
 
 USE_TZ = True
 
+# Set locale. Not part of settings, but important nonetheless
+locale.setlocale(locale.LC_ALL, "")
 
 # Bootstrap Icons Configuration
 

@@ -232,6 +232,18 @@ wheels = [
 ]
 
 [[package]]
+name = "django-tables2"
+version = "2.7.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "django" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/54/db/3f2e97f088bb7ab8668ba01373ab42c281aaed20de854808d70e567e00a8/django-tables2-2.7.0.tar.gz", hash = "sha256:4113fcc575eb438a12e83a4d4ea01452e4800d970e8bdd0e4122ac171af1900d", size = 79583 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/54/96/6c722b5f148212351c38b56dc97d76b3c3efe16211fbc09542155b576a8d/django_tables2-2.7.0-py2.py3-none-any.whl", hash = "sha256:99e06d966ca8ac69fd74092eb45c79a280dd5ca0ccb81395d96261f62128e1af", size = 95226 },
+]
+
+[[package]]
 name = "django-tailwind"
 version = "3.8.0"
 source = { registry = "https://pypi.org/simple" }
@@ -579,6 +591,7 @@ dependencies = [
     { name = "django-allauth", extra = ["socialaccount"] },
     { name = "django-bootstrap-icons" },
     { name = "django-ninja" },
+    { name = "django-tables2" },
     { name = "django-tailwind" },
     { name = "docutils" },
     { name = "pillow" },
@@ -600,6 +613,7 @@ requires-dist = [
     { name = "django-allauth", extras = ["socialaccount"], specifier = ">=64.0.0" },
     { name = "django-bootstrap-icons", git = "https://github.com/pyrox0/django-bootstrap-icons.git" },
     { name = "django-ninja", specifier = ">=1.3.0" },
+    { name = "django-tables2", specifier = ">=2.7.0" },
     { name = "django-tailwind", specifier = "~=3.8.0" },
     { name = "docutils", specifier = ">=0.19.0" },
     { name = "pillow", specifier = ">=10.0.0" },
