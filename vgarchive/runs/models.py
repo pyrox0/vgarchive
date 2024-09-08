@@ -24,6 +24,7 @@ class Run(models.Model):
         default="none",
     )
     game = models.CharField("Game Name", max_length=200)
+    category = models.CharField("Category", max_length=200)
     platform = models.CharField("Platform", max_length=200)
     length = models.DurationField("Run Length")
     runners = models.CharField("Runners", max_length=200)
@@ -34,4 +35,4 @@ class Run(models.Model):
         db_table_comment = "Runs"
 
     def __str__(self) -> str:  # noqa
-        return f"{self.game} performed by {self.runners} on {self.platform} at {self.event.name} in {self.length}."
+        return f"{self.game} {self.category} at {self.event.name}"

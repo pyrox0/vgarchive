@@ -53,6 +53,7 @@ class Event(models.Model):
         decimal_places=2,
     )
     donations = models.URLField("Donations Page", blank=True)
+    num_donations = models.IntegerField("Number of Donations")
     charity = models.ForeignKey(
         Charity,
         CASCADE,
@@ -63,4 +64,4 @@ class Event(models.Model):
     banner = models.ImageField("Banner Image", blank=True)
 
     def __str__(self) -> str:  # noqa
-        return f"{self.name} organized by {self.organization.name} raising ${self.donation_total}."
+        return self.name  # type:ignore
