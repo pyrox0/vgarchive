@@ -71,7 +71,9 @@
             end-of-file-fixer.enable = true;
             nixfmt-rfc-style.enable = true;
             pyright.enable = true;
+            pyright.excludes = [ "^.*migrations/" ];
             ruff-format.enable = true;
+            ruff-format.excludes = [ "^.*migrations/" ];
             ruff.enable = true;
             # Custom hooks
             djlint-django = {

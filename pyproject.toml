@@ -56,12 +56,13 @@ use_gitignore = true
 [tool.pyright]
 venvPath = "."
 venv = ".venv"
+exclude = ["**/migrations/*.py", "manage.py"]
 
 [tool.ruff]
 indent-width = 4
 
 [tool.ruff.format]
-exclude = ["vgarchive/**/migrations/*.py", "manage.py"]
+exclude = ["**/migrations/*.py", "manage.py"]
 line-ending = "lf"
 indent-style = "space"
 
@@ -110,6 +111,8 @@ dev-dependencies = [
   "hypercorn[uvloop]>=0.17.0",
   "django-browser-reload~=1.15.0",
   "django-admin-shell>=2.0.0",
+  "django-debug-toolbar>=4.4.6",
+  "django-debug-toolbar-template-profiler>=2.1.0",
 ]
 package = false
 
