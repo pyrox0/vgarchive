@@ -56,7 +56,7 @@
               {% bs_icon 'cash-stack' extra_classes="size-10 lg:size-6 text-success-content" extra_attributes="{'aria-label':'Donations Icon','tabindex':'-1'}" %}
               Total Raised
             </div>
-            <div class="stat-value font-mono">$51,681,568.72</div>
+            <div class="stat-value">${{ object.total_raised|floatformat:"-2g" }}</div>
           </div>
         </div>
         <div class="card stats bg-info bg-opacity-70 text-success-content items-center text-center lg:items-start lg:text-left lg:float-right lg:mr-20 lg:max-w-xs">
@@ -65,7 +65,7 @@
               {% bs_icon 'people-fill' extra_classes="size-10 lg:size-6 text-success-content" extra_attributes="{'aria-label':'Donators Icon','tabindex':'-1'}" %}
               Total Donations
             </div>
-            <div class="stat-value font-mono">911,375</div>
+            <div class="stat-value font-mono">{{ object.num_donations|floatformat:"0g" }}</div>
           </div>
         </div>
       </div>
@@ -75,26 +75,46 @@
     <h2 class="text-5xl mb-5 lg:ml-2 font-bold">Events</h2>
     <div class="carousel carousel-center bg-neutral rounded-box max-w-full space-x-4 p-4 lg:ml-5">
       {% for e in events %}
-        <div class="carousel-item card card-compact bg-base-200 max-w-md">
-          <div class="card-body">
-            <a href="{% url 'event-details' e.id %}">
-              {% if e.banner %}
-                <img class=" rounded max-h-1/2"
-                     src="{{ e.banner.url }}"
-                     alt="{{ e.name }} Banner">
-              {% endif %}
-              <p class="card-title text-2xl font-semibold mt-1">{{ e.name }}</p>
-              <p class="card-body text-xl text-wrap lg:-mt-5">
-                {# djlint: off #}
-                <a class="text-lg link link-info"
-                href="/charity/{{ e.charity.id }}">Charity: {{ e.charity.name }}</a>
-                {# djlint: on #}
-                <p class="text-success text-lg">Donations: ${{ e.donation_total|floatformat:"-2g" }}</p>
-              </p>
-            </a>
-          </div>
+        <div class="carousel-item card card-compact bg-base-200 max-w-sm">
+          <a class="card-body" href="{% url 'event-detail' e.id %}">
+            {% if e.banner %}
+              <img class="rounded max-h-1/2"
+                   src="{{ e.banner.url }}"
+                   alt="Banner for the event {{ e.name }}.">
+            {% endif %}
+            {% if e.short_name %}
+              <p class="card-title text-2xl mt-1">{{ e.short_name }}</p>
+            {% else %}
+              <p class="card-title text-2xl mt-1">{{ e.name }}</p>
+            {% endif %}
+            <div class="lg:mb-5 text-wrap lg:ml-5 lg:-mt-5">
+              <p class="text-success lg:-ml-5 font-bold text-3xl">${{ e.donation_total|floatformat:"-2g" }}</p>
+              {# djlint: off #}
+                <a class="text-lg lg:-ml-1 link link-info"
+                href="/charity/{{ e.charity.id }}">{{ e.charity.name }}</a>
+              {# djlint: on #}
+            </div>
+          </a>
         </div>
       {% endfor %}
     </div>
-  </div>
+    {% if charities %}
+      <h2 class="text-5xl mt-10 mb-5 lg:ml-2 font-bold">Supported Charities</h2>
+      <div class="carousel carousel-center bg-neutral rounded-box max-w-full space-x-4 p-4 lg:ml-5">
+        {% for c in charities %}
+          <div class="carousel-item card card-compact bg-base-200 max-w-sm">
+            <a class="card-body" href="{% url 'charity-detail' c.id %}">
+              {% if c.icon %}
+                <img class="rounded max-h-1/4"
+                     src="{{ c.icon.url }}"
+                     alt="Banner for the charity {{ e.name }}.">
+              {% endif %}
+              <p class="card-title text-2xl mt-1">{{ c.name }}</p>
+              <p class="text-2xl  text-wrap text-success">Total Raised: ${{ c.total_raised|floatformat:"-2g" }}</p>
+            </a>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  {% endif %}
 {% endblock content %}

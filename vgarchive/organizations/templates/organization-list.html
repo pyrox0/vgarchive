@@ -33,7 +33,7 @@
         <tr class="border-r border-b-0 border-base-100 bg-base-100 hover:bg-base-200 text-base-content">
           <th class="border-neutral border-r">
             <a class="link link-primary"
-               href="{% url 'organization-details' organization.id %}">{{ organization.name }}</a>
+               href="{% url 'organization-detail' organization.id %}">{{ organization.name }}</a>
           </th>
           <th class="border-neutral border-r">
             {% if organization.active %}

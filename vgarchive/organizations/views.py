@@ -2,7 +2,7 @@ from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 
 from .models import Organization
-from vgarchive.events.models import Event
+from vgarchive.charities.models import Charity
 
 
 class OrganizationDetailView(DetailView):
@@ -12,7 +12,10 @@ class OrganizationDetailView(DetailView):
     def get_context_data(self, **kwargs) -> dict:  # noqa
         # Get context
         context = super().get_context_data(**kwargs)
-        context["events"] = Event.objects.filter(organization=self.kwargs.get("pk"))  # type: ignore
+        context["events"] = self.object.event_set.all()
+        context["charities"] = Charity.objects.filter(  # type:ignore
+            id__in=context["events"].values_list("charity", flat=True)
+        )
         return context
 
 
