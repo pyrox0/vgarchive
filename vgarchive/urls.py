@@ -16,12 +16,12 @@ Including another URLconf
 """
 
 from django.urls import path, re_path, include
-
 from django.contrib.admin import site as admin_site
+from django.conf import settings
+
+from debug_toolbar.toolbar import debug_toolbar_urls
 
 from .views import Home, Search
-
-admin_shell = 1
 
 urlpatterns = [
     # Admindoc
@@ -29,10 +29,10 @@ urlpatterns = [
     # Admin
     path("admin/", admin_site.urls),
     # Marathons
-    re_path(r"^organizations?/", include("vgarchive.organizations.urls")),
-    re_path(r"^events?/", include("vgarchive.events.urls")),
-    re_path(r"^charit(y|ies)/", include("vgarchive.charities.urls")),
-    re_path(r"^runs?/", include("vgarchive.runs.urls")),
+    re_path(r"^organization/", include("vgarchive.organizations.urls")),
+    re_path(r"^event/", include("vgarchive.events.urls")),
+    re_path(r"^charity/", include("vgarchive.charities.urls")),
+    re_path(r"^run/", include("vgarchive.runs.urls")),
     path("search/", Search.as_view(), name="search"),
     # Hot reload
     path("__reload__/", include("django_browser_reload.urls")),
@@ -40,10 +40,6 @@ urlpatterns = [
     path("", Home.as_view(), name="home"),
 ]
 
-try:
-    import django_admin_shell  # noqa
-except Exception:
-    admin_shell = 0
-
-if admin_shell != 0:
+if settings.DEBUG:
     urlpatterns.insert(0, re_path(r"^admin/shell/", include("django_admin_shell.urls")))
+    urlpatterns += debug_toolbar_urls()
