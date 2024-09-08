@@ -129,13 +129,6 @@ USE_I18N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/5.1/howto/static-files/
-
-STATIC_URL = "static/"
-
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
-
 # Bootstrap Icons Configuration
 
 BS_ICONS_BASE_PATH = "vgarchive/static/bs_icons/"
