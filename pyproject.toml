@@ -48,6 +48,7 @@ Issues = "https://github.com/pyrox0/vgarchive.run/issues"
 
 [tool.djlint]
 ignore = "H006"
+ignore_blocks = "bs_icon"
 indent = 2
 profile = "django"
 use_gitignore = true
