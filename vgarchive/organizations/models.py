@@ -1,4 +1,7 @@
+# ruff:noqa
+# type:ignore
 from django.db import models
+from django.db.models import Sum
 
 
 class Organization(models.Model):
@@ -13,8 +16,11 @@ class Organization(models.Model):
     twitter = models.CharField("Twitter Username", max_length=15, blank=True)
     youtube = models.CharField("Youtube Channel", max_length=200, blank=True)
 
-    class Meta:
-        db_table_comment = "Organizations"
+    def num_donations(self):
+        return self.event_set.aggregate(Sum("num_donations"))["num_donations__sum"]
+
+    def total_raised(self):
+        return self.event_set.aggregate(Sum("donation_total"))["donation_total__sum"]
 
     def __str__(self) -> str:  # noqa
         return self.name

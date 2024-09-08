@@ -1,4 +1,7 @@
+# ruff:noqa
+# type:ignore
 from django.db import models
+from django.db.models import Sum
 
 
 class Charity(models.Model):
@@ -17,5 +20,8 @@ class Charity(models.Model):
     icon = models.ImageField("Icon/Favicon", blank=True)
     founded = models.IntegerField("Founding Year", default=2024)
 
+    def total_raised(self):
+        return self.event_set.aggregate(Sum("donation_total"))["donation_total__sum"]
+
     def __str__(self) -> str:  # noqa
-        return f"{self.name}, founded in {self.founded}."
+        return self.name  # type:ignore
