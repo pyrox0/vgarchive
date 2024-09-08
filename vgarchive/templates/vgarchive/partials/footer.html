@@ -6,10 +6,14 @@
   <nav>
     <h6 class="footer-title">Social</h6>
     <div class="grid grid-flow-col gap-4">
-      <a href="https://git.pyrox.dev/pyrox/archive-run">
-        {% bs_icon 'git' extra_classes="text-info size-8" extra_attributes="{'aria-label':'Git Logo','tabindex':'-1'}" %}
+      <a href="https://github.com/pyrox0/archive-run">
+        {# djlint:off #}
+        {% bs_icon 'github' extra_classes="text-error size-8" extra_attributes="{'aria-label':'Git Logo','tabindex':'-1'}" %}
       </a>
-      {% bs_icon 'youtube' extra_classes="text-error size-8" extra_attributes="{'aria-label':'Youtube Logo','tabindex':'-1'}" %}
+      <a href="https://discord.gg/g4eK3vtsfh">
+        {% bs_icon 'discord' extra_classes="text-info size-8" extra_attributes="{'aria-label':'Discord Logo','tabindex':'-1'}" %}
+        {# djlint:on #}
+      </a>
     </div>
   </nav>
 </footer>
