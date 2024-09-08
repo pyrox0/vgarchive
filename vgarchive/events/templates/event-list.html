@@ -1,64 +1,10 @@
 {% extends "vgarchive/base.html" %}
+{% load django_tables2 %}
 {% block title %}
   Organizations | vgarchive.run
 {% endblock title %}
 {% block content %}
   <h1 class="text-3xl my-10 md:ml-10">Events</h1>
   <hr class="border-secondary border-2 mb-5">
-  <table class="table table-zebra border-accent md:ml-5 object-center table-pin-rows overflow-x-auto ">
-    <thead>
-      <tr class="border-b-2 border-primary">
-        <th>Name</th>
-        <th>Organization</th>
-        <th>
-          <p class="float-start mr-2">Twitch</p>
-          {% bs_icon 'twitch' extra_classes="mt-0.5 h-3 w-3" extra_attributes="{'aria-label': 'Twitch Logo', 'tabindex': '-1'}" %}
-        </th>
-        <th>
-          <p class="float-start mr-2">Youtube</p>
-          {% bs_icon 'youtube' extra_classes="mt-0.5 h-3 w-3" extra_attributes="{'aria-label': 'Youtube Logo', 'tabindex': '-1'}" %}
-        </th>
-        <th>
-          <p class="float-start mr-2">Twitter</p>
-          {% bs_icon 'twitter' extra_classes="mt-0.5 h-3 w-3" extra_attributes="{'aria-label': 'Twitter Logo', 'tabindex': '-1'}" %}
-        </th>
-        <th>
-          <p class="float-start mr-2">Donation Total</p>
-          {% bs_icon 'currency-dollar' extra_classes="mt-0.5 h-3 w-3" extra_attributes="{'aria-label': 'Dollar Sign', 'tabindex': '-1'}" %}
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for event in object_list %}
-        <tr class="border-r border-b-0 border-base-100 bg-base-100 hover:bg-base-200 text-base-content">
-          <th class="border-neutral border-r">
-            <a class="link link-primary" href="{% url 'event-detail' event.id %}">{{ event.name }}</a>
-          </th>
-          <th class="border-neutral border-r">
-            <a class="link link-primary"
-               href="{url 'organization-detail' event.organization %}">{{ event.organization.name }}</a>
-          </th>
-          <th class="border-neutral border-r">
-            {% if organization.twitch %}
-              <a class="link link-primary"
-                 href="https://twitch.tv/{{ organization.twitch }}">{{ organization.twitch }}</a>
-            </th>
-          {% endif %}
-          <th class="border-neutral border-r">
-            {% if organization.youtube %}
-              <a class="link link-primary"
-                 href="https://youtube.com/{{ organization.youtube }}">{{ organization.youtube }}</a>
-            {% endif %}
-          </th>
-          <th class="border-neutral border-r">
-            {% if organization.twitter %}
-              <a class="link link-primary"
-                 href="https://twitter.com/{{ organization.twitter }}">{{ organization.twitter }}</a>
-            {% endif %}
-          </th>
-          <th>$Placeholder</th>
-        </tr>
-      {% endfor %}
-    </tbody>
-  </table>
+  {% render_table table %}
 {% endblock content %}

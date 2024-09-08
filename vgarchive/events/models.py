@@ -48,9 +48,7 @@ class Event(models.Model):
     homepage = models.URLField("Event Homepage", blank=True)
     schedule = models.URLField("Schedule Link")
     donation_total = models.DecimalField(
-        "Donation Total",
-        max_digits=20,
-        decimal_places=2,
+        "Donation Total", max_digits=20, decimal_places=2
     )
     donations = models.URLField("Donations Page", blank=True)
     num_donations = models.IntegerField("Number of Donations")
