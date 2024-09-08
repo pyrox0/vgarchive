@@ -10,6 +10,7 @@ module.exports = {
 
         // Main templates directory (BASE_DIR/templates).
         '../../templates/**/*.html',
+        '../../**/templates/*.html',
     ],
     theme: {
         extend: {
