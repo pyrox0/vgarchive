@@ -4,7 +4,8 @@
   "description": "",
   "scripts": {
     "start": "npm run dev",
-    "dev": "NODE_ENV=development tailwindcss --postcss -i ./src/styles.css -o ../static/css/dist/styles.css -w"
+    "build": "NODE_ENV=production tailwindcss --postcss -i ./src/styles.css -o ../static/css/dist/styles.css --minify",
+    "dev": "NODE_ENV=development tailwindcss --minify --postcss -i ./src/styles.css -o ../static/css/dist/styles.css -w"
   },
   "keywords": [],
   "author": "",
