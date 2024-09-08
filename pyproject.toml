@@ -15,7 +15,7 @@ classifiers = [
   "Development Status :: 2 - Pre-Alpha",
   "Framework :: Django :: 5.1",
   "Intended Audience :: End Users/Desktop",
-  "License :: Free for non-commercial use",
+  "License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)",
   "Natural Language :: English",
   "Operating System :: POSIX :: Linux",
   "Programming Language :: Python",

@@ -14,6 +14,4 @@ We aim to be a one-stop-shop for references for marathons the world over. We wel
 
 ## License
 
-Note that this project is intended to be free for non-commercial use. While it is not open-source via the OSI's definition thereof, if your use is non-commercial, please use and modify the code as you please.
-
-Simply ensure that you keep my authorship of this code base in your copy of the code, thank you! :heart:
+This project is licensed under the Mozilla Public License 2.0. See [LICENCE](./LICENSE) for the full license text.
