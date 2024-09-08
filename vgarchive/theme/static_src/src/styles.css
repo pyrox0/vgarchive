@@ -6,13 +6,41 @@
   .navbar-tab {
     @apply mr-2 border-b-2 border-base-content rounded-none;
   }
-  .org-button {
+  /* Hero images get this gradient to fade out at the end */
+  .hero-bg-gradient {
+    @apply hero min-h-screen h-full;
+    mask-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 1) 0 70%,
+      rgba(0, 0, 0, 0)
+    );
+  }
+  /* Link buttons for hero sections */
+  .hero-button {
     @apply btn btn-lg rounded-btn bg-opacity-70 border-none;
   }
-  .org-button-text {
+  .hero-button-text {
     @apply lg:hidden ml-5 text-3xl text-success-content;
   }
-  .org-button-icon {
+  .hero-button-icon {
     @apply size-12 text-success-content;
+  }
+  /* Stat cards in hero sections */
+  .hero-stat {
+    @apply card stats text-success-content items-center text-center lg:items-start lg:text-left lg:mr-20 bg-opacity-70;
+  }
+  .hero-stat-title {
+    @apply stat-title card-title text-5xl lg:text-lg justify-center lg:justify-start text-success-content;
+  }
+  .hero-stat-icon {
+    @apply size-10 lg:size-6 text-success-content;
+  }
+
+  /*
+  * Info cards in carousels
+  * Used for events, charities, etc 
+  */
+  .carousel-card {
+    @apply carousel-item card card-compact bg-base-200 max-w-sm;
   }
 }

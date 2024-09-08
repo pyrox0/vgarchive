@@ -3,9 +3,8 @@
   {{ object.name }} | vgarchive.run
 {% endblock title %}
 {% block content %}
-  <div class="hero min-h-screen h-full"
-       style="mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0 70%, rgba(0,0,0,0));
-              background-image:url('{{ object.banner.url }}')">
+  <div class="hero-bg-gradient"
+       style="background-image:url('{{ object.banner.url }}')">
     <div class="hero-overlay bg-opacity-60 bg-base-100"></div>
     <div class="hero-content flex-col lg:flex-row">
       <div class="flex flex-col lg:mx-20 lg:mr-40">
@@ -20,52 +19,52 @@
         <b class="text-3xl lg:text-lg text-base-content lg:max-w-lg lg:mt-5 text-center lg:text-left glass bg-opacity-50 p-3 rounded-md ">{{ object.description }}</b>
         <div class="flex flex-col lg:flex-row lg:space-x-5 space-y-5 lg:space-y-0">
           {% if object.homepage %}
-            <a class="org-button btn-info" href="{{ object.homepage }}">
-              {% bs_icon 'globe2' extra_classes="org-button-icon" extra_attributes="{'aria-label':'Marathon Website Icon','tabindex':'-1'}" %}
-              <p class="org-button-text">Website</p>
+            <a class="hero-button btn-info" href="{{ object.homepage }}">
+              {% bs_icon 'globe2' extra_classes="hero-button-icon" extra_attributes="{'aria-label':'Marathon Website Icon','tabindex':'-1'}" %}
+              <p class="hero-button-text">Website</p>
             </a>
           {% endif %}
           {% if object.twitter %}
-            <a class="org-button btn-info"
+            <a class="hero-button btn-info"
                role="button"
                href="https://twitter.com/{{ object.twitter }}">
-              {% bs_icon 'twitter' extra_classes="org-button-icon" extra_attributes="{'aria-label':'Twitter Icon','tabindex':'-1'}" %}
-              <p class="org-button-text">Twitter</p>
+              {% bs_icon 'twitter' extra_classes="hero-button-icon" extra_attributes="{'aria-label':'Twitter Icon','tabindex':'-1'}" %}
+              <p class="hero-button-text">Twitter</p>
             </a>
           {% endif %}
           {% if object.youtube %}
-            <a class="org-button btn-error"
+            <a class="hero-button btn-error"
                role="button"
                href="https://youtube.com/{{ object.youtube }}">
-              {% bs_icon 'youtube' extra_classes="org-button-icon" extra_attributes="{'aria-label':'Youtube Icon','tabindex':'-1'}" %}
-              <p class="org-button-text">Youtube</p>
+              {% bs_icon 'youtube' extra_classes="hero-button-icon" extra_attributes="{'aria-label':'Youtube Icon','tabindex':'-1'}" %}
+              <p class="hero-button-text">Youtube</p>
             </a>
           {% endif %}
           {% if object.twitch %}
-            <a class="org-button btn-primary"
+            <a class="hero-button btn-primary"
                role="button"
                href="https://twitch.tv/{{ object.twitch }}">
-              {% bs_icon 'twitch' extra_classes="org-button-icon" extra_attributes="{'aria-label':'Twitch Icon','tabindex':'-1'}" %}
-              <p class="org-button-text">Twitch</p>
+              {% bs_icon 'twitch' extra_classes="hero-button-icon" extra_attributes="{'aria-label':'Twitch Icon','tabindex':'-1'}" %}
+              <p class="hero-button-text">Twitch</p>
             </a>
           {% endif %}
         </div>
-        <div class="card stats bg-success bg-opacity-70 text-success-content items-center text-center lg:items-start lg:text-left lg:mr-20 my-5 lg:max-w-sm">
-          <div class="stat card-body">
-            <div class="stat-title card-title text-5xl lg:text-lg justify-center lg:justify-start text-success-content">
-              {% bs_icon 'cash-stack' extra_classes="size-10 lg:size-6 text-success-content" extra_attributes="{'aria-label':'Donations Icon','tabindex':'-1'}" %}
+        <div class="hero-stat bg-success my-5 lg:max-w-sm">
+          <div class="stat bg-success bg-opacity-70 card-body">
+            <div class="hero-stat-title">
+              {% bs_icon 'cash-stack' extra_classes="hero-stat-icon" extra_attributes="{'aria-label':'Donations Icon','tabindex':'-1'}" %}
               Total Raised
             </div>
             <div class="stat-value">${{ object.total_raised|floatformat:"-2g" }}</div>
           </div>
         </div>
-        <div class="card stats bg-info bg-opacity-70 text-success-content items-center text-center lg:items-start lg:text-left lg:float-right lg:mr-20 lg:max-w-xs">
-          <div class="stat card-body">
-            <div class="stat-title card-title text-5xl lg:text-lg justify-center lg:justify-start text-success-content">
-              {% bs_icon 'people-fill' extra_classes="size-10 lg:size-6 text-success-content" extra_attributes="{'aria-label':'Donators Icon','tabindex':'-1'}" %}
+        <div class="hero-stat lg:float-right lg:max-w-xs">
+          <div class="stat bg-info bg-opacity-70 card-body">
+            <div class="hero-stat-title">
+              {% bs_icon 'people-fill' extra_classes="hero-stat-icon" extra_attributes="{'aria-label':'Donators Icon','tabindex':'-1'}" %}
               Total Donations
             </div>
-            <div class="stat-value font-mono">{{ object.num_donations|floatformat:"0g" }}</div>
+            <div class="stat-value">{{ object.num_donations|floatformat:"0g" }}</div>
           </div>
         </div>
       </div>
@@ -75,7 +74,7 @@
     <h2 class="text-5xl mb-5 lg:ml-2 font-bold">Events</h2>
     <div class="carousel carousel-center bg-neutral rounded-box max-w-full space-x-4 p-4 lg:ml-5">
       {% for e in events %}
-        <div class="carousel-item card card-compact bg-base-200 max-w-sm">
+        <div class="carousel-card">
           <a class="card-body" href="{% url 'event-detail' e.id %}">
             {% if e.banner %}
               <img class="rounded max-h-1/2"
@@ -102,7 +101,7 @@
       <h2 class="text-5xl mt-10 mb-5 lg:ml-2 font-bold">Supported Charities</h2>
       <div class="carousel carousel-center bg-neutral rounded-box max-w-full space-x-4 p-4 lg:ml-5">
         {% for c in charities %}
-          <div class="carousel-item card card-compact bg-base-200 max-w-sm">
+          <div class="carousel-card">
             <a class="card-body" href="{% url 'charity-detail' c.id %}">
               {% if c.icon %}
                 <img class="rounded max-h-1/4"
@@ -110,7 +109,7 @@
                      alt="Banner for the charity {{ e.name }}.">
               {% endif %}
               <p class="card-title text-2xl mt-1">{{ c.name }}</p>
-              <p class="text-2xl  text-wrap text-success">Total Raised: ${{ c.total_raised|floatformat:"-2g" }}</p>
+              <p class="text-2xl text-wrap text-success">Total Raised: ${{ c.total_raised|floatformat:"-2g" }}</p>
             </a>
           </div>
         {% endfor %}
