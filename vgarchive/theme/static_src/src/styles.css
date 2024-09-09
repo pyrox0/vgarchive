@@ -21,12 +21,13 @@
   /* Link buttons for hero sections */
   .hero-button {
     @apply btn btn-lg rounded-btn bg-opacity-70 border-none;
+    height: 3rem;
   }
   .hero-button-text {
     @apply lg:hidden ml-5 text-3xl text-success-content;
   }
   .hero-button-icon {
-    @apply size-12 text-success-content;
+    @apply justify-self-center self-center text-success-content;
     font-family: "bootstrap-icons";
   }
   /* Stat cards in hero sections */

@@ -5,7 +5,8 @@
   "scripts": {
     "start": "npm run dev",
     "build": "NODE_ENV=production tailwindcss --postcss -i ./src/styles.css -o ../static/css/dist/styles.css --minify",
-    "dev": "NODE_ENV=development tailwindcss --minify --postcss -i ./src/styles.css -o ../static/css/dist/styles.css -w"
+    "dev": "NODE_ENV=development tailwindcss --minify --postcss -i ./src/styles.css -o ../static/css/dist/styles.css -w",
+    "postcss": "postcss"
   },
   "keywords": [],
   "author": "",
@@ -13,11 +14,16 @@
   "devDependencies": {
     "@catppuccin/daisyui": "^1.1.1",
     "@catppuccin/tailwindcss": "^0.1.6",
+    "@fullhuman/postcss-purgecss": "^6.0.0",
+    "cssnano": "^7.0.6",
     "daisyui": "^4.12.10",
     "postcss": "^8.4.45",
     "postcss-import": "^16.1.0",
     "postcss-nested": "^6.0.1",
     "postcss-simple-vars": "^7.0.1",
     "tailwindcss": "^3.4.0"
+  },
+  "dependencies": {
+    "autoprefixer": "^10.4.20"
   }
 }
