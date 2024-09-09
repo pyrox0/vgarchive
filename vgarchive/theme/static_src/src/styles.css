@@ -1,3 +1,6 @@
+/* Bootstrap Icons */
+@import "./bs-icons/bootstrap-icons.min.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -24,6 +27,7 @@
   }
   .hero-button-icon {
     @apply size-12 text-success-content;
+    font-family: "bootstrap-icons";
   }
   /* Stat cards in hero sections */
   .hero-stat {
@@ -42,5 +46,44 @@
   */
   .carousel-card {
     @apply carousel-item card card-compact bg-base-200 max-w-sm;
+  }
+
+  .bs-th-icon {
+    font-family: "bootstrap-icons";
+    position: relative;
+    top: 0.2rem;
+  }
+
+  th.orderable > a::after {
+    @apply bs-th-icon;
+    font-size: 1.3rem;
+    display: inline-block;
+    content: "\00a0\00a0\F127";
+  }
+
+  th.orderable.desc > a::after {
+    @apply bs-th-icon;
+    font-size: 1.3rem;
+    content: "\00a0\00a0\F128";
+  }
+
+  th.orderable.asc > a::after {
+    @apply bs-th-icon;
+    font-size: 1.3rem;
+    content: "\00a0\00a0\F148";
+  }
+
+  .external-link {
+    @apply link;
+  }
+
+  .external-link::after {
+    display: inline-block;
+    font-family: "bootstrap-icons";
+    font-size: 0.8rem;
+    content: "\00a0\00a0\F1C5";
+    position: relative;
+    bottom: 0.1rem;
+    text-decoration: none;
   }
 }
