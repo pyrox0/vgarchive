@@ -25,11 +25,28 @@ INSTALLED_APPS = common.INSTALLED_APPS + [
 ]
 
 MIDDLEWARE = [
-    # Debug toolbar
-    "debug_toolbar.middleware.DebugToolbarMiddleware",
+    "django.middleware.security.SecurityMiddleware",
+    # Minify HTML
+    "django_minify_html.middleware.MinifyHtmlMiddleware",
+    # Compression
+    "compression_middleware.middleware.CompressionMiddleware",
     # Hot reload
     "django_browser_reload.middleware.BrowserReloadMiddleware",
-] + common.MIDDLEWARE
+    # Debug toolbar
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
+    "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.common.CommonMiddleware",
+    "django.middleware.csrf.CsrfViewMiddleware",
+    # Minify HTML
+    "django_minify_html.middleware.MinifyHtmlMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "django.contrib.messages.middleware.MessageMiddleware",
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    # allauth
+    "allauth.account.middleware.AccountMiddleware",
+    # admindocs
+    "django.contrib.admindocs.middleware.XViewMiddleware",
+]
 
 DATABASES = {
     "default": {
@@ -45,6 +62,12 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "uploaded")
 STATIC_URL = "static/"
 
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+
+STATICFILES_FINDERS = [
+    "django.contrib.staticfiles.finders.FileSystemFinder",
+    "django.contrib.staticfiles.finders.AppDirectoriesFinder",
+    "compressor.finders.CompressorFinder",
+]
 
 
 # Force toolbar to show in dev
