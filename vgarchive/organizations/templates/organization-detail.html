@@ -1,4 +1,5 @@
 {% extends "vgarchive/base.html" %}
+{% load icons %}
 {% block title %}
   {{ object.name }} | vgarchive.run
 {% endblock title %}
@@ -20,7 +21,7 @@
         <div class="flex flex-col lg:flex-row lg:space-x-5 space-y-5 lg:space-y-0">
           {% if object.homepage %}
             <a class="hero-button btn-info" href="{{ object.homepage }}">
-              {% bs_icon 'globe2' extra_classes="hero-button-icon" extra_attributes="{'aria-label':'Marathon Website Icon','tabindex':'-1'}" %}
+              {% icon 'globe2' extra_classes="hero-button-icon" aria_label="Marathon Website Icon" tabindex="-1" %}
               <p class="hero-button-text">Website</p>
             </a>
           {% endif %}
@@ -28,7 +29,7 @@
             <a class="hero-button btn-info"
                role="button"
                href="https://twitter.com/{{ object.twitter }}">
-              {% bs_icon 'twitter' extra_classes="hero-button-icon" extra_attributes="{'aria-label':'Twitter Icon','tabindex':'-1'}" %}
+              {% icon 'twitter' extra_classes="hero-button-icon" aria_label="Twitter Icon" tabindex="-1" %}
               <p class="hero-button-text">Twitter</p>
             </a>
           {% endif %}
@@ -36,7 +37,7 @@
             <a class="hero-button btn-error"
                role="button"
                href="https://youtube.com/{{ object.youtube }}">
-              {% bs_icon 'youtube' extra_classes="hero-button-icon" extra_attributes="{'aria-label':'Youtube Icon','tabindex':'-1'}" %}
+              {% icon 'youtube' extra_classes="hero-button-icon" aria_label="Youtube Icon" tabindex="-1" %}
               <p class="hero-button-text">Youtube</p>
             </a>
           {% endif %}
@@ -44,7 +45,7 @@
             <a class="hero-button btn-primary"
                role="button"
                href="https://twitch.tv/{{ object.twitch }}">
-              {% bs_icon 'twitch' extra_classes="hero-button-icon" extra_attributes="{'aria-label':'Twitch Icon','tabindex':'-1'}" %}
+              {% icon 'twitch' extra_classes="hero-button-icon" aria_label="Twitch Icon" tabindex="-1" %}
               <p class="hero-button-text">Twitch</p>
             </a>
           {% endif %}
@@ -52,7 +53,7 @@
         <div class="hero-stat bg-success my-5 lg:max-w-sm">
           <div class="stat bg-success bg-opacity-70 card-body">
             <div class="hero-stat-title">
-              {% bs_icon 'cash-stack' extra_classes="hero-stat-icon" extra_attributes="{'aria-label':'Donations Icon','tabindex':'-1'}" %}
+              {% icon 'cash-stack' extra_classes="hero-stat-icon" aria_label="Donations Icon" tabindex="-1" %}
               Total Raised
             </div>
             <div class="stat-value">${{ object.total_raised|floatformat:"-2g" }}</div>
@@ -61,7 +62,7 @@
         <div class="hero-stat lg:float-right lg:max-w-xs">
           <div class="stat bg-info bg-opacity-70 card-body">
             <div class="hero-stat-title">
-              {% bs_icon 'people-fill' extra_classes="hero-stat-icon" extra_attributes="{'aria-label':'Donators Icon','tabindex':'-1'}" %}
+              {% icon 'people-fill' extra_classes="hero-stat-icon" aria_label="Donators Icon" tabindex="-1" %}
               Total Donations
             </div>
             <div class="stat-value">{{ object.num_donations|floatformat:"0g" }}</div>
@@ -88,10 +89,8 @@
             {% endif %}
             <div class="lg:mb-5 text-wrap lg:ml-5 lg:-mt-5">
               <p class="text-success lg:-ml-5 font-bold text-3xl">${{ e.donation_total|floatformat:"-2g" }}</p>
-              {# djlint: off #}
-                <a class="text-lg lg:-ml-1 link link-info"
-                href="/charity/{{ e.charity.id }}">{{ e.charity.name }}</a>
-              {# djlint: on #}
+              <a class="text-lg lg:-ml-1 link link-info"
+                 href="{% url 'charity-detail' e.charity.id %}">{{ e.charity.name }}</a>
             </div>
           </a>
         </div>

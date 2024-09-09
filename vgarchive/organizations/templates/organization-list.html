@@ -1,4 +1,5 @@
 {% extends "vgarchive/base.html" %}
+{% load icons %}
 {% block title %}
   Organizations | vgarchive.run
 {% endblock title %}
@@ -12,19 +13,19 @@
         <th>Active?</th>
         <th>
           <p class="float-start mr-2">Twitch</p>
-          {% bs_icon 'twitch' extra_classes="mt-0.5 h-3 w-3" extra_attributes="{'aria-label': 'Twitch Logo', 'tabindex': '-1'}" %}
+          {% icon 'twitch' extra_classes="mt-0.5 h-3 w-3" aria_label="Twitch Logo" tabindex="-1" %}
         </th>
         <th>
           <p class="float-start mr-2">Youtube</p>
-          {% bs_icon 'youtube' extra_classes="mt-0.5 h-3 w-3" extra_attributes="{'aria-label': 'Youtube Logo', 'tabindex': '-1'}" %}
+          {% icon 'youtube' extra_classes="mt-0.5 h-3 w-3" aria_label="Youtube Logo" tabindex="-1" %}
         </th>
         <th>
           <p class="float-start mr-2">Twitter</p>
-          {% bs_icon 'twitter' extra_classes="mt-0.5 h-3 w-3" extra_attributes="{'aria-label': 'Twitter Logo', 'tabindex': '-1'}" %}
+          {% icon 'twitter' extra_classes="mt-0.5 h-3 w-3" aria_label="Twitter Logo" tabindex="-1" %}
         </th>
         <th>
           <p class="float-start mr-2">Donation Total</p>
-          {% bs_icon 'currency-dollar' extra_classes="mt-0.5 h-3 w-3" extra_attributes="{'aria-label': 'Dollar Sign', 'tabindex': '-1'}" %}
+          {% icon 'currency-dollar' extra_classes="mt-0.5 h-3 w-3" aria_label="Dollar Sign" tabindex="-1" %}
         </th>
       </tr>
     </thead>

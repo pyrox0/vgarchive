@@ -37,7 +37,6 @@ dependencies = [
   "pillow>=10.0.0",
   "slippers~=0.6.0",
   "django-tailwind~=3.8.0",
-  "django-bootstrap-icons",
   "django-tables2>=2.7.0",
   "django-icons>=24.3",
 ]
@@ -50,7 +49,6 @@ Issues = "https://github.com/pyrox0/vgarchive.run/issues"
 
 [tool.djlint]
 ignore = "H006"
-ignore_blocks = "bs_icon"
 indent = 2
 profile = "django"
 use_gitignore = true
@@ -119,4 +117,3 @@ dev-dependencies = [
 package = false
 
 [tool.uv.sources]
-django-bootstrap-icons = { git = "https://github.com/pyrox0/django-bootstrap-icons.git" }

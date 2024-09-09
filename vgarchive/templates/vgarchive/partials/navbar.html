@@ -1,22 +1,20 @@
+{% load icons %}
 <nav class="navbar bg-base-200 border-b-2 border-accent">
   <div class="navbar-start lg:w-[32rem]">
     <a href="{% url 'home' %}" role="button" aria-label="Home">
       <button class="btn btn-primary btn-block btn-wide"
               aria-hidden="true"
               tabindex="-1">
-        {% bs_icon 'joystick' extra_classes='float-start h-6 w-6 mt-0.5' %}
+        {% icon 'joystick' extra_classes='float-start h-6 w-6 mt-0.5' %}
         <p class="text-xl text-base hidden lg:block">vgarchive.run</p>
       </button>
     </a>
   </div>
   <div class="hidden lg:block navbar-center">
     <ul class="menu menu-horizontal mx-2 text-base-content text-xl xl:text-2xl">
-      {# djlint: off #}
       <li>
-        <a class="navbar-tab"
-           href="/charities">Charities</a>
+        <a class="navbar-tab" href="{% url 'charity-list' %}">Charities</a>
       </li>
-      {# djlint: on #}
       <li>
         <a class="navbar-tab" href="{% url 'organization-list' %}">Organizations</a>
       </li>
@@ -38,21 +36,19 @@
         <input type="text"
                placeholder="Search"
                class="placeholder:text-base-content placeholder:text-lg w-96" />
-        {% bs_icon 'search' extra_classes="h-6 w-6 text-neutral" extra_attributes="{'aria-label': 'Search Icon', 'tabindex': '-1'}" %}
+        {% icon 'search' extra_classes="h-6 w-6 text-neutral" aria_label="Search Icon" tabindex="-1" %}
       </label>
     </form>
   </div>
   <div class="navbar-end lg:hidden">
     <div class="dropdown dropdown-end">
       <div tabindex="0" role="button" class="btn btn-ghost">
-        {% bs_icon 'list' extra_classes="size-10 text-base-content" extra_attributes="{'aria-label':'Menu'}" %}
+        {% icon 'list' extra_classes="size-10 text-base-content" aria_label="Menu" %}
       </div>
       <ul tabindex="0"
           class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
         <li>
-          {# djlint: off #}
-          <a class="my-2 rounded-none text-2xl" href="/charities">Charities</a>
-          {# djlint: on #}
+          <a class="my-2 rounded-none text-2xl" href="{% url 'charity-list' %}">Charities</a>
         </li>
         <li>
           <a class="my-2 rounded-none text-2xl"
@@ -75,7 +71,7 @@
            id="theme-controller"
            class="theme-controller"
            value="latte" />
-    {% bs_icon 'sun' extra_classes="h-6 w-6 text-neutral stroke-2 swap-off" extra_attributes="{'aria-label': 'Switch Theme to Light', 'tabindex': '-1'}" %}
-    {% bs_icon 'moon' extra_classes="h-6 w-6 text-neutral stroke-2 swap-on" extra_attributes="{'aria-label': 'Switch Theme to Dark', 'tabindex': '-1'}" %}
+    {% icon 'sun' extra_classes="h-6 w-6 text-neutral stroke-2 swap-off" aria_label="Switch Theme to Light" tabindex="-1" %}
+    {% icon 'moon' extra_classes="h-6 w-6 text-neutral stroke-2 swap-on" aria_label="Switch Theme to Dark" tabindex="-1" %}
   </label>
 </nav>

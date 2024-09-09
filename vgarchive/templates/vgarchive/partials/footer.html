@@ -1,17 +1,18 @@
+{% load icons %}
 <footer class="footer bg-base-300 text-base-content p-10 lg:mt-20">
   <aside class="lg:ml-20">
-    {% bs_icon 'joystick' extra_classes="size-12 fill-current lg:ml-1" %}
+    {% icon 'joystick' extra_classes="size-12 fill-current lg:ml-1" %}
     <p class="text-2xl">vgarchive.run</p>
   </aside>
   <nav>
-    <h6 class="footer-title">Social</h6>
+    <p class="footer-title">Join Us!</p>
     <div class="grid grid-flow-col gap-4">
       <a href="https://github.com/pyrox0/archive-run">
         {# djlint:off #}
-        {% bs_icon 'github' extra_classes="text-error size-8" extra_attributes="{'aria-label':'Git Logo','tabindex':'-1'}" %}
+        {% icon 'github' extra_classes="text-error size-8" aria_label="Github Logo" tabindex="-1" %}
       </a>
       <a href="https://discord.gg/g4eK3vtsfh">
-        {% bs_icon 'discord' extra_classes="text-info size-8" extra_attributes="{'aria-label':'Discord Logo','tabindex':'-1'}" %}
+        {% icon 'discord' extra_classes="text-info size-8" aria_label="Discord Logo" tabindex="-1" %}
         {# djlint:on #}
       </a>
     </div>

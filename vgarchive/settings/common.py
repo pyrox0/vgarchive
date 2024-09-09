@@ -44,9 +44,9 @@ INSTALLED_APPS = [
     # Tailwind CSS
     "tailwind",
     "vgarchive.theme",
-    # Bootstrap Icons
-    "django_bootstrap_icons",
-    # Reusable components support
+    # Icons
+    "django_icons",
+    # Reusable components
     "slippers",
     # Better tables
     "django_tables2",
@@ -84,7 +84,6 @@ TEMPLATES = [
             ],
             # Autoload some additional template tags
             "builtins": [
-                "django_bootstrap_icons.templatetags.bootstrap_icons",
                 "slippers.templatetags.slippers",
             ],
         },
@@ -134,10 +133,7 @@ USE_TZ = True
 # Set locale. Not part of settings, but important nonetheless
 locale.setlocale(locale.LC_ALL, "")
 
-# Bootstrap Icons Configuration
-
-BS_ICONS_BASE_PATH = "vgarchive/static/bs_icons/"
-
+# https://django-icons.readthedocs.io
 DJANGO_ICONS = {
     "DEFAULTS": {"renderer": "bootstrap-icon"},
     "RENDERERS": {"bootstrap-icon": "vgarchive.BootstrapIconRenderer"},
