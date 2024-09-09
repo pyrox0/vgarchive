@@ -5,7 +5,7 @@
       <button class="btn btn-primary btn-block btn-wide"
               aria-hidden="true"
               tabindex="-1">
-        {% icon 'joystick' extra_classes='float-start h-6 w-6 mt-0.5' %}
+        {% icon 'joystick' extra_classes='float-start text-3xl mt-0.5' %}
         <p class="text-xl text-base hidden lg:block">vgarchive.run</p>
       </button>
     </a>
@@ -28,7 +28,7 @@
       {% endcomment %}
     </ul>
   </div>
-  <div class="navbar-center lg:navbar-end">
+  <div class="lg:navbar-end">
     <form method="get"
           action="{% url 'search' %}"
           class="-mt-[0.35rem] -mb-3.5 hover:bg-transparent active:bg-transparent">
@@ -36,7 +36,7 @@
         <input type="text"
                placeholder="Search"
                class="placeholder:text-base-content placeholder:text-lg w-96" />
-        {% icon 'search' extra_classes="h-6 w-6 text-neutral" aria_label="Search Icon" tabindex="-1" %}
+        {% icon 'search' extra_classes="text-2xl text-neutral" tabindex="-1" %}
       </label>
     </form>
   </div>
@@ -70,8 +70,9 @@
     <input type="checkbox"
            id="theme-controller"
            class="theme-controller"
-           value="latte" />
-    {% icon 'sun' extra_classes="h-6 w-6 text-neutral stroke-2 swap-off" aria_label="Switch Theme to Light" tabindex="-1" %}
-    {% icon 'moon' extra_classes="h-6 w-6 text-neutral stroke-2 swap-on" aria_label="Switch Theme to Dark" tabindex="-1" %}
+           value="latte"
+           aria-label="Theme Switcher" />
+    {% icon 'sun' extra_classes="text-2xl text-neutral stroke-2 swap-off" tabindex="-1" %}
+    {% icon 'moon' extra_classes="text-2xl text-neutral stroke-2 swap-on" tabindex="-1" %}
   </label>
 </nav>

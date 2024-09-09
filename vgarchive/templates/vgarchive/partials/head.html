@@ -1,5 +1,8 @@
 {% load tailwind_tags %}
 {% load static %}
-{% load icons %}
-<link href="{% static '/css/fonts.css' %}" rel="stylesheet" />
+{% load compress %}
+<link rel="preconnect" href="https://fonts.bunny.net">
+{% compress css preload %}
+  <link href="{% static '/css/fonts.css' %}" rel="stylesheet" />
+{% endcompress %}
 {% tailwind_css %}
