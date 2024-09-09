@@ -11,6 +11,10 @@ module.exports = {
         // Main templates directory (BASE_DIR/templates).
         '../../templates/**/*.html',
         '../../**/templates/*.html',
+
+        // Event list views has some tailwind classes
+        '../../events/views.py'
+
     ],
     theme: {
         extend: {
