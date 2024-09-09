@@ -39,6 +39,7 @@ dependencies = [
   "django-tailwind~=3.8.0",
   "django-bootstrap-icons",
   "django-tables2>=2.7.0",
+  "django-icons>=24.3",
 ]
 
 [project.urls]

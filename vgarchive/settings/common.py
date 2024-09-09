@@ -138,6 +138,11 @@ locale.setlocale(locale.LC_ALL, "")
 
 BS_ICONS_BASE_PATH = "vgarchive/static/bs_icons/"
 
+DJANGO_ICONS = {
+    "DEFAULTS": {"renderer": "bootstrap-icon"},
+    "RENDERERS": {"bootstrap-icon": "vgarchive.BootstrapIconRenderer"},
+}
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
