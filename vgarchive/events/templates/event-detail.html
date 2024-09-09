@@ -33,7 +33,7 @@
         <div class="card stats bg-success bg-opacity-70 text-success-content items-center text-center lg:items-start lg:text-left lg:mr-20 my-5 lg:max-w-sm">
           <div class="stat card-body">
             <div class="stat-title card-title text-5xl lg:text-lg justify-center lg:justify-start text-success-content">
-              {% icon 'cash-stack' extra_classes="size-10 lg:size-6 text-success-content" aria_label="Donations Icon" tabindex="-1" %}
+              {% icon 'cash-stack' extra_classes="text-xl lg:text-2xl text-success-content" aria_label="Donations Icon" tabindex="-1" %}
               Total Raised
             </div>
             <div class="stat-value font-mono">${{ object.donation_total|floatformat:"-2g" }}</div>
@@ -42,7 +42,7 @@
         <div class="card stats bg-info bg-opacity-70 text-success-content items-center text-center lg:items-start lg:text-left lg:float-right lg:mr-20 lg:max-w-xs">
           <div class="stat card-body">
             <div class="stat-title card-title text-5xl lg:text-lg justify-center lg:justify-start text-success-content">
-              {% icon 'people-fill' extra_classes="size-10 lg:size-6 text-success-content" aria_label="Donators Icon" tabindex="-1" %}
+              {% icon 'people-fill' extra_classes="text-xl lg:text-2xl text-success-content" aria_label="Donators Icon" tabindex="-1" %}
               Total Donations
             </div>
             <div class="stat-value font-mono">{{ object.num_donations|floatformat:"0g" }}</div>
