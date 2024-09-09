@@ -1,6 +1,6 @@
 import locale
 
-from django.views.generic.detail import DetailView
+from django.views.generic import DetailView
 from django.utils.html import format_html
 from django.urls import reverse
 
@@ -45,7 +45,7 @@ class EventTable(tables.Table):
             "start_datetime",
         )
         attrs = {  # noqa
-            "class": "table table-lg border-collapse mx-5 border-2 border-base-200 lg:[max-width:calc(100vw-2.5rem)] overflow-x-auto",
+            "class": "table table-lg border-collapse lg:mx-5 border-2 border-base-200 lg:[max-width:calc(100vw-2.5rem)] overflow-x-auto",
             "thead": {"class": "py-4 text-xl border-b-2"},
             "td": {"class": "text-xl"},
             "th": {"class": "border-x-2 border-x-base-200"},

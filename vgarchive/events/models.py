@@ -3,6 +3,7 @@ from datetime import timedelta
 from django.db import models
 from django.db.models import CASCADE
 from django.utils.translation import gettext_lazy as _
+from django.urls import reverse
 
 from vgarchive.organizations.models import Organization
 from vgarchive.charities.models import Charity
@@ -64,6 +65,9 @@ class Event(models.Model):
     )
     youtube_playlist = models.URLField("Youtube VOD Playlist", blank=True)
     banner = models.ImageField("Banner Image", blank=True)
+
+    def get_absolute_url(self):  # noqa
+        return reverse("event-detail", kwargs={"pk": self.pk})
 
     @property
     def duration(self) -> timedelta:  # noqa
