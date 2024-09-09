@@ -48,6 +48,7 @@
                 nixfmt-rfc-style
                 nodejs
                 pre-commit
+                postcss-cli
                 ruff
                 uv
                 validate-pyproject
