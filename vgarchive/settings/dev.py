@@ -42,8 +42,6 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    # allauth
-    "allauth.account.middleware.AccountMiddleware",
     # admindocs
     "django.contrib.admindocs.middleware.XViewMiddleware",
 ]

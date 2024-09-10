@@ -28,13 +28,6 @@ INSTALLED_APPS = [
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
-    # Allauth, for discord accounts
-    "allauth",
-    "allauth.account",
-    "allauth.socialaccount",
-    "allauth.socialaccount.providers.discord",
-    # Django-ninja for API stuff
-    "ninja",
     # All our custom apps
     "vgarchive",
     "vgarchive.charities",
@@ -72,8 +65,6 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    # allauth
-    "allauth.account.middleware.AccountMiddleware",
     # admindocs
     "django.contrib.admindocs.middleware.XViewMiddleware",
 ]
@@ -101,11 +92,6 @@ TEMPLATES = [
 ]
 
 ASGI_APPLICATION = "vgarchive.asgi.application"
-
-# Allow allauth to handle authentication
-
-AUTHENTICATION_BACKENDS = ("allauth.account.auth_backends.AuthenticationBackend",)
-
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases

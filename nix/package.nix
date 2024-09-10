@@ -21,7 +21,6 @@ python3Packages.buildPythonApplication rec {
 
   dependencies = with python3Packages; [
     django_5
-    django-allauth
     docutils
     pillow
   ];
