@@ -13,7 +13,7 @@ module.exports = {
         '../../**/templates/*.html',
 
         // Event list views has some tailwind classes
-        '../../events/views.py'
+        '../../**/views.py'
 
     ],
     theme: {
