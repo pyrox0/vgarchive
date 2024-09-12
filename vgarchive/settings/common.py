@@ -131,8 +131,7 @@ locale.setlocale(locale.LC_ALL, "")
 
 # https://django-icons.readthedocs.io
 DJANGO_ICONS = {
-    "DEFAULTS": {"renderer": "bootstrap-icon"},
-    "RENDERERS": {"bootstrap-icon": "vgarchive.BootstrapIconRenderer"},
+    "DEFAULTS": {"renderer": "django_icons_bootstrap_icons.BootstrapIconRenderer"},
 }
 
 # Default primary key field type
