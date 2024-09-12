@@ -50,6 +50,19 @@ DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
         "NAME": BASE_DIR / "db/vgarchive.db",
+        "OPTIONS": {
+            "init_command": (
+                "PRAGMA cache_size = 2000;"
+                "PRAGMA foreign_keys=ON;"
+                "PRAGMA journal_mode = WAL;"
+                "PRAGMA journal_size_limit = 67108864;"
+                "PRAGMA mmap_size = 134217728;"
+                "PRAGMA synchronous = NORMAL;"
+                "PRAGMA temp_store = MEMORY;"
+            ),
+            "timeout": 10,
+            "transaction_mode": "IMMEDIATE",
+        },
     }
 }
 
