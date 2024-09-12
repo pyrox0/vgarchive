@@ -50,7 +50,7 @@
             </a>
           {% endif %}
         </div>
-        <div class="hero-stat bg-success my-5 lg:max-w-sm">
+        <div class="bg-opacity-0 hero-stat bg-success my-5 lg:max-w-sm">
           <div class="stat bg-success bg-opacity-70 card-body">
             <div class="hero-stat-title">
               {% icon 'cash-stack' extra_classes="hero-stat-icon" aria_label="Donations Icon" tabindex="-1" %}
@@ -59,11 +59,11 @@
             <div class="stat-value">${{ object.total_raised|floatformat:"-2g" }}</div>
           </div>
         </div>
-        <div class="hero-stat lg:float-right lg:max-w-xs">
+        <div class="bg-opacity-0 hero-stat lg:float-right lg:max-w-xs">
           <div class="stat bg-info bg-opacity-70 card-body">
             <div class="hero-stat-title">
               {% icon 'people-fill' extra_classes="hero-stat-icon" aria_label="Donators Icon" tabindex="-1" %}
-              Total Donations
+              Donation Count
             </div>
             <div class="stat-value">{{ object.num_donations|floatformat:"0g" }}</div>
           </div>
