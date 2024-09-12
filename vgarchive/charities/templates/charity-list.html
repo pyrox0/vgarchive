@@ -1,0 +1,9 @@
+{% extends "vgarchive/base.html" %}
+{% load django_tables2 %}
+{% block title %}
+  Charities | vgarchive.run
+{% endblock title %}
+{% block content %}
+  <h1 class="text-5xl my-10 md:ml-10">Charities</h1>
+  {% render_table table %}
+{% endblock content %}
