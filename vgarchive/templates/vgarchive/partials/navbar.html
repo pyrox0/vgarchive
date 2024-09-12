@@ -32,7 +32,8 @@
     <form method="get"
           action="{% url 'search' %}"
           class="-mt-[0.35rem] -mb-3.5 hover:bg-transparent active:bg-transparent">
-      <label class="input input-md input-bordered flex items-center">
+      <label class="input input-md input-bordered flex items-center"
+             aria-label="Search Bar">
         <input type="text"
                placeholder="Search"
                class="placeholder:text-base-content placeholder:text-lg w-96" />
@@ -65,13 +66,12 @@
       </ul>
     </div>
   </div>
-  <label class="swap mt-1 btn btn-base-100">
+  <label class="swap mt-1 btn btn-base-100" aria-label="Theme Switcher">
     {# this hidden checkbox controls the state #}
     <input type="checkbox"
            id="theme-controller"
            class="theme-controller"
-           value="latte"
-           aria-label="Theme Switcher" />
+           value="latte" />
     {% icon 'sun' extra_classes="text-2xl text-neutral stroke-2 swap-off" tabindex="-1" %}
     {% icon 'moon' extra_classes="text-2xl text-neutral stroke-2 swap-on" tabindex="-1" %}
   </label>
