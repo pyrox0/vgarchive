@@ -19,7 +19,7 @@ class Organization(models.Model):
     def num_donations(self):
         return self.event_set.aggregate(Sum("num_donations"))["num_donations__sum"]
 
-    def total_raised(self):
+    def donation_total(self):
         return self.event_set.aggregate(Sum("donation_total"))["donation_total__sum"]
 
     def __str__(self) -> str:  # noqa

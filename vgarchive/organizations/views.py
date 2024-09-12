@@ -32,7 +32,7 @@ class OrganizationTable(tables.Table):
         sequence = (
             "name",
             "active",
-            "total_raised",
+            "donation_total",
             "twitch",
             "twitter",
             "youtube",
@@ -46,7 +46,7 @@ class OrganizationTable(tables.Table):
         )
 
     name = tables.Column(verbose_name="Organization Name")
-    total_raised = tables.Column(verbose_name="Donation Total", localize=True)
+    donation_total = tables.Column(verbose_name="Donation Total", localize=True)
     twitch = tables.Column(verbose_name="Twitch", orderable=False)
     twitter = tables.Column(verbose_name="Twitter", orderable=False)
     youtube = tables.Column(verbose_name="Youtube", orderable=False)
@@ -61,7 +61,7 @@ class OrganizationTable(tables.Table):
             f'<a class="text-2xl font-bold link link-primary" href="{reverse("organization-detail", args=[record.id])}">{value}</a>'
         )
 
-    def render_total_raised(self, value):  # noqa
+    def render_donation_total(self, value):  # noqa
         return format_html(
             f'<p class="text-success font-bold">{locale.currency(value, True, True, False)}</p>'
         )
