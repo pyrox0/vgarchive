@@ -29,6 +29,12 @@
               <p class="hero-button-text-unhidden">VOD Playlist</p>
             </a>
           {% endif %}
+          <a class="hero-button btn-success"
+             role="button"
+             href="{% url 'charity-detail' object.charity.id %}">
+            {% icon 'bank' extra_classes="text-[2.5rem] hero-button-icon" aria_label="Charity Icon" tabindex="-1" %}
+            <p class="hero-button-text-unhidden">Supported Charity</p>
+          </a>
           <div class="bg-opacity-0 hero-stat my-5 lg:max-w-sm">
             <div class="stat bg-success bg-opacity-70 card-body">
               <div class="hero-stat-title">
@@ -45,7 +51,7 @@
                 Donation Count
               </div>
               <a class="stat-value link link-success-content"
-                 href="{object.donations}">{{ object.num_donations|floatformat:"0g" }}</a>
+                 href="{{ object.donations }}">{{ object.num_donations|floatformat:"0g" }}</a>
             </div>
           </div>
         </div>
