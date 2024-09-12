@@ -237,6 +237,18 @@ wheels = [
 ]
 
 [[package]]
+name = "django-icons-bootstrap-icons"
+version = "1.0.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "django-icons" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/74/25/5a0d76a95e5a2d6a26a6a18b896030ee652df8b42432c06284ca466dc1be/django_icons_bootstrap_icons-1.0.0.tar.gz", hash = "sha256:ed5a8205bf951b8701ba4480568ce7e06f6a82d1e2599a8c004a93752f0d552d", size = 8971 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/b8/ce/8119b18e677f1e6cf3731efb4350973738b9730c39ab6264878e5453aedf/django_icons_bootstrap_icons-1.0.0-1-py3-none-any.whl", hash = "sha256:9915f38a77308266fe2ef550a548c1097a1b87f823d9236b3de55cae1398a115", size = 3310 },
+]
+
+[[package]]
 name = "django-minify-html"
 version = "1.9.0"
 source = { registry = "https://pypi.org/simple" }
@@ -606,6 +618,7 @@ dependencies = [
     { name = "django-compression-middleware" },
     { name = "django-compressor" },
     { name = "django-icons" },
+    { name = "django-icons-bootstrap-icons" },
     { name = "django-minify-html" },
     { name = "django-tables2" },
     { name = "django-tailwind" },
@@ -630,6 +643,7 @@ requires-dist = [
     { name = "django-compression-middleware", specifier = ">=0.5.0" },
     { name = "django-compressor", specifier = ">=4.5" },
     { name = "django-icons", specifier = ">=24.3" },
+    { name = "django-icons-bootstrap-icons", specifier = "~=1.0.0" },
     { name = "django-minify-html", specifier = ">=1.9.0" },
     { name = "django-tables2", specifier = ">=2.7.0" },
     { name = "django-tailwind", specifier = "~=3.8.0" },

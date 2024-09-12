@@ -40,6 +40,7 @@ dependencies = [
   "django-compressor>=4.5",
   "django-minify-html>=1.9.0",
   "django-compression-middleware>=0.5.0",
+  "django-icons-bootstrap-icons~=1.0.0",
 ]
 
 [project.urls]
@@ -108,6 +109,7 @@ ignore = ["ANN003", "COM812"]
 packages = ["vgarchive"]
 
 [tool.uv]
+compile-bytecode = true
 dev-dependencies = [
   "hypercorn[uvloop]>=0.17.0",
   "django-browser-reload~=1.15.0",
