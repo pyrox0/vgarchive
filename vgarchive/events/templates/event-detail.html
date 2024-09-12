@@ -4,48 +4,49 @@
   {{ object.name }} | vgarchive.run
 {% endblock title %}
 {% block content %}
-  <div class="hero-bg-gradient"
+  <div class="hero-bg"
        style="background-image:url('{{ object.banner.url }}')">
-    <div class="hero-overlay bg-opacity-60 bg-base-100"></div>
-    <div class="hero-content flex-col lg:flex-row">
-      <div class="flex flex-col lg:mx-20 lg:mr-40">
-        <h1 class="text-7xl font-mono lg:text-6xl self-end py-5 ml-20 mt-5 w-full font-bold text-base-content text-nowrap bg-base-100 bg-opacity-60 rounded-md text-center">
-          {{ object.short_name }}
-        </h1>
-      </div>
-      <div class="flex flex-col w-full lg:ml-10 space-y-5">
-        <div class="flex flex-col lg:flex-row lg:space-x-5 space-y-5 lg:space-y-0">
+    <div class="hero-bg-gradient">
+      <div class="hero-overlay bg-opacity-60 bg-base-100"></div>
+      <div class="hero-content flex-col lg:flex-row">
+        <div class="flex flex-col lg:mx-20 lg:mr-40">
+          <h1 class="text-7xl font-mono lg:text-6xl self-end py-5 ml-20 mt-5 w-full font-bold text-base-content text-nowrap bg-base-100 bg-opacity-60 rounded-md text-center">
+            {{ object.short_name }}
+          </h1>
+        </div>
+        <div class="flex flex-col w-full lg:ml-10 space-y-5">
           {% if object.homepage %}
             <a class="hero-button btn-info" href="{{ object.homepage }}">
-              {% icon 'globe2' extra_classes="hero-button-icon" aria_label="Marathon Website Icon" tabindex="-1" %}
-              <p class="hero-button-text">Website</p>
+              {% icon 'globe2' extra_classes="text-[2.25rem] hero-button-icon" aria_label="Marathon Website Icon" tabindex="-1" %}
+              <p class="hero-button-text-unhidden">Website</p>
             </a>
           {% endif %}
-          {% if object.youtube %}
+          {% if object.youtube_playlist %}
             <a class="hero-button btn-error"
                role="button"
-               href="https://youtube.com/{{ object.youtube }}">
-              {% icon 'youtube' extra_classes="hero-button-icon" aria_label="Youtube Icon" tabindex="-1" %}
-              <p class="hero-button-text">Youtube</p>
+               href="https://youtube.com/{{ object.youtube_playlist }}">
+              {% icon 'youtube' extra_classes="text-[2.5rem] hero-button-icon" aria_label="Youtube Icon" tabindex="-1" %}
+              <p class="hero-button-text-unhidden">VOD Playlist</p>
             </a>
           {% endif %}
-        </div>
-        <div class="card stats bg-success bg-opacity-70 text-success-content items-center text-center lg:items-start lg:text-left lg:mr-20 my-5 lg:max-w-sm">
-          <div class="stat card-body">
-            <div class="stat-title card-title text-5xl lg:text-lg justify-center lg:justify-start text-success-content">
-              {% icon 'cash-stack' extra_classes="text-xl lg:text-2xl text-success-content" aria_label="Donations Icon" tabindex="-1" %}
-              Total Raised
+          <div class="bg-opacity-0 hero-stat my-5 lg:max-w-sm">
+            <div class="stat bg-success bg-opacity-70 card-body">
+              <div class="hero-stat-title">
+                {% icon 'cash-stack' extra_classes="hero-stat-icon" aria_label="Donations Icon" tabindex="-1" %}
+                Total Raised
+              </div>
+              <a class="stat-value">${{ object.donation_total|floatformat:"-2g" }}</a>
             </div>
-            <div class="stat-value font-mono">${{ object.donation_total|floatformat:"-2g" }}</div>
           </div>
-        </div>
-        <div class="card stats bg-info bg-opacity-70 text-success-content items-center text-center lg:items-start lg:text-left lg:float-right lg:mr-20 lg:max-w-xs">
-          <div class="stat card-body">
-            <div class="stat-title card-title text-5xl lg:text-lg justify-center lg:justify-start text-success-content">
-              {% icon 'people-fill' extra_classes="text-xl lg:text-2xl text-success-content" aria_label="Donators Icon" tabindex="-1" %}
-              Total Donations
+          <div class="bg-opacity-0 hero-stat lg:float-right lg:max-w-xs">
+            <div class="stat bg-info bg-opacity-70 card-body">
+              <div class="hero-stat-title">
+                {% icon 'people-fill' extra_classes="hero-stat-icon" aria_label="Donators Icon" tabindex="-1" %}
+                Donation Count
+              </div>
+              <a class="stat-value link link-success-content"
+                 href="{object.donations}">{{ object.num_donations|floatformat:"0g" }}</a>
             </div>
-            <div class="stat-value font-mono">{{ object.num_donations|floatformat:"0g" }}</div>
           </div>
         </div>
       </div>

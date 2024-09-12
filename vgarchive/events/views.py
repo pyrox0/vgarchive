@@ -8,6 +8,8 @@ import django_tables2 as tables
 
 from .models import Event
 
+from vgarchive.views import VGArchiveMetaTable
+
 
 class EventDetailView(DetailView):
     model = Event
@@ -20,9 +22,8 @@ class EventDetailView(DetailView):
 
 
 class EventTable(tables.Table):
-    class Meta:
+    class Meta(VGArchiveMetaTable):
         model = Event
-        template_name = "vgarchive/table-template.html"
         order_by = "-name"
         sequence = (
             "name",
@@ -44,12 +45,6 @@ class EventTable(tables.Table):
             "source",
             "start_datetime",
         )
-        attrs = {  # noqa
-            "class": "table table-lg border-collapse lg:mx-5 border-2 border-base-200 lg:[max-width:calc(100vw-2.5rem)] overflow-x-auto",
-            "thead": {"class": "py-4 text-xl border-b-2"},
-            "td": {"class": "text-xl"},
-            "th": {"class": "border-x-2 border-x-base-200"},
-        }
 
     name = tables.Column(verbose_name="Event Name")
     donation_total = tables.Column(localize=True)
