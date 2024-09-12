@@ -58,31 +58,30 @@
     @apply carousel-item card card-compact bg-base-200 max-w-sm;
   }
 
+  /* Order icons in table headers */
   .bs-th-icon {
     font-family: "bootstrap-icons";
     position: relative;
     top: 0.2rem;
   }
-
   th.orderable > a::after {
     @apply bs-th-icon;
     font-size: 1.3rem;
     display: inline-block;
     content: "\00a0\00a0\F127";
   }
-
   th.orderable.desc > a::after {
     @apply bs-th-icon;
     font-size: 1.3rem;
     content: "\00a0\00a0\F128";
   }
-
   th.orderable.asc > a::after {
     @apply bs-th-icon;
     font-size: 1.3rem;
     content: "\00a0\00a0\F148";
   }
 
+  /* External links that are not icons should have this class */
   .external-link {
     @apply link;
   }
