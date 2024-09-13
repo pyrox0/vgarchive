@@ -20,6 +20,10 @@ class CharityDetailView(DetailView):
         # Get context
         context = super().get_context_data(**kwargs)
         context["events"] = self.object.event_set.all()
+        context["title"] = self.object.name + " | VGArchive"
+        context["description"] = (
+            f"Details page for the {self.object.name} charity on VGArchive, the open charity video game marathon search engine."
+        )
 
         return context
 

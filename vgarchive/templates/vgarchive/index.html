@@ -1,4 +1,9 @@
 {% extends "vgarchive/base.html" %}
+{% block head %}
+  {{ block.super }}
+  {% meta_description content="VGArchive, the open charity video game marathon search engine." %}
+  {% meta_title content="VGArchive" %}
+{% endblock head %}
 {% block content %}
   <br>
   <h1 class="mt-20 ml-20 text-7xl text-mauve my-5">vgarchive.run</h1>

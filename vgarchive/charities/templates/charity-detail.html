@@ -1,8 +1,10 @@
 {% extends "vgarchive/base.html" %}
 {% load icons %}
-{% block title %}
-  {{ object.name }} | vgarchive.run
-{% endblock title %}
+{% block head %}
+  {{ block.super }}
+  {% meta_description content=description %}
+  {% meta_title content=title %}
+{% endblock head %}
 {% block content %}
   <div class="hero-bg" style="background-image:url('{{ object.icon.url }}')">
     <div class="hero-bg-gradient">

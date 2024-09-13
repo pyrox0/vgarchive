@@ -1,27 +1,33 @@
 {% load i18n %}
 {% get_current_language as LANGUAGE_CODE %}
 <!DOCTYPE html>
+{# djlint:off #}
+{# This throws an error about not having a title tag. #}
+{# We define the title in the title partial, so we're fine. #}
 <html lang="{{ LANGUAGE_CODE }}">
-  <head>
+{# djlint:on #}
+<head>
+  {% block head %}
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta charset="utf-8" />
     <meta name="keywords"
           content="video games,archive,speedrun,games done quick,gdq,gaming" />
-    <meta name="description" content="Charity Marathon VOD Search and Archive" />
+    <meta property="og.type" content="website" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="og:url" content="{{ request.build_absolute_uri }}" />
+    <meta name="og:site_name" content="vgarchive" />
     {% head %}
-    <title>
-      {% block title %}
-        vgarchive.run
-      {% endblock title %}
-    </title>
-  </head>
-  <body class="bg-base-100 max-w-screen text-base-content">
-    {% navbar %}
+  {% endblock head %}
+</head>
+<body class="bg-base-100 max-w-screen text-base-content">
+  {% navbar %}
+  <main>
     {% block content %}
     {% endblock content %}
-    {% footer %}
-  </body>
-  <script>
+  </main>
+  {% footer %}
+</body>
+<script>
 		var checkBox = document.getElementById('theme-controller');
 
 		var theme = window.localStorage.getItem('data-theme');
@@ -38,5 +44,5 @@
 		  }
 		});
 	
-  </script>
+</script>
 </html>

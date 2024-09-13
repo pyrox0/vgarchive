@@ -1,8 +1,10 @@
 {% extends "vgarchive/base.html" %}
 {% load django_tables2 %}
-{% block title %}
-  Events | vgarchive.run
-{% endblock title %}
+{% block head %}
+  {{ block.super }}
+  {% meta_description content="VGArchive events list" %}
+  {% meta_title content="Events | VGArchive" %}
+{% endblock head %}
 {% block content %}
   <h1 class="text-5xl my-10 md:ml-10">Events</h1>
   {% render_table table %}

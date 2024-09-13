@@ -1,5 +1,10 @@
 {% extends "vgarchive/base.html" %}
 {% load icons %}
+{% block head %}
+  {{ block.super }}
+  {% meta_description content=object.description %}
+  {% meta_title content=title %}
+{% endblock head %}
 {% block title %}
   {{ object.name }} | vgarchive.run
 {% endblock title %}

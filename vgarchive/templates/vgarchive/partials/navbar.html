@@ -1,8 +1,8 @@
 {% load icons %}
 <nav class="navbar bg-base-200 border-b-2 border-accent">
-  <div class="navbar-start lg:w-[32rem]">
+  <div class="navbar-start w-full">
     <a href="{% url 'home' %}" role="button" aria-label="Home">
-      <button class="btn btn-primary btn-block btn-wide"
+      <button class="btn btn-primary btn-block w-[8rem] lg:w-[16rem]"
               aria-hidden="true"
               tabindex="-1">
         {% icon 'joystick' extra_classes='float-start text-3xl mt-0.5' %}
@@ -10,7 +10,7 @@
       </button>
     </a>
   </div>
-  <div class="hidden lg:block navbar-center">
+  <div class="hidden md:justify-center md:flex navbar-center">
     <ul class="menu menu-horizontal mx-2 text-base-content text-xl xl:text-2xl">
       <li>
         <a class="navbar-tab" href="{% url 'charity-list' %}">Charities</a>
@@ -28,51 +28,50 @@
       {% endcomment %}
     </ul>
   </div>
+  {% comment %}
   <div class="lg:navbar-end">
-    <form method="get"
-          action="{% url 'search' %}"
-          class="-mt-[0.35rem] -mb-1.5 hover:bg-transparent active:bg-transparent">
-      <label class="input input-md input-bordered flex items-center"
-             aria-label="Search Bar">
-        <input type="text"
-               placeholder="Search"
-               class="placeholder:text-base-content placeholder:text-lg w-96" />
+    <form method="get" action="{% url 'search' %}" class="-mt-[0.35rem] -mb-1.5 hover:bg-transparent active:bg-transparent">
+      <label class="input input-md input-bordered flex items-center" aria-label="Search Bar">
+        <input type="text" placeholder="Search" class="placeholder:text-base-content placeholder:text-lg w-96" />
         {% icon 'search' extra_classes="text-2xl text-neutral" tabindex="-1" %}
       </label>
     </form>
   </div>
-  <div class="navbar-end lg:hidden">
-    <div class="dropdown dropdown-end">
-      <div tabindex="0" role="button" class="btn btn-ghost">
-        {% icon 'list' extra_classes="text-3xl text-base-content" aria_label="Menu" %}
-      </div>
-      <ul tabindex="0"
-          class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-        <li>
-          <a class="my-2 rounded-none text-2xl" href="{% url 'charity-list' %}">Charities</a>
-        </li>
-        <li>
-          <a class="my-2 rounded-none text-2xl"
-             href="{% url 'organization-list' %}">Organizations</a>
-        </li>
-        <li>
-          <a class="my-2 rounded-none text-2xl" href="{% url 'event-list' %}">Events</a>
-        </li>
-        {% comment %}
+  {% endcomment %}
+  <div class="navbar-end flex flex-initial">
+    <div class="md:hidden">
+      <div class="dropdown dropdown-end">
+        <div tabindex="0" role="button" class="btn btn-ghost">
+          {% icon 'list' extra_classes="text-3xl text-base-content" aria_label="Menu" %}
+        </div>
+        <ul tabindex="0"
+            class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+          <li>
+            <a class="my-2 rounded-none text-2xl" href="{% url 'charity-list' %}">Charities</a>
+          </li>
+          <li>
+            <a class="my-2 rounded-none text-2xl"
+               href="{% url 'organization-list' %}">Organizations</a>
+          </li>
+          <li>
+            <a class="my-2 rounded-none text-2xl" href="{% url 'event-list' %}">Events</a>
+          </li>
+          {% comment %}
         <li>
           <a class="my-2 rounded-none text-2xl" href="{% url 'run-list' %}">Runs</a>
         </li>
-        {% endcomment %}
-      </ul>
+          {% endcomment %}
+        </ul>
+      </div>
     </div>
+    <label class="swap btn btn-base-100" aria-label="Theme Switcher">
+      {# this hidden checkbox controls the state #}
+      <input type="checkbox"
+             id="theme-controller"
+             class="theme-controller"
+             value="latte" />
+      {% icon 'sun-fill' extra_classes="text-3xl text-neutral stroke-2 swap-off" tabindex="-1" %}
+      {% icon 'moon' extra_classes="text-3xl text-neutral stroke-2 swap-on" tabindex="-1" %}
+    </label>
   </div>
-  <label class="swap btn btn-base-100" aria-label="Theme Switcher">
-    {# this hidden checkbox controls the state #}
-    <input type="checkbox"
-           id="theme-controller"
-           class="theme-controller"
-           value="latte" />
-    {% icon 'sun' extra_classes="text-3xl text-neutral stroke-2 swap-off" tabindex="-1" %}
-    {% icon 'moon' extra_classes="text-3xl text-neutral stroke-2 swap-on" tabindex="-1" %}
-  </label>
 </nav>

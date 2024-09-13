@@ -1,9 +1,11 @@
 {% extends "vgarchive/base.html" %}
 {% load icons %}
 {% load django_tables2 %}
-{% block title %}
-  Organizations | vgarchive.run
-{% endblock title %}
+{% block head %}
+  {{ block.super }}
+  {% meta_description content="List of all searchable organizations on VGArchive, the open charity video game marathon search engine." %}
+  {% meta_title content="Organizations | VGArchive" %}
+{% endblock head %}
 {% block content %}
   <h1 class="text-3xl my-10 md:ml-10">Organizations</h1>
   {% render_table table %}

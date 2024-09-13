@@ -18,6 +18,7 @@ class EventDetailView(DetailView):
     def get_context_data(self, **kwargs) -> dict:  # noqa
         context = super().get_context_data(**kwargs)
         context["runs"] = self.object.run_set.all()
+        context["title"] = self.object.name + " | VGArchive"
         return context
 
 

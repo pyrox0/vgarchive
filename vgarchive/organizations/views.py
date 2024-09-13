@@ -22,6 +22,7 @@ class OrganizationDetailView(DetailView):
         context["charities"] = Charity.objects.filter(  # type:ignore
             id__in=context["events"].values_list("charity", flat=True)
         )
+        context["title"] = self.object.name + " | VGArchive"
         return context
 
 
