@@ -138,3 +138,12 @@ DJANGO_ICONS = {
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 COMPRESS_ENABLED = True
+
+COMPRESS_FILTERS = {
+    "css": [
+        "compressor.filters.css_default.CssAbsoluteFilter",
+        "compressor.filters.cssmin.rCSSMinFilter",
+        "refreshcss.filters.RefreshCSSFilter",
+    ],
+    "js": ["compressor.filters.jsmin.rJSMinFilter"],
+}
