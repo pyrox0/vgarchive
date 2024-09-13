@@ -7,7 +7,7 @@
 
 @layer utilities {
   .navbar-tab {
-    @apply mr-2 border-b-2 border-base-content rounded-none;
+    @apply btn btn-outline text-2xl mx-1;
   }
   /* Hero images get this gradient to fade out at the end */
   .hero-bg {
@@ -84,6 +84,26 @@
   /* External links that are not icons should have this class */
   .external-link {
     @apply link;
+  }
+
+  /* List page filter dropdowns */
+  .filter-dropdown {
+    @apply dropdown lg:ml-5;
+  }
+  .filter-summary {
+    @apply text-xl btn m-1 btn-outline;
+  }
+  details.filter-dropdown > summary::after {
+    font-family: "bootstrap-icons";
+    position: relative;
+    top: 0.1rem;
+    content: "\F229";
+  }
+  details[open].filter-dropdown > summary::after {
+    font-family: "bootstrap-icons";
+    position: relative;
+    top: 0.1rem;
+    content: "\F235";
   }
 
   .external-link::after {
