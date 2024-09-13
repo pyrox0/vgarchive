@@ -47,8 +47,6 @@ INSTALLED_APPS = [
     "compressor",
     # HTML Minifying
     "django_minify_html",
-    # Bakery
-    "bakery",
 ]
 
 TAILWIND_APP_NAME = "vgarchive.theme"
@@ -140,12 +138,3 @@ DJANGO_ICONS = {
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 COMPRESS_ENABLED = True
-
-# Bakery
-
-BUILD_DIR = f"{BASE_DIR}/built"
-
-BAKERY_VIEWS = [
-    "vgarchive.events.views.EventListView",
-    "vgarchive.events.views.EventDetailView",
-]
