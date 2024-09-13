@@ -1,11 +1,12 @@
 import locale
 
-
 from django.views.generic.detail import DetailView
 from django.utils.html import format_html
 from django.urls import reverse
 
 import django_tables2 as tables
+import django_filters as filters
+import django_filters.views as filter_views
 
 from .models import Charity
 from vgarchive.views import VGArchiveMetaTable
@@ -56,7 +57,16 @@ class CharityTable(tables.Table):
         )
 
 
-class CharityListView(tables.SingleTableView):
+class CharityFilter(filters.FilterSet):
+    class Meta:
+        model = Charity
+        fields = {"name": ["icontains"], "founded": ["gt"]}  # noqa
+        exclude = "icon"
+
+
+class CharityListView(tables.SingleTableMixin, filter_views.FilterView):  # type:ignore
     model = Charity
     table_class = CharityTable
     template_name = "charity-list.html"
+
+    filterset_class = CharityFilter

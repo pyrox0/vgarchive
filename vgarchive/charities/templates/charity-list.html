@@ -5,5 +5,14 @@
 {% endblock title %}
 {% block content %}
   <h1 class="text-5xl my-10 md:ml-10">Charities</h1>
+  {% if filter %}
+    <details class="filter-dropdown">
+      <summary class="filter-summary btn-primary">Filters</summary>
+      <form action="" method="get">
+        {{ filter.form }}
+        <button type="submit" class="btn">Filter</button>
+      </form>
+    </details>
+  {% endif %}
   {% render_table table %}
 {% endblock content %}
