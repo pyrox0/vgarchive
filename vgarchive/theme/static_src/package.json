@@ -14,8 +14,8 @@
   "devDependencies": {
     "@catppuccin/daisyui": "^1.1.1",
     "@catppuccin/tailwindcss": "^0.1.6",
-    "@fullhuman/postcss-purgecss": "^6.0.0",
     "cssnano": "^7.0.6",
+    "cssnano-preset-default": "^7.0.6",
     "daisyui": "^4.12.10",
     "postcss": "^8.4.45",
     "postcss-import": "^16.1.0",
