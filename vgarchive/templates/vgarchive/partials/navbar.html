@@ -31,7 +31,7 @@
   <div class="lg:navbar-end">
     <form method="get"
           action="{% url 'search' %}"
-          class="-mt-[0.35rem] -mb-3.5 hover:bg-transparent active:bg-transparent">
+          class="-mt-[0.35rem] -mb-1.5 hover:bg-transparent active:bg-transparent">
       <label class="input input-md input-bordered flex items-center"
              aria-label="Search Bar">
         <input type="text"
@@ -44,7 +44,7 @@
   <div class="navbar-end lg:hidden">
     <div class="dropdown dropdown-end">
       <div tabindex="0" role="button" class="btn btn-ghost">
-        {% icon 'list' extra_classes="size-10 text-base-content" aria_label="Menu" %}
+        {% icon 'list' extra_classes="text-3xl text-base-content" aria_label="Menu" %}
       </div>
       <ul tabindex="0"
           class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
@@ -66,13 +66,13 @@
       </ul>
     </div>
   </div>
-  <label class="swap mt-1 btn btn-base-100" aria-label="Theme Switcher">
+  <label class="swap btn btn-base-100" aria-label="Theme Switcher">
     {# this hidden checkbox controls the state #}
     <input type="checkbox"
            id="theme-controller"
            class="theme-controller"
            value="latte" />
-    {% icon 'sun' extra_classes="text-2xl text-neutral stroke-2 swap-off" tabindex="-1" %}
-    {% icon 'moon' extra_classes="text-2xl text-neutral stroke-2 swap-on" tabindex="-1" %}
+    {% icon 'sun' extra_classes="text-3xl text-neutral stroke-2 swap-off" tabindex="-1" %}
+    {% icon 'moon' extra_classes="text-3xl text-neutral stroke-2 swap-on" tabindex="-1" %}
   </label>
 </nav>
