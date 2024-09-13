@@ -41,7 +41,15 @@
             buildInputs =
               with pkgs;
               [
-                python3
+                (python3.withPackages (
+                  ps: with ps; [
+                    brotli
+                    fonttools
+                    tinycss2
+                    uharfbuzz
+                    zopfli
+                  ]
+                ))
                 caddy
                 djlint
                 just
