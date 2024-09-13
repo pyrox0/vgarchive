@@ -83,6 +83,8 @@ STATICFILES_FINDERS = [
 
 # Force toolbar to show in dev
 def show_toolbar(request):
+    if request.META["HTTP_HOST"] != "localhost":
+        return False
     return True
 
 
