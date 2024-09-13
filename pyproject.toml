@@ -59,13 +59,13 @@ use_gitignore = true
 [tool.pyright]
 venvPath = "."
 venv = ".venv"
-exclude = ["**/migrations/*.py", "manage.py"]
+exclude = ["**/migrations/*.py", "manage.py", "scripts/*.py"]
 
 [tool.ruff]
 indent-width = 4
 
 [tool.ruff.format]
-exclude = ["**/migrations/*.py", "manage.py"]
+exclude = ["**/migrations/*.py", "manage.py", "scripts/*.py"]
 line-ending = "lf"
 indent-style = "space"
 
@@ -105,6 +105,7 @@ ignore = ["ANN003", "COM812"]
 "vgarchive/settings/*.py" = ["ALL"]
 "vgarchive/**/migrations/*.py" = ["ALL"]
 "manage.py" = ["ALL"]
+"scripts/*.py" = ["ALL"]
 
 [tool.setuptools]
 packages = ["vgarchive"]
