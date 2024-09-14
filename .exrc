@@ -1,1 +1,1 @@
-autocmd BufNewFile,BufRead *.ini setfiletype django
+autocmd BufNewFile,BufRead *.html setfiletype djangohtml
