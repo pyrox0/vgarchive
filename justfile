@@ -12,6 +12,10 @@ tw:
     ./src/styles.css \
     -o ../static/css/dist/styles.css
 
+fonts:
+  python scripts/bi-css.py
+  python scripts/min-fonts.py
+
 prod:
   hypercorn -c hypercorn.toml --workers 8 vgarchive.asgi:app
 
