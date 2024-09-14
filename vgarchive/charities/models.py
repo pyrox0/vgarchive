@@ -13,6 +13,9 @@ class Charity(models.Model):
         homepage: URL for the charity's homepage
     """
 
+    class Meta:
+        verbose_name_plural = "Charities"
+
     id = models.CharField("ID", primary_key=True, max_length=200)
     name = models.CharField("Display Name", max_length=200)
     short_name = models.CharField("Short Name", max_length=20, blank=True)
