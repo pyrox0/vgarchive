@@ -45,8 +45,6 @@ INSTALLED_APPS = [
     "django_tables2",
     # Compression
     "compressor",
-    # HTML Minifying
-    "django_minify_html",
 ]
 
 TAILWIND_APP_NAME = "vgarchive.theme"
@@ -55,8 +53,6 @@ MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     # Compression
     "compression_middleware.middleware.CompressionMiddleware",
-    # Minify HTML
-    "django_minify_html.middleware.MinifyHtmlMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",

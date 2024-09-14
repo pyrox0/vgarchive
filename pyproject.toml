@@ -38,7 +38,6 @@ dependencies = [
   "django-tables2>=2.7.0",
   "django-icons>=24.3",
   "django-compressor>=4.5",
-  "django-minify-html>=1.9.0",
   "django-compression-middleware>=0.5.0",
   "django-icons-bootstrap-icons~=1.0.0",
   "django-filter>=24.1",

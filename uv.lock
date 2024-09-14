@@ -206,20 +206,6 @@ wheels = [
 ]
 
 [[package]]
-name = "django-minify-html"
-version = "1.9.0"
-source = { registry = "https://pypi.org/simple" }
-dependencies = [
-    { name = "asgiref" },
-    { name = "django" },
-    { name = "minify-html" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/4d/64/b4bd75960a8ed374a0c21b22a54bbe4b59087d8909cd75590c31468d05db/django_minify_html-1.9.0.tar.gz", hash = "sha256:d67c6455d6ea7907a403e22888b4e810a997d51c0eaab4f3539accc6ff528d4f", size = 10082 }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/6a/2c/5b1286c2ee8f7a53e39832ba5b5fc7c733c456e6fcfdadd821074bc8b4d1/django_minify_html-1.9.0-py3-none-any.whl", hash = "sha256:c5c66c9c8bdf5e03aea4e680e90b155a20d90667409efceea521e048fa9f0918", size = 7011 },
-]
-
-[[package]]
 name = "django-tables2"
 version = "2.7.0"
 source = { registry = "https://pypi.org/simple" }
@@ -310,19 +296,6 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/5a/2a/4747bff0a17f7281abe73e955d60d80aae537a5d203f417fa1c2e7578ebb/hyperframe-6.0.1.tar.gz", hash = "sha256:ae510046231dc8e9ecb1a6586f63d2347bf4c8905914aa84ba585ae85f28a914", size = 25008 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/d7/de/85a784bcc4a3779d1753a7ec2dee5de90e18c7bcf402e71b51fcf150b129/hyperframe-6.0.1-py3-none-any.whl", hash = "sha256:0ec6bafd80d8ad2195c4f03aacba3a8265e57bc4cff261e802bf39970ed02a15", size = 12389 },
-]
-
-[[package]]
-name = "minify-html"
-version = "0.15.0"
-source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/0b/8a/c921cd4b3e364c871be418c1694b315e5fa823eb8180d89f99d9a61aa8fe/minify_html-0.15.0.tar.gz", hash = "sha256:cf4c36b6f9af3b0901bd2a0a29db3b09c0cdf0c38d3dde28e6835bce0f605d37", size = 96948 }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/30/a7/b0a1c3a3c10c00b28732b1d8e54fbe2e0d7f586397592d35952ca7ec156c/minify_html-0.15.0-cp312-cp312-macosx_10_12_x86_64.whl", hash = "sha256:2a9aef71b24c3d38c6bece2db3bf707443894958b01f1c27d3a6459ba4200e59", size = 2307989 },
-    { url = "https://files.pythonhosted.org/packages/09/df/d011e38521551ddab4d31d389691aa5d3eaf19cfbab993a9d366032a6608/minify_html-0.15.0-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:70251bd7174b62c91333110301b27000b547aa2cc06d4fe6ba6c3f11612eecc9", size = 2164108 },
-    { url = "https://files.pythonhosted.org/packages/0f/5a/9b53f0215237f1693242cd6fbafe73dd88050454f2715b6d5123ca444da0/minify_html-0.15.0-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:1056819ea46e9080db6fed678d03511c7e94c2a615e72df82190ea898dc82609", size = 2240974 },
-    { url = "https://files.pythonhosted.org/packages/a0/ae/786cd6775d8891fe2a4b5774753a00c95fd6ec3013086c92c2970c4371dc/minify_html-0.15.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:ea315ad6ac33d7463fac3f313bba8c8d9a55f4811971c203eed931203047e5c8", size = 2395919 },
-    { url = "https://files.pythonhosted.org/packages/90/f0/23ea4cbaff3f83c4f8802bfda2aebbdd02fb84595567aeb86be84f6aa055/minify_html-0.15.0-cp312-none-win_amd64.whl", hash = "sha256:01ea40dc5ae073c47024f02758d5e18e55d853265eb9c099040a6c00ab0abb99", size = 2382578 },
 ]
 
 [[package]]
@@ -512,7 +485,6 @@ dependencies = [
     { name = "django-filter" },
     { name = "django-icons" },
     { name = "django-icons-bootstrap-icons" },
-    { name = "django-minify-html" },
     { name = "django-tables2" },
     { name = "django-tailwind" },
     { name = "docutils" },
@@ -538,7 +510,6 @@ requires-dist = [
     { name = "django-filter", specifier = ">=24.1" },
     { name = "django-icons", specifier = ">=24.3" },
     { name = "django-icons-bootstrap-icons", specifier = "~=1.0.0" },
-    { name = "django-minify-html", specifier = ">=1.9.0" },
     { name = "django-tables2", specifier = ">=2.7.0" },
     { name = "django-tailwind", specifier = "~=3.8.0" },
     { name = "docutils", specifier = ">=0.19.0" },

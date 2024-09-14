@@ -26,8 +26,6 @@ INSTALLED_APPS = common.INSTALLED_APPS + [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
-    # Minify HTML
-    "django_minify_html.middleware.MinifyHtmlMiddleware",
     # Compression
     "compression_middleware.middleware.CompressionMiddleware",
     # Hot reload
@@ -37,8 +35,6 @@ MIDDLEWARE = [
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
-    # Minify HTML
-    "django_minify_html.middleware.MinifyHtmlMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
