@@ -29,7 +29,7 @@
           {% if object.youtube_playlist %}
             <a class="hero-button btn-error"
                role="button"
-               href="https://youtube.com/{{ object.youtube_playlist }}">
+               href="{{ object.youtube_playlist }}">
               {% icon 'youtube' extra_classes="text-[2.5rem] hero-button-icon" tabindex="-1" %}
               <p class="hero-button-text-unhidden">VOD Playlist</p>
             </a>
