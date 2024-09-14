@@ -21,7 +21,7 @@ from django.conf import settings
 
 from debug_toolbar.toolbar import debug_toolbar_urls
 
-from .views import Home, Search
+from .views import Home
 
 urlpatterns = [
     # Admindoc
@@ -29,11 +29,11 @@ urlpatterns = [
     # Admin
     path("admin/", admin_site.urls),
     # Marathons
-    re_path(r"^organization/", include("vgarchive.organizations.urls")),
-    re_path(r"^event/", include("vgarchive.events.urls")),
-    re_path(r"^charity/", include("vgarchive.charities.urls")),
-    re_path(r"^run/", include("vgarchive.runs.urls")),
-    path("search/", Search.as_view(), name="search"),
+    re_path(r"^organizations/", include("vgarchive.organizations.urls")),
+    re_path(r"^events/", include("vgarchive.events.urls")),
+    re_path(r"^charities/", include("vgarchive.charities.urls")),
+    re_path(r"^runs/", include("vgarchive.runs.urls")),
+    # path("search/", Search.as_view(), name="search"), #noqa
     # Hot reload
     path("__reload__/", include("django_browser_reload.urls")),
     # Index
