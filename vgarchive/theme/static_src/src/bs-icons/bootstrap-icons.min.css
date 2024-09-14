@@ -41,6 +41,9 @@
 .bi-discord::before {
   content: "\f300";
 }
+.bi-funnel::before {
+  content: "\f3e1";
+}
 .bi-github::before {
   content: "\f3ed";
 }

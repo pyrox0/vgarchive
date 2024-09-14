@@ -91,7 +91,7 @@
     @apply dropdown lg:ml-5;
   }
   .filter-summary {
-    @apply text-xl btn m-1 btn-outline;
+    @apply text-xl btn m-1 btn-outline mb-5;
   }
   details.filter-dropdown > summary::after {
     font-family: "bootstrap-icons";
@@ -104,6 +104,14 @@
     position: relative;
     top: 0.1rem;
     content: "\F235";
+  }
+  .filter-submit {
+    @apply my-5 lg:ml-2 text-xl;
+  }
+  .filter-submit::after {
+    display: inline-block;
+    font-family: "bootstrap-icons";
+    content: "\00a0\F3E1";
   }
 
   .external-link::after {
