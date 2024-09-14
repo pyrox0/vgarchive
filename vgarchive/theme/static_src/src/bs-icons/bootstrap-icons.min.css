@@ -2,7 +2,7 @@
 @font-face {
   font-display: block;
   font-family: bootstrap-icons;
-  src: url("/static/fonts/bootstrap-icons.min.woff2") format("woff2");
+  src: url("/static/fonts/bootstrap-icons.min.woff2?v=1726354118") format("woff2");
 }
 .bi::before,
 [class*=" bi-"]::before,
