@@ -10,14 +10,8 @@
   {% if filter %}
     <details class="filter-dropdown">
       <summary class="filter-summary btn-primary">Filters</summary>
-      <form action="" method="get" class="text-xl">
-        {% comment %}
-        {{ filter.form.name.as_field_group }}
-        <p class="my-2"></p>
-        {{ filter.form.founded.as_field_group }}
-        {% endcomment %}
+      <form action="" method="get" class="lg:ml-5 text-xl">
         {{ filter.form }}
-        <br>
         <button type="submit" class="filter-submit btn btn-outline btn-success">Filter</button>
       </form>
     </details>

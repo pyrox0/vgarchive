@@ -1,3 +1,4 @@
+from django import forms
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import FormView
 
@@ -10,6 +11,10 @@ class VGArchiveMetaTable:
         "td": {"class": "text-xl"},
         "th": {"class": "border-x-2 border-x-base-200"},
     }
+
+
+class VGArchiveForm(forms.Form):
+    template_name = "django/forms/div.html"  # type:ignore
 
 
 class Home(TemplateView):

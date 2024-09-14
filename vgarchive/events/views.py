@@ -1,14 +1,17 @@
 import locale
 
+from django.db.models import Q
 from django.views.generic import DetailView
 from django.utils.html import format_html
 from django.urls import reverse
 
 import django_tables2 as tables
+import django_filters as filters
+import django_filters.views as filter_views
 
 from .models import Event
 
-from vgarchive.views import VGArchiveMetaTable
+from vgarchive.views import VGArchiveMetaTable, VGArchiveForm
 
 
 class EventDetailView(DetailView):
@@ -109,7 +112,26 @@ class EventTable(tables.Table):
         return record.charity
 
 
-class EventListView(tables.SingleTableView):
+class EventFilter(filters.FilterSet):
+    class Meta:
+        model = Event
+        form = VGArchiveForm
+        fields = ("name", "charity", "organization")
+        exclude = ("homepage", "schedule", "youtube_playlist")
+
+    name = filters.CharFilter(
+        label="Name:", lookup_expr="icontains", method="filter_name"
+    )
+
+    def filter_name(self, queryset, name, value):  # noqa
+        return queryset.filter(
+            Q(name__icontains=value) | Q(short_name__icontains=value)
+        )
+
+
+class EventListView(tables.SingleTableMixin, filter_views.FilterView):  # type:ignore
     model = Event
     table_class = EventTable
     template_name = "event-list.html"
+
+    filterset_class = EventFilter

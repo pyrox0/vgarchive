@@ -22,12 +22,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 # Application definition
 
 INSTALLED_APPS = [
+    # Base Django apps
     "django.contrib.admin",
     "django.contrib.admindocs",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
+    "django.forms",
     # All our custom apps
     "vgarchive",
     "vgarchive.charities",
@@ -143,3 +145,12 @@ COMPRESS_FILTERS = {
     ],
     "js": ["compressor.filters.jsmin.rJSMinFilter"],
 }
+
+# django-filter
+
+FILTERS_EMPTY_CHOICE_LABEL = ""
+FILTERS_NULL_CHOICE_LABEL = None
+
+# Django Forms
+
+FORM_RENDERER = "django.forms.renderers.TemplatesSetting"

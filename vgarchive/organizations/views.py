@@ -5,10 +5,12 @@ from django.utils.html import format_html
 from django.urls import reverse
 
 import django_tables2 as tables
+import django_filters as filters
+import django_filters.views as filter_views
 
 from .models import Organization
 from vgarchive.charities.models import Charity
-from vgarchive.views import VGArchiveMetaTable
+from vgarchive.views import VGArchiveMetaTable, VGArchiveForm
 
 
 class OrganizationDetailView(DetailView):
@@ -83,7 +85,26 @@ class OrganizationTable(tables.Table):
         )
 
 
-class OrganizationListView(tables.SingleTableView):
+BOOLEAN_CHOICES = (
+    (True, "Yes"),
+    (False, "No"),
+)
+
+
+class OrganizationFilter(filters.FilterSet):
+    class Meta:
+        model = Organization
+        form = VGArchiveForm
+        fields = ("name", "active", "donation_total")
+        exclude = ("homepage", "youtube", "twitter", "twitch")
+
+    donation_total = filters.NumberFilter(label="Donation Total:")
+    active = filters.ChoiceFilter(label="Active?:", choices=BOOLEAN_CHOICES)
+
+
+class OrganizationListView(tables.SingleTableMixin, filter_views.FilterView):  # type:ignore
     model = Organization
     table_class = OrganizationTable
     template_name = "organization-list.html"
+
+    filterset_class = OrganizationFilter

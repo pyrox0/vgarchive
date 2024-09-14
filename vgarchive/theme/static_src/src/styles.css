@@ -85,6 +85,15 @@
   .external-link {
     @apply link;
   }
+  .external-link::after {
+    display: inline-block;
+    font-family: "bootstrap-icons";
+    font-size: 0.8rem;
+    content: "\00a0\00a0\F1C5";
+    position: relative;
+    bottom: 0.1rem;
+    text-decoration: none;
+  }
 
   /* List page filter dropdowns */
   .filter-dropdown {
@@ -106,21 +115,17 @@
     content: "\F235";
   }
   .filter-submit {
-    @apply my-5 lg:ml-2 text-xl;
+    @apply my-5 text-xl;
   }
   .filter-submit::after {
     display: inline-block;
     font-family: "bootstrap-icons";
     content: "\00a0\F3E1";
   }
-
-  .external-link::after {
-    display: inline-block;
-    font-family: "bootstrap-icons";
-    font-size: 0.8rem;
-    content: "\00a0\00a0\F1C5";
-    position: relative;
-    bottom: 0.1rem;
-    text-decoration: none;
+  .filter-field {
+    @apply lg:mb-3 lg:ml-2 text-xl;
+  }
+  .filter-textbox {
+    @apply filter-field input input-md input-bordered;
   }
 }

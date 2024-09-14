@@ -9,7 +9,7 @@ import django_filters as filters
 import django_filters.views as filter_views
 
 from .models import Charity
-from vgarchive.views import VGArchiveMetaTable
+from vgarchive.views import VGArchiveMetaTable, VGArchiveForm
 
 
 class CharityDetailView(DetailView):
@@ -64,8 +64,12 @@ class CharityTable(tables.Table):
 class CharityFilter(filters.FilterSet):
     class Meta:
         model = Charity
-        fields = {"name": ["icontains"], "founded": ["gt"]}  # noqa
+        form = VGArchiveForm
+        fields = ("name", "founded")
         exclude = "icon"
+
+    name = filters.CharFilter(label="Name:", lookup_expr="icontains")
+    founded = filters.NumberFilter(label="Founded After:", lookup_expr="gt")
 
 
 class CharityListView(tables.SingleTableMixin, filter_views.FilterView):  # type:ignore
