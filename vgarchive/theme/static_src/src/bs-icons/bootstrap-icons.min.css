@@ -1,3 +1,4 @@
+
 @font-face {
   font-display: block;
   font-family: bootstrap-icons;
@@ -16,8 +17,7 @@
   vertical-align: -0.125em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-.bi-arrow-down-up::before {
+}.bi-arrow-down-up::before {
   content: "\f127";
 }
 .bi-arrow-down::before {
@@ -53,8 +53,8 @@
 .bi-list::before {
   content: "\f479";
 }
-.bi-moon::before {
-  content: "\f497";
+.bi-moon-fill::before {
+  content: "\f494";
 }
 .bi-people-fill::before {
   content: "\f4cf";
