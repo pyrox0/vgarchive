@@ -41,6 +41,9 @@
 .bi-discord::before {
   content: "\f300";
 }
+.bi-facebook::before {
+  content: "\f344";
+}
 .bi-funnel::before {
   content: "\f3e1";
 }
@@ -52,6 +55,9 @@
 }
 .bi-joystick::before {
   content: "\f448";
+}
+.bi-linkedin::before {
+  content: "\f472";
 }
 .bi-list::before {
   content: "\f479";

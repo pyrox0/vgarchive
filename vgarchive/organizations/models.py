@@ -13,10 +13,12 @@ class Organization(models.Model):
     active = models.BooleanField("Is Organization Active?", default=True)  # type:ignore
     icon = models.ImageField("Favicon/Icon")
     banner = models.ImageField("Banner Image")
+    tracker = models.URLField("Donation Tracker", max_length=200, blank=True)
     twitch = models.CharField("Twitch Channel", max_length=25, blank=True)
     twitter = models.CharField("Twitter Username", max_length=15, blank=True)
     youtube = models.CharField("Youtube Channel", max_length=200, blank=True)
     bluesky = models.CharField("Bluesky Account", max_length=200, blank=True)
+    facebook = models.CharField("Facebook Page", max_length=50, blank=True)
 
     def num_donations(self):
         return self.event_set.aggregate(Sum("num_donations"))["num_donations__sum"]

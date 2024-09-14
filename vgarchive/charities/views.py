@@ -10,6 +10,7 @@ import django_filters.views as filter_views
 
 from .models import Charity
 from vgarchive.views import VGArchiveMetaTable, VGArchiveForm
+from vgarchive import utils
 
 
 class CharityDetailView(DetailView):
@@ -44,6 +45,11 @@ class CharityTable(tables.Table):
     homepage = tables.Column(verbose_name="Homepage", orderable=False)
     donation_total = tables.Column(verbose_name="Donation Total", localize=True)
     founded = tables.Column(verbose_name="Year Founded", localize=False)
+    twitter = tables.Column(verbose_name="Twitter", localize=False, orderable=False)
+    youtube = tables.Column(verbose_name="Youtube", localize=False, orderable=False)
+    linkedin = tables.Column(verbose_name="Linkedin", localize=False, orderable=False)
+    bluesky = tables.Column(verbose_name="Bluesky", localize=False, orderable=False)
+    facebook = tables.Column(verbose_name="Facebook", localize=False, orderable=False)
 
     def render_homepage(self, value):  # noqa
         return format_html(
@@ -59,6 +65,21 @@ class CharityTable(tables.Table):
         return format_html(
             f'<p class="text-success font-bold">{locale.currency(value, True, True, False)}</p>'
         )
+
+    def render_twitter(self, value, record):  # noqa
+        return utils.render_twitter(record.name, value)
+
+    def render_youtube(self, value, record):  # noqa
+        return utils.render_youtube(record.name, value)
+
+    def render_bluesky(self, value, record):  # noqa
+        return utils.render_bluesky(record.name, value)
+
+    def render_facebook(self, value, record):  # noqa
+        return utils.render_facebook(record.name, value)
+
+    def render_linkedin(self, value, record):  # noqa
+        return utils.render_linkedin(record.name, value)
 
 
 class CharityFilter(filters.FilterSet):

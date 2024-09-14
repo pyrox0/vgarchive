@@ -11,6 +11,7 @@ import django_filters.views as filter_views
 from .models import Organization
 from vgarchive.charities.models import Charity
 from vgarchive.views import VGArchiveMetaTable, VGArchiveForm
+from vgarchive import utils
 
 
 class OrganizationDetailView(DetailView):
@@ -36,9 +37,12 @@ class OrganizationTable(tables.Table):
             "name",
             "active",
             "donation_total",
+            "tracker",
             "twitch",
             "twitter",
             "youtube",
+            "bluesky",
+            "facebook",
         )
         exclude = (
             "banner",
@@ -50,14 +54,15 @@ class OrganizationTable(tables.Table):
 
     name = tables.Column(verbose_name="Organization Name")
     donation_total = tables.Column(verbose_name="Donation Total", localize=True)
+    tracker = tables.Column(orderable=False)
     twitch = tables.Column(verbose_name="Twitch", orderable=False)
     twitter = tables.Column(verbose_name="Twitter", orderable=False)
     youtube = tables.Column(verbose_name="Youtube", orderable=False)
+    bluesky = tables.Column(verbose_name="Bluesky", orderable=False)
+    facebook = tables.Column(verbose_name="Facebook", orderable=False)
 
     def render_homepage(self, value):  # noqa
-        return format_html(
-            f'<a class="external-link link-info" href="{value}">Homepage</a>'
-        )
+        return utils.render_homepage(value)
 
     def render_name(self, value, record):  # noqa
         return format_html(
@@ -70,19 +75,16 @@ class OrganizationTable(tables.Table):
         )
 
     def render_twitch(self, value, record):  # noqa
-        return format_html(
-            f'<a class="link text-primary" aria-label="{record.name} Twitch Channel" href="https://twitch.tv/{value}"><i class="bi-twitch text-3xl"></i></a>'
-        )
+        return utils.render_twitch(record.name, value)
 
     def render_twitter(self, value, record):  # noqa
-        return format_html(
-            f'<a class="link text-info" aria-label="{record.name} Twitter Page" href="https://x.com/{value}"><i class="bi-twitter text-3xl"></i></a>'
-        )
+        return utils.render_twitter(record.name, value)
 
     def render_youtube(self, value, record):  # noqa
-        return format_html(
-            f'<a class="link text-error" aria-label="{record.name} Youtube Channel" href="https://youtube.com/{value}"><i class="bi-youtube text-3xl"></i></a>'
-        )
+        return utils.render_youtube(record.name, value)
+
+    def render_bluesky(self, value, record):  # noqa
+        return utils.render_bluesky(record.name, value)
 
 
 BOOLEAN_CHOICES = (
