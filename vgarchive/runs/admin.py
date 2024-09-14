@@ -7,7 +7,7 @@ from vgarchive.admin import site
 
 @admin.register(Game, site=site)
 class GameAdmin(admin.ModelAdmin):
-    pass
+    fields = ["name"]  # noqa
 
 
 @admin.register(Runner, site=site)

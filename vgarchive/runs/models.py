@@ -14,7 +14,12 @@ class Game(models.Model):
 
     """
 
+    id = models.CharField(primary_key=True, max_length=200)
     name = models.CharField("Game Name", max_length=200)
+
+    def save(self, *args, **kwargs):  # noqa
+        self.id = self.name.lower()  # type:ignore
+        super().save(*args, **kwargs)
 
     def __str__(self) -> str:  # noqa
         return self.name  # type:ignore
@@ -72,10 +77,12 @@ class Run(models.Model):
     length = models.DurationField("Run Length")
     runners = models.ManyToManyField(Runner, verbose_name="Runners")
     youtube = models.URLField("Youtube VOD Link", validators=[is_youtube_url])
-    twitch = models.URLField("Twitch VOD Link", validators=[is_twitch_url])
+    twitch = models.URLField("Twitch VOD Link", validators=[is_twitch_url], blank=True)
 
     class Meta:
         db_table_comment = "Runs"
 
     def __str__(self) -> str:  # noqa
+        if self.event.short_name:  # type:ignore
+            return f"{self.game} {self.category} at {self.event.short_name}"  # type:ignore
         return f"{self.game} {self.category} at {self.event.name}"
