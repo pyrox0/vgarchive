@@ -65,6 +65,9 @@
 .bi-search::before {
   content: "\f52a";
 }
+.bi-square-fill::before {
+  content: "\f582";
+}
 .bi-sun-fill::before {
   content: "\f5a1";
 }

@@ -2,7 +2,7 @@
 import json
 import tinycss2
 
-classes = json.load(open("./scripts/classes.json"))["classes"]
+classes = json.load(open("./scripts/classes.json"))
 
 rules = tinycss2.parse_stylesheet(
     open("./vgarchive/theme/static_src/src/bs-icons/bootstrap-icons.css").read(),

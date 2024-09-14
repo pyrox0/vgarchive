@@ -16,6 +16,10 @@ fonts:
   python scripts/bi-css.py
   python scripts/min-fonts.py
 
+add-bi-class:
+  python scripts/add-class.py
+  just fonts
+
 prod:
   hypercorn -c hypercorn.toml --workers 8 vgarchive.asgi:app
 

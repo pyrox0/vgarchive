@@ -1,11 +1,10 @@
 #!/usr/bin/env python
-# type:ignore
 
 import json
 
 from fontTools import subset, ttLib
 
-CLASSES = json.load(open("./scripts/classes.json"))["classes"]  # noqa
+CLASSES = json.load(open("./scripts/classes.json"))
 
 CLASSES = [c[3:] for c in CLASSES]
 
