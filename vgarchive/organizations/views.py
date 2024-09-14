@@ -35,7 +35,6 @@ class OrganizationTable(tables.Table):
         order_by = "-name"
         sequence = (
             "name",
-            "active",
             "donation_total",
             "tracker",
             "twitch",

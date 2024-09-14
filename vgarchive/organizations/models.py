@@ -10,7 +10,6 @@ class Organization(models.Model):
     name = models.CharField("Name", max_length=100)
     description = models.TextField("Description")
     homepage = models.URLField("Organization Homepage", blank=True)
-    active = models.BooleanField("Is Organization Active?", default=True)  # type:ignore
     icon = models.ImageField("Favicon/Icon")
     banner = models.ImageField("Banner Image")
     tracker = models.URLField("Donation Tracker", max_length=200, blank=True)
