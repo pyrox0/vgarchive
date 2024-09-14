@@ -54,6 +54,7 @@ MIDDLEWARE = [
     # Compression
     "compression_middleware.middleware.CompressionMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.http.ConditionalGetMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -139,7 +140,6 @@ COMPRESS_FILTERS = {
     "css": [
         "compressor.filters.css_default.CssAbsoluteFilter",
         "compressor.filters.cssmin.rCSSMinFilter",
-        "refreshcss.filters.RefreshCSSFilter",
     ],
     "js": ["compressor.filters.jsmin.rJSMinFilter"],
 }
