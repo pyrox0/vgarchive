@@ -44,10 +44,10 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/pyrox0/vgarchive.run"
-Documentation = "https://github.com/pyrox0/vgarchive.run"
-Repository = "https://github.com/pyrox0/vgarchive.run"
-Issues = "https://github.com/pyrox0/vgarchive.run/issues"
+Homepage = "https://github.com/pyrox0/vgarchive"
+Documentation = "https://github.com/pyrox0/vgarchive"
+Repository = "https://github.com/pyrox0/vgarchive"
+Issues = "https://github.com/pyrox0/vgarchive/issues"
 
 [tool.djlint]
 ignore = "H006"

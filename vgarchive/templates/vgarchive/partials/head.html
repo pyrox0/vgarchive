@@ -2,7 +2,7 @@
 {% load static %}
 {% load compress %}
 <link rel="preconnect" href="https://fonts.bunny.net">
-{% compress css preload %}
+{% compress css %}
   <link href="{% static '/css/fonts.css' %}" rel="stylesheet" />
+  {% tailwind_css %}
 {% endcompress %}
-{% tailwind_css %}

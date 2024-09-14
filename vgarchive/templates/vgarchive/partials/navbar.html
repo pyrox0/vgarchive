@@ -1,12 +1,12 @@
 {% load icons %}
 <nav class="navbar bg-base-200 border-b-2 border-accent">
-  <div class="navbar-start w-full">
+  <div class="navbar-start">
     <a href="{% url 'home' %}" role="button" aria-label="Home">
-      <button class="btn btn-primary btn-block w-[8rem] lg:w-[16rem]"
+      <button class="btn btn-primary btn-block w-[4rem] sm:w-[8rem] lg:w-[16rem]"
               aria-hidden="true"
               tabindex="-1">
         {% icon 'joystick' extra_classes='float-start text-3xl mt-0.5' %}
-        <p class="text-xl text-base hidden lg:block">vgarchive.run</p>
+        <p class="text-xl text-base hidden lg:block">VGArchive</p>
       </button>
     </a>
   </div>
@@ -41,9 +41,10 @@
   <div class="navbar-end flex flex-initial">
     <div class="md:hidden">
       <div class="dropdown dropdown-end">
-        <div tabindex="0" role="button" class="btn btn-ghost">
-          {% icon 'list' extra_classes="text-3xl text-base-content" aria_label="Menu" %}
-        </div>
+        <div tabindex="0"
+             role="button"
+             class="btn btn-ghost"
+             aria-label="Main Menu">{% icon 'list' extra_classes="text-3xl text-base-content" %}</div>
         <ul tabindex="0"
             class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
           <li>
@@ -71,7 +72,7 @@
              class="theme-controller"
              value="latte" />
       {% icon 'sun-fill' extra_classes="text-3xl text-neutral stroke-2 swap-off" tabindex="-1" %}
-      {% icon 'moon' extra_classes="text-3xl text-neutral stroke-2 swap-on" tabindex="-1" %}
+      {% icon 'moon-fill' extra_classes="text-3xl text-neutral stroke-2 swap-on" tabindex="-1" %}
     </label>
   </div>
 </nav>
