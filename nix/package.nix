@@ -26,10 +26,10 @@ python3Packages.buildPythonApplication rec {
   ];
 
   meta = {
-    changelog = "https://git.pyrox.dev/pyrox/archive-run/releases/${version}";
-    description = "Charity Marathon VOD search site";
+    changelog = "https://git.pyrox.dev/pyrox/vgarchive/releases/${version}";
+    description = "Charity Video Game Marathon Search Engine";
     homepage = "https://vgarchive.pyrox.dev";
-    license = lib.licenses.free;
+    license = lib.licenses.mpl20;
     maintainers = with lib.maintainers; [ pyrox0 ];
   };
 }
