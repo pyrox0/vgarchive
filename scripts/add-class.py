@@ -12,5 +12,5 @@ else:
 
 file = open("./scripts/classes.json", "w")
 
-file.write(json.dumps(classes, sort_keys=True, indent=2))
+file.write(json.dumps(sorted(classes), sort_keys=True, indent=2).rstrip())
 file.close()

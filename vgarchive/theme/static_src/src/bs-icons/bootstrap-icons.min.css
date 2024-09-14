@@ -2,7 +2,7 @@
 @font-face {
   font-display: block;
   font-family: bootstrap-icons;
-  src: url("/static/fonts/bootstrap-icons.min.woff2?v=1726354118") format("woff2");
+  src: url("/static/fonts/bootstrap-icons.min.woff2?v=1726354839") format("woff2");
 }
 .bi::before,
 [class*=" bi-"]::before,
@@ -17,7 +17,10 @@
   vertical-align: -0.125em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}.bi-arrow-down-up::before {
+}.bi-archive::before {
+  content: "\f10d";
+}
+.bi-arrow-down-up::before {
   content: "\f127";
 }
 .bi-arrow-down::before {

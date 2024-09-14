@@ -1,7 +1,8 @@
 [
+  "bi-archive",
+  "bi-arrow-down",
   "bi-arrow-down-up",
   "bi-arrow-up",
-  "bi-arrow-down",
   "bi-bank",
   "bi-box-arrow-up-right",
   "bi-caret-down-fill",
@@ -9,19 +10,19 @@
   "bi-cash-stack",
   "bi-currency-dollar",
   "bi-discord",
+  "bi-facebook",
   "bi-funnel",
   "bi-github",
   "bi-globe2",
   "bi-joystick",
+  "bi-linkedin",
   "bi-list",
   "bi-moon-fill",
   "bi-people-fill",
   "bi-search",
+  "bi-square-fill",
   "bi-sun-fill",
   "bi-twitch",
   "bi-twitter",
-  "bi-youtube",
-  "bi-square-fill",
-  "bi-facebook",
-  "bi-linkedin"
+  "bi-youtube"
 ]
