@@ -1,4 +1,5 @@
 {% load i18n %}
+{% load compress %}
 {% get_current_language as LANGUAGE_CODE %}
 <!DOCTYPE html>
 {# djlint:off #}
@@ -27,12 +28,13 @@
   </main>
   {% footer %}
 </body>
-<script>
+{% compress js inline %}
+  <script>
 		var checkBox = document.getElementById('theme-controller');
 
 		var theme = window.localStorage.getItem('data-theme');
 		if(theme) document.documentElement.setAttribute('data-theme', theme);
-		checkBox.checked = theme == 'mocha' ? false : true;
+		checkBox.checked = (theme == 'latte' ? true : false);
 
 		checkBox.addEventListener('change', function () {
 		  if(this.checked){
@@ -43,6 +45,6 @@
 		    window.localStorage.setItem('data-theme', 'mocha');
 		  }
 		});
-	
-</script>
+  </script>
+{% endcompress %}
 </html>
