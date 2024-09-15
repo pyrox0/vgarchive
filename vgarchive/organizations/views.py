@@ -41,7 +41,6 @@ class OrganizationTable(tables.Table):
             "twitter",
             "youtube",
             "bluesky",
-            "facebook",
         )
         exclude = (
             "banner",
@@ -58,7 +57,6 @@ class OrganizationTable(tables.Table):
     twitter = tables.Column(verbose_name="Twitter", orderable=False)
     youtube = tables.Column(verbose_name="Youtube", orderable=False)
     bluesky = tables.Column(verbose_name="Bluesky", orderable=False)
-    facebook = tables.Column(verbose_name="Facebook", orderable=False)
 
     def render_homepage(self, value):  # noqa
         return utils.render_homepage(value)
@@ -71,6 +69,11 @@ class OrganizationTable(tables.Table):
     def render_donation_total(self, value):  # noqa
         return format_html(
             f'<p class="text-success font-bold">{locale.currency(value, True, True, False)}</p>'
+        )
+
+    def render_tracker(self, value, record):  # noqa
+        return format_html(
+            f'<a class="link text-info" aria-label="{record.name} Donation Tracker" href="{value}"><i class="bi-archive text-3xl"></i></a>'
         )
 
     def render_twitch(self, value, record):  # noqa

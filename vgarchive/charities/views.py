@@ -47,9 +47,7 @@ class CharityTable(tables.Table):
     founded = tables.Column(verbose_name="Year Founded", localize=False)
     twitter = tables.Column(verbose_name="Twitter", localize=False, orderable=False)
     youtube = tables.Column(verbose_name="Youtube", localize=False, orderable=False)
-    linkedin = tables.Column(verbose_name="Linkedin", localize=False, orderable=False)
     bluesky = tables.Column(verbose_name="Bluesky", localize=False, orderable=False)
-    facebook = tables.Column(verbose_name="Facebook", localize=False, orderable=False)
 
     def render_homepage(self, value):  # noqa
         return format_html(
@@ -74,12 +72,6 @@ class CharityTable(tables.Table):
 
     def render_bluesky(self, value, record):  # noqa
         return utils.render_bluesky(record.name, value)
-
-    def render_facebook(self, value, record):  # noqa
-        return utils.render_facebook(record.name, value)
-
-    def render_linkedin(self, value, record):  # noqa
-        return utils.render_linkedin(record.name, value)
 
 
 class CharityFilter(filters.FilterSet):

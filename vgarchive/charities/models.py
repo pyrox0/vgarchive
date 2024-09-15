@@ -24,9 +24,7 @@ class Charity(models.Model):
     founded = models.IntegerField("Founding Year", default=2024)
     twitter = models.CharField("Twitter Account", max_length=15, blank=True)
     youtube = models.CharField("Youtube Channel", max_length=200, blank=True)
-    linkedin = models.CharField("Linkedin Account", max_length=200, blank=True)
     bluesky = models.CharField("Bluesky Account", max_length=200, blank=True)
-    facebook = models.CharField("Facebook Page", max_length=50, blank=True)
 
     def donation_total(self):
         return self.event_set.aggregate(Sum("donation_total"))["donation_total__sum"]

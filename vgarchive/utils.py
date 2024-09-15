@@ -43,15 +43,3 @@ def render_bluesky(name, value):  # noqa
     return format_html(
         f'<a class="external-link link-info" aria-label="{name} Bluesky Account" href="https://bsky.app/profile/{value}"><i class="bi-square-fill text-3xl"></i></a>'
     )
-
-
-def render_linkedin(name, value):  # noqa
-    return format_html(
-        f'<a class="link-info" aria-label="{name} Linkedin Account" href=https://linkedin.com/company/{value}"><i class="bi-linkedin text-3xl"></i></a>'
-    )
-
-
-def render_facebook(name, value):  # noqa
-    return format_html(
-        f'<a class="link-info" aria-label="{name} Facebook Page" href=https://facebook.com/{value}"><i class="bi-facebook text-3xl"></i></a>'
-    )

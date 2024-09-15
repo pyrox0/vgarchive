@@ -2,7 +2,7 @@
 @font-face {
   font-display: block;
   font-family: bootstrap-icons;
-  src: url("/static/fonts/bootstrap-icons.min.woff2?v=1726354839") format("woff2");
+  src: url("/static/fonts/bootstrap-icons.min.woff2?v=1726431072") format("woff2");
 }
 .bi::before,
 [class*=" bi-"]::before,
@@ -44,9 +44,6 @@
 .bi-discord::before {
   content: "\f300";
 }
-.bi-facebook::before {
-  content: "\f344";
-}
 .bi-funnel::before {
   content: "\f3e1";
 }
@@ -58,9 +55,6 @@
 }
 .bi-joystick::before {
   content: "\f448";
-}
-.bi-linkedin::before {
-  content: "\f472";
 }
 .bi-list::before {
   content: "\f479";

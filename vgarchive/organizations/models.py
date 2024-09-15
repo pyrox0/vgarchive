@@ -17,7 +17,6 @@ class Organization(models.Model):
     twitter = models.CharField("Twitter Username", max_length=15, blank=True)
     youtube = models.CharField("Youtube Channel", max_length=200, blank=True)
     bluesky = models.CharField("Bluesky Account", max_length=200, blank=True)
-    facebook = models.CharField("Facebook Page", max_length=50, blank=True)
 
     def num_donations(self):
         return self.event_set.aggregate(Sum("num_donations"))["num_donations__sum"]
