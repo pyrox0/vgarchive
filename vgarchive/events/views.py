@@ -12,6 +12,7 @@ import django_filters.views as filter_views
 from .models import Event
 
 from vgarchive.views import VGArchiveMetaTable, VGArchiveForm
+from vgarchive import utils
 
 
 class EventDetailView(DetailView):
@@ -31,20 +32,20 @@ class EventTable(tables.Table):
         order_by = "-name"
         sequence = (
             "name",
+            "duration",
             "donation_total",
             "donations",
             "charity",
             "organization",
             "homepage",
-            "schedule",
             "youtube_playlist",
         )
         exclude = (
             "banner",
-            "duration",
             "end_datetime",
             "id",
             "num_donations",
+            "schedule",
             "short_name",
             "source",
             "start_datetime",
@@ -54,28 +55,36 @@ class EventTable(tables.Table):
     donation_total = tables.Column(localize=True)
     donations = tables.Column(verbose_name="Donations")
     youtube_playlist = tables.Column(verbose_name="VOD Playlist", orderable=False)
-    schedule = tables.Column(orderable=False)
-    homepage = tables.Column(orderable=False)
+    schedule = tables.Column(
+        linkify=True,
+        orderable=False,
+        attrs={"a": {"class": "link-info external-link"}},
+    )
+    homepage = utils.views.HomepageColumn(verbose_name="Homepage", orderable=False)
     duration = tables.Column(verbose_name="Time")
-
-    def render_charity(self, value):  # noqa
-        return format_html(
-            f'<a class="link link-info" href="{reverse("charity-detail", args=[value.id])}">{value}</a>'
-        )
+    organization = tables.Column(
+        linkify=True,
+        verbose_name="Organization",
+        attrs={"a": {"class": "link link-info"}},
+    )
+    charity = tables.Column(
+        linkify=True,
+        verbose_name="Supported Charity",
+        attrs={"a": {"class": "link link-info"}},
+    )
 
     def render_donation_total(self, value):  # noqa
         return format_html(
             f'<p class="text-success font-bold">{locale.currency(value, True, True, False)}</p>'
         )
 
-    def render_duration(self, value, record):  # noqa
+    def order_duration(self, queryset, is_descending):  # noqa
+        queryset = queryset.order_by(("-" if is_descending else "") + "start_datetime")
+        return (queryset, True)
+
+    def render_duration(self, record):  # noqa
         return format_html(
             f'<p class="text-info">{record.start_datetime} to {record.end_datetime}</p>'
-        )
-
-    def render_homepage(self, value):  # noqa
-        return format_html(
-            f'<a class="external-link link-info" href="{value}">Homepage</a>'
         )
 
     def render_name(self, value, record):  # noqa
@@ -93,23 +102,10 @@ class EventTable(tables.Table):
             f'<a href="{value}" class="external-link link-info">{record.num_donations:n}</a>'
         )
 
-    def render_organization(self, value):  # noqa
-        return format_html(
-            f'<a class="link link-info" href="{reverse("organization-detail", args=[value.id])}">{value}</a>'
-        )
-
-    def render_schedule(self, value):  # noqa
-        return format_html(
-            f'<a class="link-info external-link" href="{value}">Schedule</a>'
-        )
-
     def render_youtube_playlist(self, value):  # noqa
         return format_html(
             f'<a class="link text-error" aria-label="VOD Playlist Link" href="{value}"><i class="bi-youtube text-3xl"></i></a>'
         )
-
-    def value_charity(self, value, record):  # noqa
-        return record.charity
 
 
 class EventFilter(filters.FilterSet):

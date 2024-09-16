@@ -1,8 +1,8 @@
 import locale
 
+from django.db.models.aggregates import Sum
 from django.views.generic.detail import DetailView
 from django.utils.html import format_html
-from django.urls import reverse
 
 import django_tables2 as tables
 import django_filters as filters
@@ -41,37 +41,28 @@ class CharityTable(tables.Table):
             "founded",
         )
 
-    name = tables.Column(verbose_name="Name")
-    homepage = tables.Column(verbose_name="Homepage", orderable=False)
+    name = tables.Column(
+        linkify=True,
+        verbose_name="Name",
+        attrs={"a": {"class": "text-2xl font-bold link link-primary"}},
+    )
+    homepage = utils.views.HomepageColumn(verbose_name="Homepage", orderable=False)
     donation_total = tables.Column(verbose_name="Donation Total", localize=True)
     founded = tables.Column(verbose_name="Year Founded", localize=False)
-    twitter = tables.Column(verbose_name="Twitter", localize=False, orderable=False)
-    youtube = tables.Column(verbose_name="Youtube", localize=False, orderable=False)
-    bluesky = tables.Column(verbose_name="Bluesky", localize=False, orderable=False)
-
-    def render_homepage(self, value):  # noqa
-        return format_html(
-            f'<a class="external-link link-info" href="{value}">Homepage</a>'
-        )
-
-    def render_name(self, value, record):  # noqa
-        return format_html(
-            f'<a class="text-2xl font-bold link link-primary" href="{reverse("charity-detail", args=[record.id])}">{value}</a>'
-        )
+    twitter = utils.views.TwitterColumn(verbose_name="Twitter", orderable=False)
+    youtube = utils.views.YoutubeColumn(verbose_name="Youtube", orderable=False)
+    bluesky = utils.views.BlueskyColumn(verbose_name="Bluesky", orderable=False)
 
     def render_donation_total(self, value):  # noqa
         return format_html(
             f'<p class="text-success font-bold">{locale.currency(value, True, True, False)}</p>'
         )
 
-    def render_twitter(self, value, record):  # noqa
-        return utils.render_twitter(record.name, value)
-
-    def render_youtube(self, value, record):  # noqa
-        return utils.render_youtube(record.name, value)
-
-    def render_bluesky(self, value, record):  # noqa
-        return utils.render_bluesky(record.name, value)
+    def order_donation_total(self, queryset, is_descending):  # noqa
+        queryset = queryset.annotate(
+            donation_total=Sum("event__donation_total")
+        ).order_by(("-" if is_descending else "") + "donation_total")
+        return (queryset, True)
 
 
 class CharityFilter(filters.FilterSet):

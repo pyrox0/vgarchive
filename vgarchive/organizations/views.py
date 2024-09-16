@@ -1,8 +1,8 @@
 import locale
 
+from django.db.models.aggregates import Sum
 from django.views.generic.detail import DetailView
 from django.utils.html import format_html
-from django.urls import reverse
 
 import django_tables2 as tables
 import django_filters as filters
@@ -50,21 +50,21 @@ class OrganizationTable(tables.Table):
             "id",
         )
 
-    name = tables.Column(verbose_name="Organization Name")
+    name = tables.Column(
+        verbose_name="Organization Name",
+        linkify=True,
+        attrs={"a": {"class": "text-2xl font-bold link link-primary"}},
+    )
     donation_total = tables.Column(verbose_name="Donation Total", localize=True)
-    tracker = tables.Column(orderable=False)
-    twitch = tables.Column(verbose_name="Twitch", orderable=False)
-    twitter = tables.Column(verbose_name="Twitter", orderable=False)
-    youtube = tables.Column(verbose_name="Youtube", orderable=False)
-    bluesky = tables.Column(verbose_name="Bluesky", orderable=False)
-
-    def render_homepage(self, value):  # noqa
-        return utils.render_homepage(value)
-
-    def render_name(self, value, record):  # noqa
-        return format_html(
-            f'<a class="text-2xl font-bold link link-primary" href="{reverse("organization-detail", args=[record.id])}">{value}</a>'
-        )
+    tracker = tables.URLColumn(
+        text='<i class="bi-archive text-3xl"></i>',
+        attrs={"class": "link text-info", "aria-label": f"{name} Donation Tracker"},
+        orderable=False,
+    )
+    twitch = utils.views.TwitchColumn(verbose_name="Twitch", orderable=False)
+    twitter = utils.views.TwitterColumn(verbose_name="Twitter", orderable=False)
+    youtube = utils.views.YoutubeColumn(verbose_name="Youtube", orderable=False)
+    bluesky = utils.views.BlueskyColumn(verbose_name="Bluesky", orderable=False)
 
     def render_donation_total(self, value):  # noqa
         return format_html(
@@ -76,34 +76,21 @@ class OrganizationTable(tables.Table):
             f'<a class="link text-info" aria-label="{record.name} Donation Tracker" href="{value}"><i class="bi-archive text-3xl"></i></a>'
         )
 
-    def render_twitch(self, value, record):  # noqa
-        return utils.render_twitch(record.name, value)
-
-    def render_twitter(self, value, record):  # noqa
-        return utils.render_twitter(record.name, value)
-
-    def render_youtube(self, value, record):  # noqa
-        return utils.render_youtube(record.name, value)
-
-    def render_bluesky(self, value, record):  # noqa
-        return utils.render_bluesky(record.name, value)
-
-
-BOOLEAN_CHOICES = (
-    (True, "Yes"),
-    (False, "No"),
-)
+    def order_donation_total(self, queryset, is_descending):  # noqa
+        queryset = queryset.annotate(
+            donation_total=Sum("event__donation_total")
+        ).order_by(("-" if is_descending else "") + "donation_total")
+        return (queryset, True)
 
 
 class OrganizationFilter(filters.FilterSet):
     class Meta:
         model = Organization
         form = VGArchiveForm
-        fields = ("name", "active", "donation_total")
+        fields = ("name", "donation_total")
         exclude = ("homepage", "youtube", "twitter", "twitch")
 
     donation_total = filters.NumberFilter(label="Donation Total:")
-    active = filters.ChoiceFilter(label="Active?:", choices=BOOLEAN_CHOICES)
 
 
 class OrganizationListView(tables.SingleTableMixin, filter_views.FilterView):  # type:ignore

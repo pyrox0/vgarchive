@@ -2,6 +2,7 @@
 # type:ignore
 from django.db import models
 from django.db.models import Sum
+from django.urls import reverse
 
 
 class Charity(models.Model):
@@ -28,6 +29,9 @@ class Charity(models.Model):
 
     def donation_total(self):
         return self.event_set.aggregate(Sum("donation_total"))["donation_total__sum"]
+
+    def get_absolute_url(self):
+        return reverse("charity-detail", args=[self.id])
 
     def __str__(self) -> str:  # noqa
         return self.name  # type:ignore

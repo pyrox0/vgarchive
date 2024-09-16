@@ -1,8 +1,8 @@
 # ruff:noqa
 # type:ignore
-from typing import Self
 from django.db import models
 from django.db.models import Sum
+from django.urls import reverse
 
 
 class Organization(models.Model):
@@ -24,5 +24,8 @@ class Organization(models.Model):
     def donation_total(self):
         return self.event_set.aggregate(Sum("donation_total"))["donation_total__sum"]
 
-    def __str__(self: Self) -> str:
+    def get_absolute_url(self):
+        return reverse("organization-detail", args=[self.id])
+
+    def __str__(self) -> str:
         return self.name
