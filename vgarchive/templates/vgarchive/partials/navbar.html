@@ -40,13 +40,13 @@
   {% endcomment %}
   <div class="navbar-end flex flex-initial">
     <div class="md:hidden">
-      <div class="dropdown dropdown-end">
-        <div tabindex="0"
-             role="button"
-             class="btn btn-ghost"
-             aria-label="Main Menu">{% icon 'list' extra_classes="text-3xl text-base-content" %}</div>
+      <details class="dropdown dropdown-end" id="navbar-menu">
+        <summary tabindex="0"
+                 role="button"
+                 class="btn btn-ghost"
+                 aria-label="Main Menu">{% icon 'list' extra_classes="text-3xl text-base-content" %}</summary>
         <ul tabindex="0"
-            class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+            class="menu menu-sm dropdown-content bg-base-200 rounded-box z-[1] mt-3 w-52 p-2 shadow">
           <li>
             <a class="my-2 rounded-none text-2xl" href="{% url 'charity-list' %}">Charities</a>
           </li>
@@ -63,7 +63,7 @@
         </li>
           {% endcomment %}
         </ul>
-      </div>
+      </details>
     </div>
     <label class="swap btn btn-base-100" aria-label="Theme Switcher">
       {# this hidden checkbox controls the state #}

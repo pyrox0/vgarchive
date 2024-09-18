@@ -27,24 +27,37 @@
     {% endblock content %}
   </main>
   {% footer %}
+  {% compress js inline %}
+    {# Theme Controller #}
+    <script>
+		  var checkBox = document.getElementById('theme-controller');
+		  var theme = window.localStorage.getItem('data-theme');
+
+		  if(theme) document.documentElement.setAttribute('data-theme', theme);
+		  checkBox.checked = (theme == 'latte' ? true : false);
+
+		  checkBox.addEventListener('change', function () {
+		    if(this.checked){
+		      document.documentElement.setAttribute('data-theme', 'latte');
+		      window.localStorage.setItem('data-theme', 'latte');
+		    } else {
+		      document.documentElement.setAttribute('data-theme', 'mocha');
+		      window.localStorage.setItem('data-theme', 'mocha');
+		    }
+		  });
+    </script>
+  {% endcompress %}
+  {% compress js inline %}
+    {# close mobile menu when clicking outside #}
+    <script>
+      var menu = document.getElementById('navbar-menu');
+
+      document.addEventListener('click', function(e) {
+        if (!menu.contains(e.target)) {
+          menu.removeAttribute('open');
+        };
+      });
+    </script>
+  {% endcompress %}
 </body>
-{% compress js inline %}
-  <script>
-		var checkBox = document.getElementById('theme-controller');
-
-		var theme = window.localStorage.getItem('data-theme');
-		if(theme) document.documentElement.setAttribute('data-theme', theme);
-		checkBox.checked = (theme == 'latte' ? true : false);
-
-		checkBox.addEventListener('change', function () {
-		  if(this.checked){
-		    document.documentElement.setAttribute('data-theme', 'latte');
-		    window.localStorage.setItem('data-theme', 'latte');
-		  } else {
-		    document.documentElement.setAttribute('data-theme', 'mocha');
-		    window.localStorage.setItem('data-theme', 'mocha');
-		  }
-		});
-  </script>
-{% endcompress %}
 </html>
