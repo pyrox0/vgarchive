@@ -9,4 +9,7 @@ from .models import Charity
 
 @admin.register(Charity, site=site)
 class CharityAdmin(admin.ModelAdmin):
-    pass
+    fieldsets = (
+        (None, {"fields": ["id", "name", "short_name", "homepage", "founded", "icon"]}),
+        ("Socials", {"fields": ["bluesky", "twitter", "youtube"]}),
+    )

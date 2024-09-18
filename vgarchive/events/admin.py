@@ -9,4 +9,27 @@ from .models import Event
 
 @admin.register(Event, site=site)
 class EventAdmin(admin.ModelAdmin):
-    pass
+    fieldsets = (
+        (
+            None,
+            {
+                "fields": [
+                    "id",
+                    "organization",
+                    "name",
+                    "short_name",
+                    "source",
+                    "banner",
+                ]
+            },
+        ),
+        (
+            "Links",
+            {"fields": ["homepage", "schedule", "donations", "youtube_playlist"]},
+        ),
+        ("Donations", {"fields": ["donation_total", "num_donations"]}),
+        (
+            "Time",
+            {"fields": ["start_datetime", "end_datetime"], "classes": ["collapse"]},
+        ),
+    )

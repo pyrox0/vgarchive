@@ -9,17 +9,13 @@ class Game(models.Model):
     """A game that's been run at an event.
 
     Attributes:
-        id: The game's ID
+        id: The game's ID. Automatically set.
         name: The game's name
 
     """
 
-    id = models.CharField(primary_key=True, max_length=200)
+    id = models.SlugField(primary_key=True, max_length=200)
     name = models.CharField("Game Name", max_length=200)
-
-    def save(self, *args, **kwargs):  # noqa
-        self.id = self.name.lower()  # type:ignore
-        super().save(*args, **kwargs)
 
     def __str__(self) -> str:  # noqa
         return self.name  # type:ignore
