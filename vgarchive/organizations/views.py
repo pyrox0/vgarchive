@@ -57,8 +57,13 @@ class OrganizationTable(tables.Table):
     )
     donation_total = tables.Column(verbose_name="Donation Total", localize=True)
     tracker = tables.URLColumn(
-        text='<i class="bi-archive text-3xl"></i>',
-        attrs={"class": "link text-info", "aria-label": f"{name} Donation Tracker"},
+        text=format_html('<i class="bi-archive text-3xl"></i>'),
+        attrs={
+            "a": {
+                "class": "link text-info",
+                "aria-label": lambda record: f"{record.name} Donation Tracker",
+            }
+        },
         orderable=False,
     )
     twitch = utils.views.TwitchColumn(verbose_name="Twitch", orderable=False)
@@ -69,11 +74,6 @@ class OrganizationTable(tables.Table):
     def render_donation_total(self, value):  # noqa
         return format_html(
             f'<p class="text-success font-bold">{locale.currency(value, True, True, False)}</p>'
-        )
-
-    def render_tracker(self, value, record):  # noqa
-        return format_html(
-            f'<a class="link text-info" aria-label="{record.name} Donation Tracker" href="{value}"><i class="bi-archive text-3xl"></i></a>'
         )
 
     def order_donation_total(self, queryset, is_descending):  # noqa
