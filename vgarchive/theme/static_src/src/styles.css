@@ -97,7 +97,7 @@
 
   /* List page filter dropdowns */
   .filter-dropdown {
-    @apply dropdown lg:ml-5;
+    @apply dropdown lg:ml-5 ml-3;
   }
   .filter-summary {
     @apply text-xl btn m-1 btn-outline mb-5;
@@ -123,7 +123,7 @@
     content: "\00a0\F3E1";
   }
   .filter-field {
-    @apply lg:mb-3 lg:ml-2 text-xl;
+    @apply mb-3 ml-2 text-xl;
   }
   .filter-textbox {
     @apply filter-field input input-md input-bordered;
