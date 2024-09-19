@@ -1,5 +1,3 @@
-from datetime import timedelta
-
 from django.db import models
 from django.db.models import CASCADE
 from django.utils.translation import gettext_lazy as _
@@ -53,6 +51,7 @@ class Event(models.Model):
     )
     start_datetime = models.DateTimeField("Start Date and Time")
     end_datetime = models.DateTimeField("End Date and Time")
+    duration = models.DurationField("Duration")
     homepage = models.URLField("Event Homepage", blank=True)
     schedule = models.URLField("Schedule Link")
     donation_total = models.DecimalField(
@@ -72,9 +71,9 @@ class Event(models.Model):
     def get_absolute_url(self):  # noqa
         return reverse("event-detail", kwargs={"pk": self.pk})
 
-    @property
-    def duration(self) -> timedelta:  # noqa
-        return self.end_datetime.datetime() - self.start_datetime.datetime()  # type:ignore
+    def save(self, *args, **kwargs):  # noqa
+        self.duration = self.end_datetime - self.start_datetime  # type:ignore
+        super().save(*args, **kwargs)
 
     def __str__(self) -> str:  # noqa
         return self.name  # type:ignore
