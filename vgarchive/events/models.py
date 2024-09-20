@@ -49,8 +49,8 @@ class Event(models.Model):
         choices=EventSources,
         default=EventSources.MANUAL,
     )
-    start_datetime = models.DateTimeField("Start Date and Time")
-    end_datetime = models.DateTimeField("End Date and Time")
+    start_date = models.DateField("Start Date")
+    end_date = models.DateField("End Date")
     duration = models.DurationField("Duration")
     homepage = models.URLField("Event Homepage", blank=True)
     schedule = models.URLField("Schedule Link")
@@ -72,7 +72,7 @@ class Event(models.Model):
         return reverse("event-detail", kwargs={"pk": self.pk})
 
     def save(self, *args, **kwargs):  # noqa
-        self.duration = self.end_datetime - self.start_datetime  # type:ignore
+        self.duration = self.end_date - self.start_date  # type:ignore
         super().save(*args, **kwargs)
 
     def __str__(self) -> str:  # noqa

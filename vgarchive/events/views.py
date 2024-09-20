@@ -79,12 +79,12 @@ class EventTable(tables.Table):
         )
 
     def order_duration(self, queryset, is_descending):  # noqa
-        queryset = queryset.order_by(("-" if is_descending else "") + "start_datetime")
+        queryset = queryset.order_by(("-" if is_descending else "") + "start_date")
         return (queryset, True)
 
     def render_duration(self, record):  # noqa
         return format_html(
-            f'<p class="text-info">{record.start_datetime} to {record.end_datetime}</p>'
+            f'<p class="text-info">{record.start_date} to {record.end_date}</p>'
         )
 
     def render_name(self, value, record):  # noqa
