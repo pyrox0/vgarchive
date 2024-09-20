@@ -3,6 +3,8 @@ from django.db.models import CASCADE
 from django.utils.translation import gettext_lazy as _
 from django.urls import reverse
 
+from imagekit.models import ProcessedImageField
+
 from vgarchive.organizations.models import Organization
 from vgarchive.charities.models import Charity
 
@@ -66,7 +68,13 @@ class Event(models.Model):
         default="none",
     )
     youtube_playlist = models.URLField("Youtube VOD Playlist", blank=True)
-    banner = models.ImageField("Banner Image", blank=True)
+    banner = ProcessedImageField(
+        verbose_name="Banner Image",
+        blank=True,
+        upload_to="event-banners/",
+        format="WEBP",
+        options={"quality": 95},
+    )
 
     def get_absolute_url(self):  # noqa
         return reverse("event-detail", kwargs={"pk": self.pk})

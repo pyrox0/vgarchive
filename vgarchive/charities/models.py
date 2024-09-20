@@ -4,6 +4,8 @@ from django.db import models
 from django.db.models import Sum
 from django.urls import reverse
 
+from imagekit.models import ProcessedImageField
+
 
 class Charity(models.Model):
     """Represents a charity that can be donated to.
@@ -27,7 +29,13 @@ class Charity(models.Model):
     name = models.CharField("Display Name", max_length=200)
     short_name = models.CharField("Short Name", max_length=20, blank=True)
     homepage = models.URLField("Charity Homepage", blank=True)
-    icon = models.ImageField("Icon/Favicon", blank=True)
+    icon = ProcessedImageField(
+        verbose_name="Icon/Favicon",
+        blank=True,
+        upload_to="charity-banners/",
+        format="WEBP",
+        options={"quality": 95},
+    )
     founded = models.IntegerField("Founding Year", default=2024)
     twitter = models.CharField("Twitter Account", max_length=15, blank=True)
     youtube = models.CharField("Youtube Channel", max_length=200, blank=True)

@@ -47,6 +47,8 @@ INSTALLED_APPS = [
     "django_tables2",
     # Compression
     "compressor",
+    # Imagekit
+    "imagekit",
 ]
 
 TAILWIND_APP_NAME = "vgarchive.theme"

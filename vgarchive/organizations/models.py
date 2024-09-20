@@ -4,14 +4,26 @@ from django.db import models
 from django.db.models import Sum
 from django.urls import reverse
 
+from imagekit.models import ProcessedImageField
+
 
 class Organization(models.Model):
     id = models.SlugField("ID", primary_key=True, max_length=200)
     name = models.CharField("Name", max_length=100)
     description = models.TextField("Description")
     homepage = models.URLField("Organization Homepage", blank=True)
-    icon = models.ImageField("Favicon/Icon")
-    banner = models.ImageField("Banner Image")
+    icon = ProcessedImageField(
+        verbose_name="Favicon/Icon",
+        upload_to="org-icons/",
+        format="WEBP",
+        options={"quality": 95},
+    )
+    banner = ProcessedImageField(
+        verbose_name="Banner Image",
+        upload_to="org-banners/",
+        format="WEBP",
+        options={"quality": 95},
+    )
     tracker = models.URLField("Donation Tracker", max_length=200, blank=True)
     twitch = models.CharField("Twitch Channel", max_length=25, blank=True)
     twitter = models.CharField("Twitter Username", max_length=15, blank=True)
