@@ -1,10 +1,16 @@
 # ruff:noqa
 # type:ignore
+from pathlib import Path
+
 from django.db import models
 from django.db.models import Sum
 from django.urls import reverse
 
 from imagekit.models import ProcessedImageField
+
+
+def _upload_icon(instance, filename):
+    return f"charity-icons/{Path(filename).with_stem(instance.id)}"
 
 
 class Charity(models.Model):
@@ -32,7 +38,7 @@ class Charity(models.Model):
     icon = ProcessedImageField(
         verbose_name="Icon/Favicon",
         blank=True,
-        upload_to="charity-banners/",
+        upload_to=_upload_icon,
         format="WEBP",
         options={"quality": 95},
     )

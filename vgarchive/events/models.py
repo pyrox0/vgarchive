@@ -1,3 +1,5 @@
+from pathlib import Path
+
 from django.db import models
 from django.db.models import CASCADE
 from django.utils.translation import gettext_lazy as _
@@ -7,6 +9,10 @@ from imagekit.models import ProcessedImageField
 
 from vgarchive.organizations.models import Organization
 from vgarchive.charities.models import Charity
+
+
+def _upload_banner(instance, filename):  # noqa
+    return f"event-banners/{Path(filename).with_stem(instance.id)}"
 
 
 class Event(models.Model):
@@ -71,7 +77,7 @@ class Event(models.Model):
     banner = ProcessedImageField(
         verbose_name="Banner Image",
         blank=True,
-        upload_to="event-banners/",
+        upload_to=_upload_banner,
         format="WEBP",
         options={"quality": 95},
     )

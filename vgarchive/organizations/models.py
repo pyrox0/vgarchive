@@ -1,10 +1,19 @@
 # ruff:noqa
 # type:ignore
+from pathlib import Path
 from django.db import models
 from django.db.models import Sum
 from django.urls import reverse
 
 from imagekit.models import ProcessedImageField
+
+
+def _upload_banner(instance, filename):
+    return f"org-banners/{Path(filename).with_stem(instance.id)}"
+
+
+def _upload_icon(instance, filename):
+    return f"org-icons/{Path(filename).with_stem(instance.id)}"
 
 
 class Organization(models.Model):
@@ -14,13 +23,13 @@ class Organization(models.Model):
     homepage = models.URLField("Organization Homepage", blank=True)
     icon = ProcessedImageField(
         verbose_name="Favicon/Icon",
-        upload_to="org-icons/",
+        upload_to=_upload_icon,
         format="WEBP",
         options={"quality": 95},
     )
     banner = ProcessedImageField(
         verbose_name="Banner Image",
-        upload_to="org-banners/",
+        upload_to=_upload_banner,
         format="WEBP",
         options={"quality": 95},
     )

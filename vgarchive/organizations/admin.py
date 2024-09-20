@@ -10,6 +10,7 @@ class OrganizationAdmin(admin.ModelAdmin):
     exclude = ("donation_total", "num_donations")
     fieldsets = (
         (None, {"fields": ["id", "name", "description"]}),
+        ("Images", {"fields": ["banner", "icon"]}),
         ("Links", {"fields": ["homepage", "tracker"]}),
         ("Socials", {"fields": ["bluesky", "twitch", "twitter", "youtube"]}),
     )
