@@ -33,7 +33,6 @@ dependencies = [
   "django >= 5.1",
   "docutils>=0.19.0",
   "pillow>=10.0.0",
-  "slippers~=0.6.0",
   "django-tailwind~=3.8.0",
   "django-tables2>=2.7.0",
   "django-icons>=24.3",
@@ -42,6 +41,7 @@ dependencies = [
   "django-icons-bootstrap-icons~=1.0.0",
   "django-filter>=24.1",
   "django-imagekit>=5.0.0",
+  "django-cotton>=1.0.8",
 ]
 
 [project.urls]

@@ -2,8 +2,8 @@
 {% load icons %}
 {% block head %}
   {{ block.super }}
-  {% meta_description content=object.name %}
-  {% meta_title content=title %}
+  <c-meta.description content="{{ object.name }}" />
+  <c-meta.title content="{{ title }}" />
 {% endblock head %}
 {% block content %}
   <div class="hero-bg"

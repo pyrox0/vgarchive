@@ -25,6 +25,14 @@
         <a class="navbar-tab" href="{% url 'run-list' %}">Runs</a>
       </li>
     </ul>
+    {% if user.is_staff %}
+      <div>
+        <details class="dropdown dropdown-end">
+          <summary tabindex="0" role="menu" class="btn btn-ghost">Ingest</summary>
+          <ul <a href="{% url 'ingest-runner' %}">asdf</a>
+        </details>
+      </div>
+    {% endif %}
   </div>
   {% comment %}
   <div class="lg:navbar-end">
@@ -44,6 +52,7 @@
                  class="btn btn-ghost"
                  aria-label="Main Menu">{% icon 'list' extra_classes="text-3xl text-base-content" %}</summary>
         <ul tabindex="0"
+            role="menu"
             class="menu menu-sm dropdown-content bg-base-200 rounded-box z-[1] mt-3 w-52 p-2 shadow">
           <li>
             <a class="my-2 rounded-none text-2xl" href="{% url 'charity-list' %}">Charities</a>

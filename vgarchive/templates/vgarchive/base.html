@@ -17,16 +17,16 @@
     <meta name="twitter:card" content="summary" />
     <meta name="og:url" content="{{ request.build_absolute_uri }}" />
     <meta name="og:site_name" content="vgarchive" />
-    {% head %}
+    <c-head />
   {% endblock head %}
 </head>
 <body class="bg-base-100 max-w-screen text-base-content">
-  {% navbar %}
+  <c-navbar />
   <main>
     {% block content %}
     {% endblock content %}
   </main>
-  {% footer %}
+  <c-footer />
   {% compress js inline %}
     {# Theme Controller #}
     <script>

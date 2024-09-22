@@ -2,12 +2,9 @@
 {% load icons %}
 {% block head %}
   {{ block.super }}
-  {% meta_description content=object.name %}
-  {% meta_title content=title %}
+  <c-meta.description content="{{ object.name }}" />
+  <c-meta.title content="{{ title }}" />
 {% endblock head %}
-{% block title %}
-  {{ object.name }} | VGArchive
-{% endblock title %}
 {% block content %}
   <div class="hero-bg"
        style="background-image:url('{{ object.banner.url }}')">

@@ -2,8 +2,8 @@
 {% load icons %}
 {% block head %}
   {{ block.super }}
-  {% meta_description content=object.description %}
-  {% meta_title content=title %}
+  <c-meta.description content="{{ object.description }}" />
+  <c-meta.title content="{{ title }}" />
 {% endblock head %}
 {% block title %}
   {{ object.name }} | vgarchive.run

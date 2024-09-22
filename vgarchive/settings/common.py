@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     # Icons
     "django_icons",
     # Reusable components
-    "slippers",
+    "django_cotton",
     # Better tables
     "django_tables2",
     # Compression
@@ -84,7 +84,7 @@ TEMPLATES = [
             ],
             # Autoload some additional template tags
             "builtins": [
-                "slippers.templatetags.slippers",
+                "django_cotton.templatetags.cotton",
             ],
         },
     },

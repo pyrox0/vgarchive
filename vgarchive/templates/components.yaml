@@ -1,6 +1,0 @@
-components:
-  navbar: "vgarchive/partials/navbar.html"
-  footer: "vgarchive/partials/footer.html"
-  head: "vgarchive/partials/head.html"
-  meta_description: "vgarchive/partials/meta/description.html"
-  meta_title: "vgarchive/partials/meta/title.html"
