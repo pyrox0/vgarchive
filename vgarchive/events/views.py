@@ -42,13 +42,13 @@ class EventTable(tables.Table):
         )
         exclude = (
             "banner",
-            "end_datetime",
+            "end_date",
             "id",
             "num_donations",
             "schedule",
             "short_name",
             "source",
-            "start_datetime",
+            "start_date",
         )
 
     name = tables.Column(verbose_name="Event Name")
