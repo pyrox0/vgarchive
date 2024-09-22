@@ -7,8 +7,7 @@ from vgarchive.admin import site
 
 @admin.register(Game, site=site)
 class GameAdmin(admin.ModelAdmin):
-    fields = ("name", "id")
-    prepopulated_fields = {"id": ["name"]}  # noqa
+    fields = ["name"]  # noqa
 
 
 @admin.register(Runner, site=site)

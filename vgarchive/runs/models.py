@@ -1,5 +1,6 @@
 from typing import Self
 from django.db import models
+from django.utils.text import slugify
 
 from vgarchive.events.models import Event
 from vgarchive.utils import is_youtube_url, is_twitch_url
@@ -16,6 +17,10 @@ class Game(models.Model):
 
     id = models.SlugField(primary_key=True, max_length=200)
     name = models.CharField("Game Name", max_length=200)
+
+    def save(self, *args, **kwargs):  # noqa
+        self.id = slugify(self.name)
+        super().save(*args, **kwargs)
 
     def __str__(self) -> str:  # noqa
         return self.name  # type:ignore
@@ -46,6 +51,10 @@ class Runner(models.Model):
 
         return f"{self.name}"
 
+    def save(self, *args, **kwargs):  # noqa
+        self.id = slugify(self.name)
+        super().save(*args, **kwargs)
+
 
 class Run(models.Model):
     """A run at an event.
@@ -61,6 +70,7 @@ class Run(models.Model):
         twitch: Link to a Twitch VOD of the run
     """
 
+    id = models.SlugField("ID", max_length=200, primary_key=True)
     event = models.ForeignKey(
         Event,
         models.CASCADE,
@@ -77,6 +87,10 @@ class Run(models.Model):
 
     class Meta:
         db_table_comment = "Runs"
+
+    def save(self, *args, **kwargs):  # noqa
+        self.id = slugify(f"{self.event.id}-{self.game}-{self.category}")  # type:ignore
+        super().save(*args, **kwargs)
 
     def __str__(self) -> str:  # noqa
         if self.event.short_name:  # type:ignore
