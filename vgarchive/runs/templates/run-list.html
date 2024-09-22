@@ -1,0 +1,20 @@
+{% extends "vgarchive/base.html" %}
+{% load django_tables2 %}
+{% block head %}
+  {{ block.super }}
+  {% meta_description content="VGArchive runs list" %}
+  {% meta_title content="Runs | VGArchive" %}
+{% endblock head %}
+{% block content %}
+  <h1 class="text-5xl my-10 md:ml-10">Runs</h1>
+  {% if filter %}
+    <details class="filter-dropdown">
+      <summary class="filter-summary btn-primary">Filters</summary>
+      <form action="" method="get" class="lg:ml-5 text-xl">
+        {{ filter.form }}
+        <button type="submit" class="filter-submit btn btn-outline btn-success">Filter</button>
+      </form>
+    </details>
+  {% endif %}
+  {% render_table table %}
+{% endblock content %}
