@@ -1,0 +1,13 @@
+{% extends "vgarchive/base.html" %}
+{% block head %}
+  {{ block.super }}
+  {% meta_description content="Runner ingestion form for VGArchive" %}
+  {% meta_title content="Runner Ingest | VGArchive" %}
+{% endblock head %}
+{% block content %}
+  <h1 class="text-5xl my-10 md:ml-10">Add Runner</h1>
+  <form class="md:ml-10 text-xl">
+    {{ form }}
+    <button type="submit" class="mt-5 text-xl btn btn-outline btn-success">Submit</button>
+  </form>
+{% endblock content %}

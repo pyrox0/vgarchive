@@ -2,6 +2,8 @@ from django import forms
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import FormView
 
+from .forms import RunnerIngestForm
+
 
 class VGArchiveMetaTable:
     template_name = "vgarchive/table-template.html"
@@ -23,3 +25,8 @@ class Home(TemplateView):
 
 class Search(FormView):
     template_name = "vgarchive/search.html"
+
+
+class RunnerIngest(FormView):
+    template_name = "vgarchive/forms/runner-ingest.html"
+    form_class = RunnerIngestForm
