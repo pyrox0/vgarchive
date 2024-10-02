@@ -2,7 +2,7 @@ from django import forms
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView, FormView
 
-from vgarchive.runs.models import Runner
+from vgarchive.runs.models import Runner, Run
 
 
 class VGArchiveMetaTable:
@@ -39,3 +39,19 @@ class RunnerIngest(CreateView):
     )
 
     template_name = "vgarchive/forms/runner-ingest.html"
+
+
+class RunIngest(CreateView):
+    model = Run
+    success_url = "/runs"
+    fields = (
+        "game",
+        "category",
+        "platform",
+        "length",
+        "event",
+        "runners",
+        "youtube",
+        "twitch",
+    )
+    template_name = "vgarchive/forms/run-ingest.html"

@@ -29,12 +29,15 @@
       <div>
         <details class="dropdown dropdown-end">
           <summary tabindex="0" role="menu" class="navbar-tab">
-            Ingest
+            Add Data
             <i class="bi bi-caret-down-fill"></i>
           </summary>
           <ul class="menu menu-sm dropdown-content bg-base-200 rounded-box z-[1] mt-3 w-52 p-2 shadow">
             <li role="menuitem">
-              <a class="text-xl" href="{% url 'ingest-runner' %}">Runners</a>
+              <a class="text-xl" href="{% url 'ingest-runner' %}">Runner</a>
+            </li>
+            <li role="menuitem">
+              <a class="text-xl" href="{% url 'ingest-run' %}">Run</a>
             </li>
           </ul>
         </details>
@@ -77,10 +80,13 @@
           {% if user.is_staff %}
             <li role="menuitem">
               <details open>
-                <summary class="my-2 text-2xl">Ingest</summary>
+                <summary class="my-2 text-2xl">Add Data</summary>
                 <ul>
                   <li>
                     <a class="my-2 rounded-none text-2xl" href="{% url 'ingest-runner' %}">Runners</a>
+                  </li>
+                  <li>
+                    <a class="my-2 rounded-none text-2xl" href="{% url 'ingest-run' %}">Runs</a>
                   </li>
                 </ul>
               </details>

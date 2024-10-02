@@ -1,0 +1,16 @@
+{% extends "vgarchive/base.html" %}
+{% block head %}
+  {{ block.super }}
+  <c-meta.description content="Run ingestion form for VGArchive" />
+  <c-meta.title content="Run Ingest | VGArchive" />
+{% endblock head %}
+{% block content %}
+  <h1 class="text-5xl my-10 md:ml-10">Add Run</h1>
+  <form class="md:ml-10 text-xl" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit"
+           class="mt-5 text-xl btn btn-outline btn-success"
+           value="Submit" />
+  </form>
+{% endblock content %}
