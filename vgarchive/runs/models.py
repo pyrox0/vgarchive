@@ -38,6 +38,7 @@ class Runner(models.Model):
         bluesky: Their Bluesky account username, can be null
     """
 
+    id = models.SlugField("ID", max_length=200, primary_key=True)
     name = models.CharField("Name", max_length=200)
     pronouns = models.CharField("Pronouns", max_length=50, blank=True)
     twitch = models.CharField("Twitch Channel", max_length=25, blank=True)
