@@ -12,24 +12,31 @@
   </div>
   <div class="hidden md:justify-center md:flex navbar-center">
     <ul class="menu menu-horizontal mx-2 text-base-content text-xl xl:text-2xl">
-      <li>
+      <li role="menuitem">
         <a class="navbar-tab" href="{% url 'charity-list' %}">Charities</a>
       </li>
-      <li>
+      <li role="menuitem">
         <a class="navbar-tab" href="{% url 'organization-list' %}">Organizations</a>
       </li>
-      <li>
+      <li role="menuitem">
         <a class="navbar-tab" href="{% url 'event-list' %}">Events</a>
       </li>
-      <li>
+      <li role="menuitem">
         <a class="navbar-tab" href="{% url 'run-list' %}">Runs</a>
       </li>
     </ul>
     {% if user.is_staff %}
       <div>
         <details class="dropdown dropdown-end">
-          <summary tabindex="0" role="menu" class="btn btn-ghost">Ingest</summary>
-          <ul <a href="{% url 'ingest-runner' %}">asdf</a>
+          <summary tabindex="0" role="menu" class="navbar-tab">
+            Ingest
+            <i class="bi bi-caret-down-fill"></i>
+          </summary>
+          <ul class="menu menu-sm dropdown-content bg-base-200 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+            <li role="menuitem">
+              <a class="text-xl" href="{% url 'ingest-runner' %}">Runners</a>
+            </li>
+          </ul>
         </details>
       </div>
     {% endif %}
@@ -54,21 +61,31 @@
         <ul tabindex="0"
             role="menu"
             class="menu menu-sm dropdown-content bg-base-200 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-          <li>
+          <li role="menuitem">
             <a class="my-2 rounded-none text-2xl" href="{% url 'charity-list' %}">Charities</a>
           </li>
-          <li>
+          <li role="menuitem">
             <a class="my-2 rounded-none text-2xl"
                href="{% url 'organization-list' %}">Organizations</a>
           </li>
-          <li>
+          <li role="menuitem">
             <a class="my-2 rounded-none text-2xl" href="{% url 'event-list' %}">Events</a>
           </li>
-          {% comment %}
-        <li>
-          <a class="my-2 rounded-none text-2xl" href="{% url 'run-list' %}">Runs</a>
-        </li>
-          {% endcomment %}
+          <li role="menuitem">
+            <a class="my-2 rounded-none text-2xl" href="{% url 'run-list' %}">Runs</a>
+          </li>
+          {% if user.is_staff %}
+            <li role="menuitem">
+              <details open>
+                <summary class="my-2 text-2xl">Ingest</summary>
+                <ul>
+                  <li>
+                    <a class="my-2 rounded-none text-2xl" href="{% url 'ingest-runner' %}">Runners</a>
+                  </li>
+                </ul>
+              </details>
+            </li>
+          {% endif %}
         </ul>
       </details>
     </div>
