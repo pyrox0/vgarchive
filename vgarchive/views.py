@@ -1,8 +1,8 @@
 from django import forms
 from django.views.generic.base import TemplateView
-from django.views.generic.edit import FormView
+from django.views.generic.edit import CreateView, FormView
 
-from .forms import RunnerIngestForm
+from vgarchive.runs.models import Runner
 
 
 class VGArchiveMetaTable:
@@ -27,6 +27,15 @@ class Search(FormView):
     template_name = "vgarchive/search.html"
 
 
-class RunnerIngest(FormView):
+class RunnerIngest(CreateView):
+    model = Runner
+    fields = (
+        "name",
+        "pronouns",
+        "twitch",
+        "youtube",
+        "twitter",
+        "bluesky",
+    )
+
     template_name = "vgarchive/forms/runner-ingest.html"
-    form_class = RunnerIngestForm
