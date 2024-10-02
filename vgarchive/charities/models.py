@@ -8,6 +8,8 @@ from django.urls import reverse
 
 from imagekit.models import ProcessedImageField
 
+from vgarchive.validators.bluesky import validate_bluesky
+
 
 def _upload_icon(instance, filename):
     return f"charity-icons/{Path(filename).with_stem(instance.id)}"
@@ -45,7 +47,9 @@ class Charity(models.Model):
     founded = models.IntegerField("Founding Year", default=2024)
     twitter = models.CharField("Twitter Account", max_length=15, blank=True)
     youtube = models.CharField("Youtube Channel", max_length=200, blank=True)
-    bluesky = models.CharField("Bluesky Account", max_length=200, blank=True)
+    bluesky = models.CharField(
+        "Bluesky Account", max_length=200, blank=True, validators=[validate_bluesky]
+    )
 
     def donation_total(self):
         return self.event_set.aggregate(Sum("donation_total"))["donation_total__sum"]

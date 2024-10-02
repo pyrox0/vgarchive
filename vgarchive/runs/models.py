@@ -4,6 +4,7 @@ from django.utils.text import slugify
 
 from vgarchive.events.models import Event
 from vgarchive.utils import is_youtube_url, is_twitch_url
+from vgarchive.validators.bluesky import validate_bluesky
 
 
 class Game(models.Model):
@@ -44,7 +45,9 @@ class Runner(models.Model):
     twitch = models.CharField("Twitch Channel", max_length=25, blank=True)
     youtube = models.CharField("Youtube Channel", max_length=200, blank=True)
     twitter = models.CharField("Twitter Username", max_length=15, blank=True)
-    bluesky = models.CharField("Bluesky Username", max_length=200, blank=True)
+    bluesky = models.CharField(
+        "Bluesky Username", max_length=200, blank=True, validators=[validate_bluesky]
+    )
 
     def __str__(self: Self) -> str:
         if self.pronouns:

@@ -7,6 +7,8 @@ from django.urls import reverse
 
 from imagekit.models import ProcessedImageField
 
+from vgarchive.validators.bluesky import validate_bluesky
+
 
 def _upload_banner(instance, filename):
     return f"org-banners/{Path(filename).with_stem(instance.id)}"
@@ -37,7 +39,9 @@ class Organization(models.Model):
     twitch = models.CharField("Twitch Channel", max_length=25, blank=True)
     twitter = models.CharField("Twitter Username", max_length=15, blank=True)
     youtube = models.CharField("Youtube Channel", max_length=200, blank=True)
-    bluesky = models.CharField("Bluesky Account", max_length=200, blank=True)
+    bluesky = models.CharField(
+        "Bluesky Account", max_length=200, blank=True, validators=[validate_bluesky]
+    )
 
     def num_donations(self):
         return self.event_set.aggregate(Sum("num_donations"))["num_donations__sum"]
