@@ -7,14 +7,20 @@ from debug_toolbar.toolbar import debug_toolbar_urls
 from .views import Home, RunnerIngest, RunIngest
 from .views.charity import CharityDetailView, CharityListView
 from .views.event import EventDetailView, EventListView
+from .views.organization import OrganizationDetailView, OrganizationListView
 
 urlpatterns = [
     # Admindoc
     path("admin/doc/", include("django.contrib.admindocs.urls"), name="admindoc"),
     # Admin
     path("admin/", admin_site.urls),
-    # VGArchive
-    re_path(r"^organizations/", include("vgarchive.organizations.urls")),
+    # Organizations
+    path(
+        "organizations/<slug:pk>/",
+        OrganizationDetailView.as_view(),
+        name="organization-detail",
+    ),
+    path("organizations/", OrganizationListView.as_view(), name="organization-list"),
     # Events
     path("events/<slug:pk>/", EventDetailView.as_view(), name="event-detail"),
     path("events/", EventListView.as_view(), name="event-list"),

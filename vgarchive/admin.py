@@ -3,6 +3,7 @@ from django.contrib import admin
 
 from .models.charity import Charity
 from .models.event import Event
+from .models.organization import Organization
 
 
 site.site_header = "VGArchive Administration"
@@ -43,4 +44,15 @@ class EventAdmin(admin.ModelAdmin):
             "Time",
             {"fields": ["start_date", "end_date"], "classes": ["collapse"]},
         ),
+    )
+
+
+@admin.register(Organization, site=site)
+class OrganizationAdmin(admin.ModelAdmin):
+    exclude = ("donation_total", "num_donations")
+    fieldsets = (
+        (None, {"fields": ["id", "name", "description"]}),
+        ("Images", {"fields": ["banner", "icon"]}),
+        ("Links", {"fields": ["homepage", "tracker"]}),
+        ("Socials", {"fields": ["bluesky", "twitch", "twitter", "youtube"]}),
     )

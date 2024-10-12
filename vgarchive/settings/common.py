@@ -32,7 +32,6 @@ INSTALLED_APPS = [
     "django.forms",
     # All our custom apps
     "vgarchive",
-    "vgarchive.organizations",
     "vgarchive.runs",
     # Tailwind CSS
     "tailwind",
