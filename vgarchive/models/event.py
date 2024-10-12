@@ -7,8 +7,8 @@ from django.urls import reverse
 
 from imagekit.models import ProcessedImageField
 
-from vgarchive.organizations.models import Organization
-from vgarchive.charities.models import Charity
+from vgarchive.models.organization import Organization
+from vgarchive.models.charity import Charity
 
 
 def _upload_banner(instance, filename):  # noqa

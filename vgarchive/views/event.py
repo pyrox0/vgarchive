@@ -9,15 +9,20 @@ import django_tables2 as tables
 import django_filters as filters
 import django_filters.views as filter_views
 
-from .models import Event
+from vgarchive.models.event import Event
 
 from vgarchive.views import VGArchiveMetaTable, VGArchiveForm
 from vgarchive import utils
 
+__all__ = [
+    "EventDetailView",
+    "EventListView",
+]
+
 
 class EventDetailView(DetailView):
     model = Event
-    template_name = "event-detail.html"
+    template_name = "vgarchive/detail/event.html"
 
     def get_context_data(self, **kwargs) -> dict:  # noqa
         context = super().get_context_data(**kwargs)
@@ -128,6 +133,6 @@ class EventFilter(filters.FilterSet):
 class EventListView(tables.SingleTableMixin, filter_views.FilterView):  # type:ignore
     model = Event
     table_class = EventTable
-    template_name = "event-list.html"
+    template_name = "vgarchive/list/event.html"
 
     filterset_class = EventFilter

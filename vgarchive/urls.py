@@ -6,6 +6,7 @@ from debug_toolbar.toolbar import debug_toolbar_urls
 
 from .views import Home, RunnerIngest, RunIngest
 from .views.charity import CharityDetailView, CharityListView
+from .views.event import EventDetailView, EventListView
 
 urlpatterns = [
     # Admindoc
@@ -14,7 +15,9 @@ urlpatterns = [
     path("admin/", admin_site.urls),
     # VGArchive
     re_path(r"^organizations/", include("vgarchive.organizations.urls")),
-    re_path(r"^events/", include("vgarchive.events.urls")),
+    # Events
+    path("events/<slug:pk>/", EventDetailView.as_view(), name="event-detail"),
+    path("events/", EventListView.as_view(), name="event-list"),
     # Charities
     path("charities/<slug:pk>/", CharityDetailView.as_view(), name="charity-detail"),
     path("charities/", CharityListView.as_view(), name="charity-list"),
