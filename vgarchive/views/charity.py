@@ -8,14 +8,19 @@ import django_tables2 as tables
 import django_filters as filters
 import django_filters.views as filter_views
 
-from .models import Charity
+from vgarchive.models.charity import Charity
 from vgarchive.views import VGArchiveMetaTable, VGArchiveForm
 from vgarchive import utils
+
+__all__ = [
+    "CharityDetailView",
+    "CharityListView",
+]
 
 
 class CharityDetailView(DetailView):
     model = Charity
-    template_name = "charity-detail.html"
+    template_name = "vgarchive/detail/charity.html"
 
     def get_context_data(self, **kwargs) -> dict:  # noqa
         # Get context
@@ -79,6 +84,6 @@ class CharityFilter(filters.FilterSet):
 class CharityListView(tables.SingleTableMixin, filter_views.FilterView):  # type:ignore
     model = Charity
     table_class = CharityTable
-    template_name = "charity-list.html"
+    template_name = "vgarchive/list/charity.html"
 
     filterset_class = CharityFilter

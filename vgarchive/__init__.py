@@ -4,8 +4,6 @@ from . import *  # noqa
 __all__ = [
     "admin",  # noqa
     "asgi",  # noqa
-    "charities",  # noqa
-    "events",  # noqa
     "organizations",  # noqa
     "runs",  # noqa
     "settings",  # noqa

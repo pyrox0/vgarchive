@@ -1,0 +1,128 @@
+{% extends "vgarchive/base.html" %}
+{% load icons %}
+{% block head %}
+  {{ block.super }}
+  <c-meta.description content="{{ object.description }}" />
+  <c-meta.title content="{{ title }}" />
+{% endblock head %}
+{% block title %}
+  {{ object.name }} | vgarchive.run
+{% endblock title %}
+{% block content %}
+  <div class="hero-bg-gradient"
+       style="background-image:url('{{ object.banner.url }}')">
+    <div class="hero-overlay bg-opacity-60 bg-base-100"></div>
+    <div class="hero-content flex-col lg:flex-row">
+      <div class="flex flex-col lg:mx-20 lg:mr-40">
+        <img src="{{ object.icon.url }}"
+             alt="{{ object.name }} Logo"
+             class="max-h-[500px] max-w-[500px] self-center" />
+        <h1 class="text-7xl font-mono lg:text-6xl self-end py-5 ml-20 mt-5 w-full font-bold text-base-content text-nowrap bg-base-100 bg-opacity-60 rounded-md text-center">
+          {{ object.name }}
+        </h1>
+      </div>
+      <div class="flex flex-col w-full lg:ml-10 space-y-5">
+        <b class="text-3xl lg:text-lg text-base-content lg:max-w-lg lg:mt-5 text-center lg:text-left glass bg-opacity-50 p-3 rounded-md ">{{ object.description }}</b>
+        <div class="flex flex-col lg:flex-row lg:space-x-5 space-y-5 lg:space-y-0">
+          {% if object.homepage %}
+            <a class="hero-button btn-info"
+               href="{{ object.homepage }}"
+               aria-label="{{ object.name }} website">
+              {% icon 'globe2' extra_classes="text-[2.25rem] hero-button-icon" tabindex="-1" %}
+              <p class="hero-button-text">Website</p>
+            </a>
+          {% endif %}
+          {% if object.twitter %}
+            <a class="hero-button btn-info"
+               role="button"
+               href="https://twitter.com/{{ object.twitter }}"
+               aria-label="{{ object.name }} Twitter Page">
+              {% icon 'twitter' extra_classes="text-[2.5rem] hero-button-icon" tabindex="-1" %}
+              <p class="hero-button-text">Twitter</p>
+            </a>
+          {% endif %}
+          {% if object.youtube %}
+            <a class="hero-button btn-error"
+               role="button"
+               href="https://youtube.com/{{ object.youtube }}"
+               aria-label="{{ object.name }} Youtube Channel">
+              {% icon 'youtube' extra_classes="text-[2.5rem] hero-button-icon" tabindex="-1" %}
+              <p class="hero-button-text">Youtube</p>
+            </a>
+          {% endif %}
+          {% if object.twitch %}
+            <a class="hero-button btn-primary"
+               role="button"
+               href="https://twitch.tv/{{ object.twitch }}"
+               aria-label="{{ object.name }} Twitch Channel">
+              {% icon 'twitch' extra_classes="text-[2.25rem] mt-1 pl-1 hero-button-icon" tabindex="-1" %}
+              <p class="hero-button-text">Twitch</p>
+            </a>
+          {% endif %}
+        </div>
+        <div class="bg-opacity-0 hero-stat bg-success my-5 lg:max-w-sm">
+          <div class="stat bg-success bg-opacity-70 card-body">
+            <div class="hero-stat-title">
+              {% icon 'cash-stack' extra_classes="hero-stat-icon" tabindex="-1" %}
+              Total Raised
+            </div>
+            <div class="stat-value">${{ object.donation_total|floatformat:"-2g" }}</div>
+          </div>
+        </div>
+        <div class="bg-opacity-0 hero-stat lg:float-right lg:max-w-xs">
+          <div class="stat bg-info bg-opacity-70 card-body">
+            <div class="hero-stat-title">
+              {% icon 'people-fill' extra_classes="hero-stat-icon" tabindex="-1" %}
+              Donation Count
+            </div>
+            <div class="stat-value">{{ object.num_donations|floatformat:"0g" }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <h2 class="text-5xl mb-5 lg:ml-2 font-bold">Events</h2>
+    <div class="carousel carousel-center bg-neutral rounded-box max-w-full space-x-4 p-4 lg:ml-5">
+      {% for e in events %}
+        <div class="carousel-card">
+          <a class="card-body" href="{% url 'event-detail' e.id %}">
+            {% if e.banner %}
+              <img class="rounded max-h-1/2"
+                   src="{{ e.banner.url }}"
+                   alt="Banner for the event {{ e.name }}.">
+            {% endif %}
+            {% if e.short_name %}
+              <p class="card-title text-2xl mt-1">{{ e.short_name }}</p>
+            {% else %}
+              <p class="card-title text-2xl mt-1">{{ e.name }}</p>
+            {% endif %}
+            <div class="lg:mb-5 text-wrap lg:ml-5 lg:-mt-5">
+              <p class="text-success lg:-ml-5 font-bold text-3xl">${{ e.donation_total|floatformat:"-2g" }}</p>
+              <a class="text-lg lg:-ml-1 link link-info"
+                 href="{% url 'charity-detail' e.charity.id %}">{{ e.charity.name }}</a>
+            </div>
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+    {% if charities %}
+      <h2 class="text-5xl mt-10 mb-5 lg:ml-2 font-bold">Supported Charities</h2>
+      <div class="carousel carousel-center bg-neutral rounded-box max-w-full space-x-4 p-4 lg:ml-5">
+        {% for c in charities %}
+          <div class="carousel-card">
+            <a class="card-body" href="{% url 'charity-detail' c.id %}">
+              {% if c.icon %}
+                <img class="rounded max-h-1/4"
+                     src="{{ c.icon.url }}"
+                     alt="Banner for the charity {{ e.name }}.">
+              {% endif %}
+              <p class="card-title text-2xl mt-1">{{ c.name }}</p>
+              <p class="text-2xl text-wrap text-success">Total Raised: ${{ c.donation_total|floatformat:"-2g" }}</p>
+            </a>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  {% endif %}
+{% endblock content %}

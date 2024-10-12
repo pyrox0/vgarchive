@@ -5,6 +5,7 @@ from django.conf import settings
 from debug_toolbar.toolbar import debug_toolbar_urls
 
 from .views import Home, RunnerIngest, RunIngest
+from .views.charity import CharityDetailView, CharityListView
 
 urlpatterns = [
     # Admindoc
@@ -14,7 +15,9 @@ urlpatterns = [
     # VGArchive
     re_path(r"^organizations/", include("vgarchive.organizations.urls")),
     re_path(r"^events/", include("vgarchive.events.urls")),
-    re_path(r"^charities/", include("vgarchive.charities.urls")),
+    # Charities
+    path("charities/<slug:pk>/", CharityDetailView.as_view(), name="charity-detail"),
+    path("charities/", CharityListView.as_view(), name="charity-list"),
     re_path(r"^runs/", include("vgarchive.runs.urls")),
     # Ingest Views
     path("ingest/runners", RunnerIngest.as_view(), name="ingest-runner"),
