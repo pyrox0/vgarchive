@@ -5,13 +5,13 @@ import django_tables2 as tables
 import django_filters as filters
 import django_filters.views as filter_views
 
-from .models import Run
+from vgarchive.models.run import Run
 from vgarchive.views import VGArchiveMetaTable, VGArchiveForm
 
 
 class RunDetailView(DetailView):
     model = Run
-    template_name = "run-detail.html"
+    template_name = "vgarchive/detail/run.html"
 
 
 class RunTable(tables.Table):
@@ -66,6 +66,6 @@ class RunFilter(filters.FilterSet):
 class RunListView(tables.SingleTableMixin, filter_views.FilterView):  # type:ignore
     model = Run
     table_class = RunTable
-    template_name = "run-list.html"
+    template_name = "vgarchive/list/run.html"
 
     filterset_class = RunFilter

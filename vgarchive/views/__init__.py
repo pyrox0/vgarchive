@@ -2,7 +2,7 @@ from django import forms
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView, FormView
 
-from vgarchive.runs.models import Runner, Run
+from vgarchive.models.run import Runner, Run
 
 
 class VGArchiveMetaTable:

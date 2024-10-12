@@ -4,7 +4,6 @@ from . import *  # noqa
 __all__ = [
     "admin",  # noqa
     "asgi",  # noqa
-    "runs",  # noqa
     "settings",  # noqa
     "templates",  # noqa
     "templatetags",  # noqa

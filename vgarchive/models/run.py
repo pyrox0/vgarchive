@@ -2,7 +2,7 @@ from typing import Self
 from django.db import models
 from django.utils.text import slugify
 
-from vgarchive.events.models import Event
+from vgarchive.models.event import Event
 from vgarchive.utils import is_youtube_url, is_twitch_url
 from vgarchive.validators.bluesky import validate_bluesky
 

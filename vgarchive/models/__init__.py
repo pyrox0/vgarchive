@@ -1,7 +1,3 @@
-from . import charity, event, organization
+from . import charity, event, organization, run
 
-__all__ = [
-    "charity",
-    "event",
-    "organization",
-]
+__all__ = ["charity", "event", "organization", "run"]

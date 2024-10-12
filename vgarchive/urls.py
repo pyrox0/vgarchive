@@ -8,6 +8,7 @@ from .views import Home, RunnerIngest, RunIngest
 from .views.charity import CharityDetailView, CharityListView
 from .views.event import EventDetailView, EventListView
 from .views.organization import OrganizationDetailView, OrganizationListView
+from .views.run import RunDetailView, RunListView
 
 urlpatterns = [
     # Admindoc
@@ -27,7 +28,9 @@ urlpatterns = [
     # Charities
     path("charities/<slug:pk>/", CharityDetailView.as_view(), name="charity-detail"),
     path("charities/", CharityListView.as_view(), name="charity-list"),
-    re_path(r"^runs/", include("vgarchive.runs.urls")),
+    # Runs
+    path("runs/<slug:pk>/", RunDetailView.as_view(), name="run-detail"),
+    path("runs/", RunListView.as_view(), name="run-list"),
     # Ingest Views
     path("ingest/runners", RunnerIngest.as_view(), name="ingest-runner"),
     path("ingest/runs", RunIngest.as_view(), name="ingest-run"),

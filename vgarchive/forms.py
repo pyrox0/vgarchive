@@ -1,5 +1,5 @@
 from django import forms
-from vgarchive.runs import models as run_models
+from vgarchive.models import run as run_models
 
 
 class RunnerIngestForm(forms.ModelForm):

@@ -4,6 +4,7 @@ from django.contrib import admin
 from .models.charity import Charity
 from .models.event import Event
 from .models.organization import Organization
+from .models.run import Run, Runner, Game
 
 
 site.site_header = "VGArchive Administration"
@@ -14,7 +15,19 @@ site.index_title = "Administration"
 @admin.register(Charity, site=site)
 class CharityAdmin(admin.ModelAdmin):
     fieldsets = (
-        (None, {"fields": ["id", "name", "short_name", "homepage", "founded", "icon"]}),
+        (
+            None,
+            {
+                "fields": [
+                    "id",
+                    "name",
+                    "short_name",
+                    "homepage",
+                    "founded",
+                    "icon",
+                ]
+            },
+        ),
         ("Socials", {"fields": ["bluesky", "twitter", "youtube"]}),
     )
 
@@ -37,7 +50,14 @@ class EventAdmin(admin.ModelAdmin):
         ),
         (
             "Links",
-            {"fields": ["homepage", "schedule", "donations", "youtube_playlist"]},
+            {
+                "fields": [
+                    "homepage",
+                    "schedule",
+                    "donations",
+                    "youtube_playlist",
+                ]
+            },
         ),
         ("Donations", {"fields": ["donation_total", "num_donations"]}),
         (
@@ -55,4 +75,38 @@ class OrganizationAdmin(admin.ModelAdmin):
         ("Images", {"fields": ["banner", "icon"]}),
         ("Links", {"fields": ["homepage", "tracker"]}),
         ("Socials", {"fields": ["bluesky", "twitch", "twitter", "youtube"]}),
+    )
+
+
+@admin.register(Game, site=site)
+class GameAdmin(admin.ModelAdmin):
+    fields = ["name"]  # noqa
+
+
+@admin.register(Runner, site=site)
+class RunnerAdmin(admin.ModelAdmin):
+    fieldsets = (
+        (None, {"fields": ["name", "pronouns"]}),
+        ("Socials", {"fields": ["bluesky", "twitch", "twitter", "youtube"]}),
+    )
+
+
+@admin.register(Run, site=site)
+class RunAdmin(admin.ModelAdmin):
+    fieldsets = (
+        (
+            None,
+            {
+                "fields": [
+                    "game",
+                    "category",
+                    "platform",
+                    "length",
+                    "event",
+                    "runners",
+                    "youtube",
+                    "twitch",
+                ]
+            },
+        ),
     )
