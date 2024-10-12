@@ -43,6 +43,7 @@ class EventAdmin(admin.ModelAdmin):
                     "organization",
                     "name",
                     "short_name",
+                    "charity",
                     "source",
                     "banner",
                 ]
@@ -60,10 +61,7 @@ class EventAdmin(admin.ModelAdmin):
             },
         ),
         ("Donations", {"fields": ["donation_total", "num_donations"]}),
-        (
-            "Time",
-            {"fields": ["start_date", "end_date"], "classes": ["collapse"]},
-        ),
+        ("Time", {"fields": ["start_date", "end_date"]}),
     )
 
 

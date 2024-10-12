@@ -79,7 +79,6 @@ class Run(models.Model):
         Event,
         models.CASCADE,
         verbose_name="Event",
-        default="none",
     )
     game = models.ForeignKey(Game, models.PROTECT, verbose_name="Game")
     category = models.CharField("Category", max_length=200)

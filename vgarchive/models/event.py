@@ -47,7 +47,6 @@ class Event(models.Model):
         Organization,
         CASCADE,
         verbose_name="Organization",
-        default="none",
     )
     name = models.CharField("Display Name", max_length=200)
     short_name = models.CharField("Short Name(optional)", max_length=20, blank=True)
@@ -71,7 +70,6 @@ class Event(models.Model):
         Charity,
         CASCADE,
         verbose_name="Supported Charity",
-        default="none",
     )
     youtube_playlist = models.URLField("Youtube VOD Playlist", blank=True)
     banner = ProcessedImageField(
