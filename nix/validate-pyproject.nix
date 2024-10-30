@@ -5,14 +5,14 @@
 }:
 python3Packages.buildPythonApplication rec {
   pname = "validate-pyproject";
-  version = "0.19";
+  version = "0.22";
   pyproject = true;
 
   src = fetchFromGitHub {
     owner = "abravalheri";
     repo = "validate-pyproject";
     rev = "v${version}";
-    hash = "sha256-hO7+i9EDstLVB9y1HLwyd/SvSJonNzUxYrFVEYp/8jg=";
+    hash = "sha256-NJUAzWu+g+5f2I0ucdNCeSTLxDCqgRI2GLpuT0lfAXE=";
   };
 
   build-system = [ python3Packages.setuptools-scm ];
