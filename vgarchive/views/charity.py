@@ -38,12 +38,19 @@ class CharityTable(tables.Table):
     class Meta(VGArchiveMetaTable):
         model = Charity
         order_by = "-name"
-        exclude = ("id", "short_name", "icon")
+        exclude = (
+            "id",
+            "short_name",
+            "icon",
+            "founded",
+        )
         sequence = (
             "name",
             "homepage",
             "donation_total",
-            "founded",
+            "bluesky",
+            "twitter",
+            "youtube",
         )
 
     name = tables.Column(
@@ -74,11 +81,10 @@ class CharityFilter(filters.FilterSet):
     class Meta:
         model = Charity
         form = VGArchiveForm
-        fields = ("name", "founded")
-        exclude = "icon"
+        fields = ["name"]  # noqa
+        exclude = ("icon", "founded")
 
     name = filters.CharFilter(label="Name:", lookup_expr="icontains")
-    founded = filters.NumberFilter(label="Founded After:", lookup_expr="gt")
 
 
 class CharityListView(tables.SingleTableMixin, filter_views.FilterView):  # type:ignore

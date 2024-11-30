@@ -37,7 +37,7 @@ class EventTable(tables.Table):
         order_by = "-name"
         sequence = (
             "name",
-            "duration",
+            "start_date",
             "donation_total",
             "donations",
             "charity",
@@ -47,16 +47,19 @@ class EventTable(tables.Table):
         )
         exclude = (
             "banner",
+            "duration",
             "end_date",
             "id",
             "num_donations",
             "schedule",
             "short_name",
             "source",
-            "start_date",
         )
 
     name = tables.Column(verbose_name="Event Name")
+    start_date = tables.Column(
+        verbose_name="Start Date", attrs={"td": {"class": "text-info text-xl"}}
+    )
     donation_total = tables.Column(localize=True)
     donations = tables.Column(verbose_name="Donations")
     youtube_playlist = tables.Column(verbose_name="VOD Playlist", orderable=False)
@@ -66,7 +69,6 @@ class EventTable(tables.Table):
         attrs={"a": {"class": "link-info external-link"}},
     )
     homepage = utils.views.HomepageColumn(verbose_name="Homepage", orderable=False)
-    duration = tables.Column(verbose_name="Time")
     organization = tables.Column(
         linkify=True,
         verbose_name="Organization",
@@ -81,15 +83,6 @@ class EventTable(tables.Table):
     def render_donation_total(self, value):  # noqa
         return format_html(
             f'<p class="text-success font-bold">{locale.currency(value, True, True, False)}</p>'
-        )
-
-    def order_duration(self, queryset, is_descending):  # noqa
-        queryset = queryset.order_by(("-" if is_descending else "") + "start_date")
-        return (queryset, True)
-
-    def render_duration(self, record):  # noqa
-        return format_html(
-            f'<p class="text-info">{record.start_date} to {record.end_date}</p>'
         )
 
     def render_name(self, value, record):  # noqa
