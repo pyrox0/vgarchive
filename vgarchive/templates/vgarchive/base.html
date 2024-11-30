@@ -23,8 +23,10 @@
 <body class="bg-base-100 max-w-screen text-base-content">
   <c-navbar />
   <main>
-    {% block content %}
-    {% endblock content %}
+    <div class="min-h-screen">
+      {% block content %}
+      {% endblock content %}
+    </div>
   </main>
   <c-footer />
   {% compress js inline %}
