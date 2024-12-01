@@ -9,8 +9,13 @@ module.exports = {
         '../templates/**/*.html',
 
         // Main templates directory (BASE_DIR/templates).
-        '../../templates/**/*.html',
-        '../../**/templates/*.html',
+        '../../templates/cotton/*.html',
+        '../../templates/cotton/meta/*.html',
+        '../../templates/vgarchive/*.html',
+        '../../templates/vgarchive/list/*.html',
+        '../../templates/vgarchive/forms/*.html',
+        '../../templates/vgarchive/detail/*.html',
+        '../../templates/django/forms/widgets/*.html',
 
         '../../views/*.py',
         '../../utils.py',
