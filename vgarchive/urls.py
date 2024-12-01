@@ -40,14 +40,14 @@ urlpatterns = [
     path("runs/<slug:pk>/", RunDetailView.as_view(), name="run-detail"),
     path("runs/", RunListView.as_view(), name="run-list"),
     # Manual Creation Views
-    path("create/charity", CharityCreate.as_view(), name="ingest-charity"),
-    path("create/event", EventCreate.as_view(), name="ingest-charity"),
-    path("create/game", GameCreate.as_view(), name="ingest-game"),
+    path("create/charity", CharityCreate.as_view(), name="create-charity"),
+    path("create/event", EventCreate.as_view(), name="create-event"),
+    path("create/game", GameCreate.as_view(), name="create-game"),
     path(
-        "create/organization", OrganizationCreate.as_view(), name="ingest-organization"
+        "create/organization", OrganizationCreate.as_view(), name="create-organization"
     ),
-    path("create/runner", RunnerCreate.as_view(), name="ingest-runner"),
-    path("create/run", RunCreate.as_view(), name="ingest-run"),
+    path("create/runner", RunnerCreate.as_view(), name="create-runner"),
+    path("create/run", RunCreate.as_view(), name="create-run"),
     # Hot reload
     path("__reload__/", include("django_browser_reload.urls")),
     # Index
