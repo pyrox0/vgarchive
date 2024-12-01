@@ -11,7 +11,7 @@
     </a>
   </div>
   <div class="hidden md:justify-center md:flex navbar-center">
-    <ul class="menu menu-horizontal mx-2 text-base-content text-xl xl:text-2xl">
+    <ul class="menu menu-horizontal ml-2 text-base-content text-xl xl:text-2xl">
       <li role="menuitem">
         <a class="navbar-tab" href="{% url 'charity-list' %}">Charities</a>
       </li>
@@ -29,15 +29,28 @@
       <div>
         <details class="dropdown dropdown-end">
           <summary tabindex="0" role="menu" class="navbar-tab">
-            Add Data
+            Management
             <i class="bi bi-caret-down-fill"></i>
           </summary>
-          <ul class="menu menu-sm dropdown-content border-2 border-secondary bg-base-300 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+          <ul role="menu"
+              class="menu menu-sm dropdown-content border-2 border-secondary bg-base-300 rounded-box z-[1] mt-3 w-52 p-2 shadow">
             <li role="menuitem">
-              <a class="text-xl" href="{% url 'ingest-runner' %}">Runner</a>
+              <a class="text-xl" href="{% url 'create-charity' %}">Charity</a>
             </li>
             <li role="menuitem">
-              <a class="text-xl" href="{% url 'ingest-run' %}">Run</a>
+              <a class="text-xl" href="{% url 'create-game' %}">Game</a>
+            </li>
+            <li role="menuitem">
+              <a class="text-xl" href="{% url 'create-event' %}">Event</a>
+            </li>
+            <li role="menuitem">
+              <a class="text-xl" href="{% url 'create-organization' %}">Organization</a>
+            </li>
+            <li role="menuitem">
+              <a class="text-xl" href="{% url 'create-runner' %}">Runner</a>
+            </li>
+            <li role="menuitem">
+              <a class="text-xl" href="{% url 'create-run' %}">Run</a>
             </li>
           </ul>
         </details>
@@ -63,7 +76,7 @@
                  aria-label="Main Menu">{% icon 'list' extra_classes="text-3xl text-base-content" %}</summary>
         <ul tabindex="0"
             role="menu"
-            class="menu menu-sm dropdown-content bg-base-200 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+            class="menu menu-sm dropdown-content bg-base-200 rounded-box z-[1] mt-3 min-w-52 max-w-96 p-2 shadow">
           <li role="menuitem">
             <a class="my-2 rounded-none text-2xl" href="{% url 'charity-list' %}">Charities</a>
           </li>
@@ -80,13 +93,31 @@
           {% if user.is_staff %}
             <li role="menuitem">
               <details open>
-                <summary class="my-2 text-2xl">Add Data</summary>
-                <ul>
-                  <li>
-                    <a class="my-2 rounded-none text-2xl" href="{% url 'ingest-runner' %}">Runners</a>
-                  </li>
-                  <li>
-                    <a class="my-2 rounded-none text-2xl" href="{% url 'ingest-run' %}">Runs</a>
+                <summary class="my-2 text-2xl">Management</summary>
+                <ul role="menu">
+                  <li role="menuitem">
+                    <p class="text-2xl text-neutral">Creation</p>
+                    <ul role="menu">
+                      <li role="menuitem">
+                        <a class="my-2 rounded-none text-2xl" href="{% url 'create-charity' %}">Charity</a>
+                      </li>
+                      <li role="menuitem">
+                        <a class="my-2 rounded-none text-2xl" href="{% url 'create-game' %}">Game</a>
+                      </li>
+                      <li role="menuitem">
+                        <a class="my-2 rounded-none text-2xl" href="{% url 'create-event' %}">Event</a>
+                      </li>
+                      <li role="menuitem">
+                        <a class="my-2 rounded-none text-2xl"
+                           href="{% url 'create-organization' %}">Organization</a>
+                      </li>
+                      <li role="menuitem">
+                        <a class="my-2 rounded-none text-2xl" href="{% url 'create-runner' %}">Runner</a>
+                      </li>
+                      <li role="menuitem">
+                        <a class="my-2 rounded-none text-2xl" href="{% url 'create-run' %}">Run</a>
+                      </li>
+                    </ul>
                   </li>
                 </ul>
               </details>
