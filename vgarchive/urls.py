@@ -4,7 +4,15 @@ from django.conf import settings
 
 from debug_toolbar.toolbar import debug_toolbar_urls
 
-from .views import Home, RunnerIngest, RunIngest
+from .views import Home
+from .views.create import (
+    CharityCreate,
+    EventCreate,
+    GameCreate,
+    OrganizationCreate,
+    RunnerCreate,
+    RunCreate,
+)
 from .views.charity import CharityDetailView, CharityListView
 from .views.event import EventDetailView, EventListView
 from .views.organization import OrganizationDetailView, OrganizationListView
@@ -31,9 +39,15 @@ urlpatterns = [
     # Runs
     path("runs/<slug:pk>/", RunDetailView.as_view(), name="run-detail"),
     path("runs/", RunListView.as_view(), name="run-list"),
-    # Ingest Views
-    path("ingest/runners", RunnerIngest.as_view(), name="ingest-runner"),
-    path("ingest/runs", RunIngest.as_view(), name="ingest-run"),
+    # Manual Creation Views
+    path("create/charity", CharityCreate.as_view(), name="ingest-charity"),
+    path("create/event", EventCreate.as_view(), name="ingest-charity"),
+    path("create/game", GameCreate.as_view(), name="ingest-game"),
+    path(
+        "create/organization", OrganizationCreate.as_view(), name="ingest-organization"
+    ),
+    path("create/runner", RunnerCreate.as_view(), name="ingest-runner"),
+    path("create/run", RunCreate.as_view(), name="ingest-run"),
     # Hot reload
     path("__reload__/", include("django_browser_reload.urls")),
     # Index
