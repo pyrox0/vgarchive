@@ -13,6 +13,11 @@ from vgarchive.models.charity import Charity
 from vgarchive.views import VGArchiveMetaTable, VGArchiveForm
 from vgarchive import utils
 
+__all__ = [
+    "OrganizationDetailView",
+    "OrganizationListView",
+]
+
 
 class OrganizationDetailView(DetailView):
     model = Organization

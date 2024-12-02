@@ -6,6 +6,15 @@ from .models.event import Event
 from .models.organization import Organization
 from .models.run import Run, Runner, Game
 
+__all__ = [
+    "site",
+    "CharityAdmin",
+    "EventAdmin",
+    "OrganizationAdmin",
+    "GameAdmin",
+    "RunAdmin",
+    "RunnerAdmin",
+]
 
 site.site_header = "VGArchive Administration"
 site.site_title = "VGArchive Administration"
@@ -65,6 +74,11 @@ class EventAdmin(admin.ModelAdmin):
     )
 
 
+@admin.register(Game, site=site)
+class GameAdmin(admin.ModelAdmin):
+    fields = ["name"]  # noqa
+
+
 @admin.register(Organization, site=site)
 class OrganizationAdmin(admin.ModelAdmin):
     exclude = ("donation_total", "num_donations")
@@ -74,11 +88,6 @@ class OrganizationAdmin(admin.ModelAdmin):
         ("Links", {"fields": ["homepage", "tracker"]}),
         ("Socials", {"fields": ["bluesky", "twitch", "twitter", "youtube"]}),
     )
-
-
-@admin.register(Game, site=site)
-class GameAdmin(admin.ModelAdmin):
-    fields = ["name"]  # noqa
 
 
 @admin.register(Runner, site=site)

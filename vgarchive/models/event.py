@@ -10,6 +10,8 @@ from imagekit.models import ProcessedImageField
 from vgarchive.models.organization import Organization
 from vgarchive.models.charity import Charity
 
+__all__ = ["Event"]
+
 
 def _upload_banner(instance, filename):  # noqa
     return f"event-banners/{Path(filename).with_stem(instance.id)}"

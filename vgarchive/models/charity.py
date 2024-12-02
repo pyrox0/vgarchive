@@ -10,6 +10,8 @@ from imagekit.models import ProcessedImageField
 
 from vgarchive.validators.bluesky import validate_bluesky
 
+__all__ = ["Charity"]
+
 
 def _upload_icon(instance, filename):
     return f"charity-icons/{Path(filename).with_stem(instance.id)}"

@@ -9,6 +9,8 @@ from imagekit.models import ProcessedImageField
 
 from vgarchive.validators.bluesky import validate_bluesky
 
+__all__ = ["Organization"]
+
 
 def _upload_banner(instance, filename):
     return f"org-banners/{Path(filename).with_stem(instance.id)}"

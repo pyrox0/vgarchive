@@ -18,6 +18,8 @@ from .views.event import EventDetailView, EventListView
 from .views.organization import OrganizationDetailView, OrganizationListView
 from .views.run import RunDetailView, RunListView
 
+__all__ = ["urlpatterns"]
+
 urlpatterns = [
     # Admindoc
     path("admin/doc/", include("django.contrib.admindocs.urls"), name="admindoc"),

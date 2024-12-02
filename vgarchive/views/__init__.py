@@ -2,6 +2,20 @@ from django import forms
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import FormView
 
+from . import charity, create, event, organization, run
+
+__all__ = [
+    "charity",
+    "create",
+    "event",
+    "organization",
+    "run",
+    "VGArchiveMetaTable",
+    "VGArchiveForm",
+    "Home",
+    "Search",
+]
+
 
 class VGArchiveMetaTable:
     template_name = "vgarchive/table-template.html"

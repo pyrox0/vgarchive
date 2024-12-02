@@ -3,7 +3,11 @@ from django.core.exceptions import ValidationError
 
 from . import views
 
-__all__ = ["views"]
+__all__ = [
+    "views",
+    "is_twitch_url",
+    "is_youtube_url",
+]
 
 
 def is_twitch_url(value) -> None:  # noqa

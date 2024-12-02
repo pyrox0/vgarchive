@@ -8,6 +8,11 @@ import django_filters.views as filter_views
 from vgarchive.models.run import Run
 from vgarchive.views import VGArchiveMetaTable, VGArchiveForm
 
+__all__ = [
+    "RunDetailView",
+    "RunListView",
+]
+
 
 class RunDetailView(DetailView):
     model = Run
