@@ -106,6 +106,7 @@ class RunAdmin(admin.ModelAdmin):
             {
                 "fields": [
                     "game",
+                    "source",
                     "category",
                     "platform",
                     "length",

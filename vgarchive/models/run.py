@@ -2,6 +2,7 @@ from typing import Self
 from django.db import models
 from django.utils.text import slugify
 
+from vgarchive.models import DataSources
 from vgarchive.models.event import Event
 from vgarchive.utils import is_youtube_url, is_twitch_url
 from vgarchive.validators.bluesky import validate_bluesky
@@ -87,6 +88,12 @@ class Run(models.Model):
         verbose_name="Event",
     )
     game = models.ForeignKey(Game, models.PROTECT, verbose_name="Game")
+    source = models.CharField(
+        "Run Source",
+        max_length=10,
+        choices=DataSources,
+        default=DataSources.MANUAL,
+    )
     category = models.CharField("Category", max_length=200)
     platform = models.CharField("Platform", max_length=200)
     length = models.DurationField("Run Length")
