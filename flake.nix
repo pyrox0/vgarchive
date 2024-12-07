@@ -99,13 +99,6 @@
               language = "python";
               types = [ "html" ];
             };
-            validate-pyproject = {
-              enable = true;
-              name = "Validate pyproject.toml";
-              entry = "validate-pyproject";
-              files = "^pyproject.toml$";
-              language = "python";
-            };
           };
         };
       });
