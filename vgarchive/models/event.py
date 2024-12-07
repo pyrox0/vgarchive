@@ -2,11 +2,11 @@ from pathlib import Path
 
 from django.db import models
 from django.db.models import CASCADE
-from django.utils.translation import gettext_lazy as _
 from django.urls import reverse
 
 from imagekit.models import ProcessedImageField
 
+from vgarchive.models import DataSources
 from vgarchive.models.organization import Organization
 from vgarchive.models.charity import Charity
 
@@ -39,11 +39,6 @@ class Event(models.Model):
 
     """
 
-    class EventSources(models.TextChoices):
-        TRACKER = "tracker", _("GDQ Tracker")
-        OENGUS = "oengus", _("Oengus")
-        MANUAL = "manual", _("Manual Import")
-
     id = models.SlugField("ID", primary_key=True, max_length=200)
     organization = models.ForeignKey(
         Organization,
@@ -55,8 +50,8 @@ class Event(models.Model):
     source = models.CharField(
         "Event Source",
         max_length=10,
-        choices=EventSources,
-        default=EventSources.MANUAL,
+        choices=DataSources,
+        default=DataSources.MANUAL,
     )
     start_date = models.DateField("Start Date")
     end_date = models.DateField("End Date")
