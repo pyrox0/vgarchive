@@ -14,7 +14,7 @@
   "devDependencies": {
     "@catppuccin/daisyui": "^1.2.0",
     "@catppuccin/tailwindcss": "^0.1.6",
-    "daisyui": "^4.12.14",
+    "daisyui": "^5.0.0",
     "postcss": "^8.4.49",
     "postcss-import": "^16.1.0",
     "postcss-nested": "^7.0.2",
