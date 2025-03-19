@@ -1,4 +1,5 @@
 version = 1
+revision = 1
 requires-python = ">=3.12"
 
 [[package]]
@@ -207,14 +208,14 @@ wheels = [
 
 [[package]]
 name = "django-cotton"
-version = "1.5.1"
+version = "2.0.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "django" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/29/2d/c6b89fed969720f180b2205f455212e71a7e6205d5c84992d82ddee1768c/django_cotton-1.5.1.tar.gz", hash = "sha256:e758729ccb415fff9a1d6fe94e81cd1392ab91fc7ea7b0835995848eb5ea4920", size = 21292 }
+sdist = { url = "https://files.pythonhosted.org/packages/73/e2/080a68f48734c6772b903ebae5a0d53b43b83d13f66e3089c04a0da60d7b/django_cotton-2.0.1.tar.gz", hash = "sha256:aac88b5158d192b65b2d687154ea8ad19589460ef925f581ad9bb8061e977c2c", size = 21557 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/83/1a/0e44ec291ac6c3355ade01da77e4787e35bf10844a495cb12db5dbfc667b/django_cotton-1.5.1-py3-none-any.whl", hash = "sha256:fab92c8d85146f96106ba1c0a36eb7a1bb19fd836bb679a1d25d22ff85cdda3d", size = 20439 },
+    { url = "https://files.pythonhosted.org/packages/e7/be/470ecb257c7e7c3056bce93cdefc0547a4723b868d3ee5eabedd6eaaaf2e/django_cotton-2.0.1-py3-none-any.whl", hash = "sha256:ad121bd5d567935140f0eca467563f107f5640097d34a1792990af9505936536", size = 21206 },
 ]
 
 [[package]]
@@ -586,7 +587,7 @@ requires-dist = [
     { name = "django", specifier = "~=5.1.4" },
     { name = "django-compression-middleware", specifier = "~=0.5.0" },
     { name = "django-compressor", specifier = ">=4.5" },
-    { name = "django-cotton", specifier = "~=1.5.1" },
+    { name = "django-cotton", specifier = "~=2.0.1" },
     { name = "django-filter", specifier = "~=24.1" },
     { name = "django-icons", specifier = "~=24.4" },
     { name = "django-icons-bootstrap-icons", specifier = "~=1.0.0" },
