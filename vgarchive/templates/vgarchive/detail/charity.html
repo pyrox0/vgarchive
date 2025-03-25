@@ -1,17 +1,18 @@
 {% extends "vgarchive/base.html" %}
 {% load icons %}
 {% block head %}
-  {{ block.super }}
+  {{
+  block.super }}
   <c-meta.description content="{{ description }}" />
   <c-meta.title content="{{ title }}" />
 {% endblock head %}
 {% block content %}
   <div class="hero-bg" style="background-image:url('{{ object.icon.url }}')">
     <div class="hero-bg-gradient">
-      <div class="hero-overlay bg-opacity-60 bg-base-100"></div>
+      <div class="hero-overlay bg-base-100/60"></div>
       <div class="hero-content flex-col lg:flex-row">
         <div class="flex flex-col lg:mx-20 lg:mr-40">
-          <h1 class="text-7xl font-mono lg:text-6xl self-end py-5 ml-20 mt-5 w-full font-bold text-base-content text-wrap bg-base-100 bg-opacity-60 rounded-md text-center">
+          <h1 class="text-7xl font-mono lg:text-6xl self-end py-5 ml-20 mt-5 w-full font-bold text-base-content text-wrap bg-base-100/60 rounded-md text-center">
             {{ object.name }}
           </h1>
         </div>
@@ -22,11 +23,11 @@
               <p class="hero-button-text-unhidden">Website</p>
             </a>
           {% endif %}
-          <div class="bg-opacity-0 hero-stat my-5">
-            <div class="stat bg-success bg-opacity-70 card-body">
+          <div class="bg-transparent hero-stat my-5">
+            <div class="stat bg-success/70 card-body">
               <div class="hero-stat-title">
-                {% icon 'cash-stack' extra_classes="hero-stat-icon" tabindex="-1" %}
-                Total Raised
+                {% icon 'cash-stack' extra_classes="hero-stat-icon"
+                tabindex="-1" %} Total Raised
               </div>
               <p class="stat-value">${{ object.donation_total|floatformat:"-2g" }}</p>
             </div>
@@ -44,7 +45,7 @@
             {% if e.banner %}
               <img class="rounded max-h-1/2"
                    src="{{ e.banner.url }}"
-                   alt="Banner for the event {{ e.name }}.">
+                   alt="Banner for the event {{ e.name }}." />
             {% endif %}
             {% if e.short_name %}
               <p class="card-title text-2xl mt-1">{{ e.short_name }}</p>

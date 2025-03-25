@@ -1,4 +1,5 @@
 version = 1
+revision = 1
 requires-python = ">=3.12"
 
 [[package]]
@@ -127,16 +128,16 @@ wheels = [
 
 [[package]]
 name = "django"
-version = "5.1.4"
+version = "5.1.7"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "asgiref" },
     { name = "sqlparse" },
     { name = "tzdata", marker = "sys_platform == 'win32'" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/d3/e8/536555596dbb79f6e77418aeb40bdc1758c26725aba31919ba449e6d5e6a/Django-5.1.4.tar.gz", hash = "sha256:de450c09e91879fa5a307f696e57c851955c910a438a35e6b4c895e86bedc82a", size = 10716397 }
+sdist = { url = "https://files.pythonhosted.org/packages/5f/57/11186e493ddc5a5e92cc7924a6363f7d4c2b645f7d7cb04a26a63f9bfb8b/Django-5.1.7.tar.gz", hash = "sha256:30de4ee43a98e5d3da36a9002f287ff400b43ca51791920bfb35f6917bfe041c", size = 10716510 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/58/0b/8a4ab2c02982df4ed41e29f28f189459a7eba37899438e6bea7f39db793b/Django-5.1.4-py3-none-any.whl", hash = "sha256:236e023f021f5ce7dee5779de7b286565fdea5f4ab86bae5338e3f7b69896cf0", size = 8276471 },
+    { url = "https://files.pythonhosted.org/packages/ba/0f/7e042df3d462d39ae01b27a09ee76653692442bc3701fbfa6cb38e12889d/Django-5.1.7-py3-none-any.whl", hash = "sha256:1323617cb624add820cb9611cdcc788312d250824f92ca6048fda8625514af2b", size = 8276912 },
 ]
 
 [[package]]
@@ -165,15 +166,15 @@ wheels = [
 
 [[package]]
 name = "django-browser-reload"
-version = "1.17.0"
+version = "1.18.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "asgiref" },
     { name = "django" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/9f/bc/3c67f7daca53b826ec51888576fe5e117d9442d2d0acb58f4264d48b9dba/django_browser_reload-1.17.0.tar.gz", hash = "sha256:3667939cde0eee1a6d698dbe3b78cf10b573dabc4e711fb7933f1ba91fb98da4", size = 14312 }
+sdist = { url = "https://files.pythonhosted.org/packages/3b/41/84eaa4f2b7f764e56e01c4ee49aa12bdea30ae50fd0d3ef7c2690b0c4ec2/django_browser_reload-1.18.0.tar.gz", hash = "sha256:c5f0b134723cbf2a0dc9ae1ee1d38e42db28fe23c74cdee613ba3ef286d04735", size = 14319 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/7f/8f/62fc4fbf5c05c2210e6cb616f1c2a3da53871dfecbaa4c44b1f482ca3e8f/django_browser_reload-1.17.0-py3-none-any.whl", hash = "sha256:d372c12c1c5962c02279a53cac7e8a020c48f104592c637a06d0768b28d2d6be", size = 12228 },
+    { url = "https://files.pythonhosted.org/packages/e4/9d/1322dc4bce4982d1eadd3a62802c996ae0303aad13d9ad88c1d35025f73d/django_browser_reload-1.18.0-py3-none-any.whl", hash = "sha256:ed4cc2fb83c3bf6c30b54107a1a6736c0b896e62e4eba666d81005b9f2ecf6f8", size = 12230 },
 ]
 
 [[package]]
@@ -207,27 +208,27 @@ wheels = [
 
 [[package]]
 name = "django-cotton"
-version = "1.5.1"
+version = "2.0.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "django" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/29/2d/c6b89fed969720f180b2205f455212e71a7e6205d5c84992d82ddee1768c/django_cotton-1.5.1.tar.gz", hash = "sha256:e758729ccb415fff9a1d6fe94e81cd1392ab91fc7ea7b0835995848eb5ea4920", size = 21292 }
+sdist = { url = "https://files.pythonhosted.org/packages/73/e2/080a68f48734c6772b903ebae5a0d53b43b83d13f66e3089c04a0da60d7b/django_cotton-2.0.1.tar.gz", hash = "sha256:aac88b5158d192b65b2d687154ea8ad19589460ef925f581ad9bb8061e977c2c", size = 21557 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/83/1a/0e44ec291ac6c3355ade01da77e4787e35bf10844a495cb12db5dbfc667b/django_cotton-1.5.1-py3-none-any.whl", hash = "sha256:fab92c8d85146f96106ba1c0a36eb7a1bb19fd836bb679a1d25d22ff85cdda3d", size = 20439 },
+    { url = "https://files.pythonhosted.org/packages/e7/be/470ecb257c7e7c3056bce93cdefc0547a4723b868d3ee5eabedd6eaaaf2e/django_cotton-2.0.1-py3-none-any.whl", hash = "sha256:ad121bd5d567935140f0eca467563f107f5640097d34a1792990af9505936536", size = 21206 },
 ]
 
 [[package]]
 name = "django-debug-toolbar"
-version = "4.4.6"
+version = "5.1.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "django" },
     { name = "sqlparse" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/d4/9c/0a3238eda0a46df20f2e3fe2a30313d34f5042a1a737d08230b77c29a3e9/django_debug_toolbar-4.4.6.tar.gz", hash = "sha256:36e421cb908c2f0675e07f9f41e3d1d8618dc386392ec82d23bcfcd5d29c7044", size = 272610 }
+sdist = { url = "https://files.pythonhosted.org/packages/5b/6b/41281bf3f9939713010f24f46a033a74cf90599f52f09aaa8b0b118692b7/django_debug_toolbar-5.1.0.tar.gz", hash = "sha256:8a3b9da4aeab8d384a366e20304bd939a451f0242523c5b7b402248ad474eed2", size = 294567 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/2f/33/2036a472eedfbe49240dffea965242b3f444de4ea4fbeceb82ccea33a2ce/django_debug_toolbar-4.4.6-py3-none-any.whl", hash = "sha256:3beb671c9ec44ffb817fad2780667f172bd1c067dbcabad6268ce39a81335f45", size = 229621 },
+    { url = "https://files.pythonhosted.org/packages/62/ce/39831ce0a946979fdf19c32e6dcd1754a70e3280815aa7a377f61d5e021c/django_debug_toolbar-5.1.0-py3-none-any.whl", hash = "sha256:c0591e338ee9603bdfce5aebf8d18ca7341fdbb69595e2b0b34869be5857180e", size = 261531 },
 ]
 
 [[package]]
@@ -245,26 +246,26 @@ wheels = [
 
 [[package]]
 name = "django-filter"
-version = "24.3"
+version = "25.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "django" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/50/bc/dc19ae39c235332926dd0efe0951f663fa1a9fc6be8430737ff7fd566b20/django_filter-24.3.tar.gz", hash = "sha256:d8ccaf6732afd21ca0542f6733b11591030fa98669f8d15599b358e24a2cd9c3", size = 144444 }
+sdist = { url = "https://files.pythonhosted.org/packages/b5/40/c702a6fe8cccac9bf426b55724ebdf57d10a132bae80a17691d0cf0b9bac/django_filter-25.1.tar.gz", hash = "sha256:1ec9eef48fa8da1c0ac9b411744b16c3f4c31176c867886e4c48da369c407153", size = 143021 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/09/b1/92f1c30b47c1ebf510c35a2ccad9448f73437e5891bbd2b4febe357cc3de/django_filter-24.3-py3-none-any.whl", hash = "sha256:c4852822928ce17fb699bcfccd644b3574f1a2d80aeb2b4ff4f16b02dd49dc64", size = 95011 },
+    { url = "https://files.pythonhosted.org/packages/07/a6/70dcd68537c434ba7cb9277d403c5c829caf04f35baf5eb9458be251e382/django_filter-25.1-py3-none-any.whl", hash = "sha256:4fa48677cf5857b9b1347fed23e355ea792464e0fe07244d1fdfb8a806215b80", size = 94114 },
 ]
 
 [[package]]
 name = "django-icons"
-version = "24.4"
+version = "25.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "django" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/36/da/c34386f12d2aed9e3b460a18b0003811e7c38e9cb0828ba90ac068ec079c/django_icons-24.4.tar.gz", hash = "sha256:8ae699e22cfc6a80a62eaa267a1d345f2c79adfa6f68f7f67a0316fefac977b3", size = 30794 }
+sdist = { url = "https://files.pythonhosted.org/packages/72/29/92c3670135078797aa9bc59f5af0b25386c777e1091e8827cd1357a3a9ed/django_icons-25.1.tar.gz", hash = "sha256:a95eefdc0e1c3a8193b40ca2228824e61ac7dffa37d27dcf7cf2efef9d180881", size = 91757 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/51/0c/b80a98f5ba85e220894856fddf0876301bb68ec86175e2272baff660914b/django_icons-24.4-py3-none-any.whl", hash = "sha256:6518bcf6554f0a3ebad5b5095c7cf929c251e96b9316de987203b1f00ac65951", size = 13359 },
+    { url = "https://files.pythonhosted.org/packages/cb/13/a2a49d87ed62cc202784200c122b89b712e3f65def9854bce7b5442faa86/django_icons-25.1-py3-none-any.whl", hash = "sha256:06a0a95af5f9d4f62929e1a6072b848d870c2e597a9139154cfb66458ed4114b", size = 13137 },
 ]
 
 [[package]]
@@ -305,15 +306,15 @@ wheels = [
 ]
 
 [[package]]
-name = "django-tailwind"
-version = "3.8.0"
+name = "django-tailwind-4"
+version = "0.1.4"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "django" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/3c/ee/1065c57c87213f566d76b398f8391cd544380ef9661f7fdacdfe4264633c/django_tailwind-3.8.0.tar.gz", hash = "sha256:31c2f4a7879d685c2de0feaf0b63f246200b37337bea4d7dbafb59bc3f10c008", size = 8969 }
+sdist = { url = "https://files.pythonhosted.org/packages/01/25/db0a2cf3180716361da2c27d7051a11b041ed1dfad436d1e85bbca440b39/django_tailwind_4-0.1.4.tar.gz", hash = "sha256:01bc1f64a8867e9258b97218bf79a42e9d2f29073423d3d55c4f4f2666d5ed58", size = 11749 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/cf/14/20c40882d9ee91f7a2a20d3c0175cf813340c02ae31c975ce567de2c7c67/django_tailwind-3.8.0-py3-none-any.whl", hash = "sha256:fa969c5b95d314b173fe2b2ed2cb2c03f2e2c94fdc2c01ff73a993fa159085da", size = 12936 },
+    { url = "https://files.pythonhosted.org/packages/e5/9f/57a654404a5cd50042498d4ecd2440ea9ecdac5ffe730981fd816ebdcb8a/django_tailwind_4-0.1.4-py3-none-any.whl", hash = "sha256:e1972c19eef98582f7d92c694af27757fedd7c354c1f4e3b36b4d45e82431bf6", size = 14870 },
 ]
 
 [[package]]
@@ -566,7 +567,7 @@ dependencies = [
     { name = "django-icons-bootstrap-icons" },
     { name = "django-imagekit" },
     { name = "django-tables2" },
-    { name = "django-tailwind" },
+    { name = "django-tailwind-4" },
     { name = "docutils" },
     { name = "pillow" },
     { name = "requests" },
@@ -583,16 +584,16 @@ dev = [
 
 [package.metadata]
 requires-dist = [
-    { name = "django", specifier = "~=5.1.4" },
+    { name = "django", specifier = "~=5.1.7" },
     { name = "django-compression-middleware", specifier = "~=0.5.0" },
     { name = "django-compressor", specifier = ">=4.5" },
-    { name = "django-cotton", specifier = "~=1.5.1" },
-    { name = "django-filter", specifier = "~=24.1" },
-    { name = "django-icons", specifier = "~=24.4" },
+    { name = "django-cotton", specifier = "~=2.0.1" },
+    { name = "django-filter", specifier = "~=25.1" },
+    { name = "django-icons", specifier = "~=25.1" },
     { name = "django-icons-bootstrap-icons", specifier = "~=1.0.0" },
     { name = "django-imagekit", specifier = "~=5.0.0" },
     { name = "django-tables2", specifier = "~=2.7.0" },
-    { name = "django-tailwind", specifier = "~=3.8.0" },
+    { name = "django-tailwind-4", specifier = "~=0.1.4" },
     { name = "docutils", specifier = "~=0.21.0" },
     { name = "pillow", specifier = "~=11.1.0" },
     { name = "requests", specifier = "~=2.32.3" },
@@ -601,8 +602,8 @@ requires-dist = [
 [package.metadata.requires-dev]
 dev = [
     { name = "django-admin-shell", specifier = ">=2.0.0" },
-    { name = "django-browser-reload", specifier = "~=1.17.0" },
-    { name = "django-debug-toolbar", specifier = ">=4.4.6" },
+    { name = "django-browser-reload", specifier = "~=1.18.0" },
+    { name = "django-debug-toolbar", specifier = ">=5.1.0" },
     { name = "django-debug-toolbar-template-profiler", specifier = ">=2.1.0" },
     { name = "hypercorn", extras = ["uvloop"], specifier = ">=0.17.0" },
 ]

@@ -4,23 +4,15 @@
   "description": "",
   "scripts": {
     "start": "npm run dev",
-    "build": "NODE_ENV=production tailwindcss --postcss -i ./src/styles.css -o ../static/css/dist/styles.css --minify",
-    "dev": "NODE_ENV=development tailwindcss --minify --postcss -i ./src/styles.css -o ../static/css/dist/styles.css -w",
-    "postcss": "postcss"
+    "build": "NODE_ENV=production tailwindcss --minify -i ./src/styles.css -o ../static/css/dist/styles.css ",
+    "dev": "NODE_ENV=development tailwindcss --minify -i ./src/styles.css -o ../static/css/dist/styles.css -w"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "@catppuccin/daisyui": "^1.2.0",
-    "@catppuccin/tailwindcss": "^0.1.6",
-    "daisyui": "^4.12.14",
-    "postcss": "^8.4.49",
-    "postcss-import": "^16.1.0",
-    "postcss-nested": "^7.0.2",
-    "tailwindcss": "^3.4.15"
-  },
-  "dependencies": {
-    "autoprefixer": "^10.4.20"
+    "@tailwindcss/cli": "^4.0.16",
+    "daisyui": "^5.0.9",
+    "tailwindcss": "^4.0.16"
   }
 }

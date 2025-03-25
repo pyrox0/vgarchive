@@ -1,0 +1,21 @@
+dictionaries = []
+words = [
+    "catppuccin",
+    "daisyui",
+    "hypercorn",
+    "imagekit",
+    "orderable",
+    "plex",
+    "prefersdark",
+    "pyrox",
+    "setuptools",
+    "tailwindcss",
+    "vgarchive",
+    "videogames",
+    "vod",
+    "vods",
+]
+flag_words = []
+ignore_paths = []
+ignore_patterns = []
+use_global = true

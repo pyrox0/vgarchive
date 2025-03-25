@@ -8,9 +8,7 @@ django:
   uv run ./manage.py runserver &
 
 tw:
-  cd ./vgarchive/theme/static_src/ && postcss -w --verbose \
-    ./src/styles.css \
-    -o ../static/css/dist/styles.css
+  cd ./vgarchive/theme/static_src/
 
 fonts:
   python scripts/bi-css.py

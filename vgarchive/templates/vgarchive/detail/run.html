@@ -1,7 +1,8 @@
 {% extends "vgarchive/base.html" %}
 {% load icons %}
 {% block head %}
-  {{ block.super }}
+  {{
+  block.super }}
   <c-meta.description content="{{ object.name }}" />
   <c-meta.title content="{{ title }}" />
 {% endblock head %}
@@ -9,10 +10,10 @@
   <div class="hero-bg"
        style="background-image:url('{{ object.banner.url }}')">
     <div class="hero-bg-gradient">
-      <div class="hero-overlay bg-opacity-60 bg-base-100"></div>
+      <div class="hero-overlay bg-base-100/60"></div>
       <div class="hero-content flex-col lg:flex-row">
         <div class="flex flex-col lg:mx-20 lg:mr-40">
-          <h1 class="text-7xl font-mono lg:text-6xl self-end py-5 ml-20 mt-5 w-full font-bold text-base-content text-nowrap bg-base-100 bg-opacity-60 rounded-md text-center">
+          <h1 class="text-7xl font-mono lg:text-6xl self-end py-5 ml-20 mt-5 w-full font-bold text-base-content text-nowrap bg-base-100/60 rounded-md text-center">
             {{ object.short_name }}
           </h1>
         </div>
@@ -37,20 +38,20 @@
             {% icon 'bank' extra_classes="text-[2.5rem] hero-button-icon" tabindex="-1" %}
             <p class="hero-button-text-unhidden">Supported Charity</p>
           </a>
-          <div class="bg-opacity-0 hero-stat my-5 lg:max-w-sm">
-            <div class="stat bg-success bg-opacity-70 card-body">
+          <div class="bg-transparent hero-stat my-5 lg:max-w-sm">
+            <div class="stat bg-success/70 card-body">
               <div class="hero-stat-title">
-                {% icon 'cash-stack' extra_classes="hero-stat-icon" tabindex="-1" %}
-                Total Raised
+                {% icon 'cash-stack' extra_classes="hero-stat-icon"
+                tabindex="-1" %} Total Raised
               </div>
               <p class="stat-value">${{ object.donation_total|floatformat:"-2g" }}</p>
             </div>
           </div>
-          <div class="bg-opacity-0 hero-stat lg:float-right lg:max-w-xs">
-            <div class="stat bg-info bg-opacity-70 card-body">
+          <div class="bg-transparent hero-stat lg:float-right lg:max-w-xs">
+            <div class="stat bg-info/70 card-body">
               <div class="hero-stat-title">
-                {% icon 'people-fill' extra_classes="hero-stat-icon" tabindex="-1" %}
-                Donation Count
+                {% icon 'people-fill' extra_classes="hero-stat-icon"
+                tabindex="-1" %} Donation Count
               </div>
               <a class="stat-value external-link link-success-content"
                  href="{{ object.donations }}">{{ object.num_donations|floatformat:"0g" }}</a>

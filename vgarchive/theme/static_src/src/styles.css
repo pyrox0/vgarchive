@@ -1,131 +1,222 @@
 /* Bootstrap Icons */
 @import "./bs-icons/bootstrap-icons.min.css";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss" source("../../../");
 
-@layer utilities {
-  .navbar-tab {
-    @apply btn btn-outline text-2xl mx-1;
-  }
-  /* Hero images get this gradient to fade out at the end */
-  .hero-bg {
+/* DaisyUI *
+
+/* DaisyUI Custom Theme */
+@plugin "daisyui";
+@plugin "daisyui/theme" {
+    name: "mocha";
+    default: true;
+    prefersdark: true;
+    color-scheme: "dark";
+    --color-base-100: oklch(24.29% 0.0304 283.91);
+    --color-base-200: oklch(21.55% 0.0254 284.06);
+    --color-base-300: oklch(18.28% 0.0204 284.2);
+    --color-base-content: oklch(87.87% 0.0426 272.28);
+    --color-primary: oklch(78.71% 0.1187 304.77);
+    --color-primary-content: oklch(18.28% 0.0204 284.2);
+    --color-secondary: oklch(81.68% 0.0403 272.86);
+    --color-secondary-content: oklch(24.29% 0.0304 283.91);
+    --color-accent: oklch(92.26% 0.0238 30.49);
+    --color-accent-content: oklch(24.29% 0.0304 283.91);
+    --color-neutral: oklch(61.76% 0.0367 276);
+    --color-neutral-content: oklch(18.28% 0.0204 284.2);
+    --color-info: oklch(76.64% 0.1113 259.88);
+    --color-info-content: oklch(24.29% 0.0304 283.91);
+    --color-success: oklch(85.77% 0.1092 142.72);
+    --color-success-content: oklch(24.29% 0.0304 283.91);
+    --color-warning: oklch(82.37% 0.1015 52.63);
+    --color-warning-content: oklch(24.29% 0.0304 283.91);
+    --color-error: oklch(75.56% 0.1297 2.76);
+    --color-error-content: oklch(24.29% 0.0304 283.91);
+    --radius-selector: 0rem;
+    --radius-field: 0rem;
+    --radius-box: 0rem;
+    --size-selector: 0.25rem;
+    --size-field: 0.25rem;
+    --border: 1.5px;
+    --depth: 0;
+    --noise: 0;
+}
+@plugin "daisyui/theme" {
+    name: "latte";
+    default: false;
+    prefersdark: false;
+    color-scheme: "light";
+    --color-base-100: oklch(95.78% 0.0058 264.53);
+    --color-base-200: oklch(93.35% 0.0087 264.52);
+    --color-base-300: oklch(90.6% 0.0117 264.51);
+    --color-base-content: oklch(43.55% 0.043 279.33);
+    --color-primary: oklch(55.47% 0.2503 297.02);
+    --color-primary-content: oklch(95.78% 0.0058 264.53);
+    --color-secondary: oklch(49.2% 0.0385 279.3);
+    --color-secondary-content: oklch(95.78% 0.0058 264.53);
+    --color-accent: oklch(71.41% 0.1045 33.1);
+    --color-accent-content: oklch(24.29% 0.0304 283.91);
+    --color-neutral: oklch(65.36% 0.0269 278.12);
+    --color-neutral-content: oklch(24.29% 0.0304 283.91);
+    --color-info: oklch(55.86% 0.2255 262.09);
+    --color-info-content: oklch(95.78% 0.0058 264.53);
+    --color-success: oklch(62.5% 0.1772 140.44);
+    --color-success-content: oklch(24.29% 0.0304 283.91);
+    --color-warning: oklch(71.4% 0.1494 67.78);
+    --color-warning-content: oklch(24.29% 0.0304 283.91);
+    --color-error: oklch(55.05% 0.2155 19.81);
+    --color-error-content: oklch(95.78% 0.0058 264.53);
+    --radius-selector: 0rem;
+    --radius-field: 0rem;
+    --radius-box: 0rem;
+    --size-selector: 0.25rem;
+    --size-field: 0.25rem;
+    --border: 1.5px;
+    --depth: 0;
+    --noise: 0;
+}
+
+@theme {
+    --blur-*: initial;
+    --perspective-*: initial;
+    --drop-shadow-*: initial;
+    --shadow-*: initial;
+    --inset-shadow-*: initial;
+    --ease-*: initial;
+    --animate-*: initial;
+    --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+    --font-serif: "IBM Plex Serif", ui-serif, serif;
+    --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+    --font-weight-bold: 600;
+}
+
+@layer components {
+    .navbar-tab {
+        @apply btn btn-outline text-2xl mx-1;
+    }
+
+    /* Link buttons for hero sections */
+    .hero-button {
+        @apply btn btn-lg bg-current/70 border-none;
+        height: 3rem;
+    }
+    .hero-button-icon {
+        @apply justify-self-center self-center text-success-content;
+        font-family: "bootstrap-icons";
+    }
+
+    /*
+      * Info cards in carousels
+      * Used for events, charities, etc
+      */
+    .carousel-card {
+        @apply carousel-item card card-sm bg-base-200 max-w-sm;
+    }
+
+    /* Stat cards in hero sections */
+    .hero-stat {
+        @apply card stats text-success-content items-center text-center lg:items-start lg:text-left lg:mr-20 bg-current/70;
+    }
+
+    /* External links that are not icons should have this class */
+    .external-link {
+        @apply link;
+        &::after {
+            display: inline-block;
+            font-family: "bootstrap-icons";
+            font-size: 0.8rem;
+            content: "\00a0\00a0\F1C5";
+            position: relative;
+            bottom: 0.1rem;
+            text-decoration: none;
+        }
+    }
+
+    /* Order icons in table headers */
+    th.orderable > a::after {
+        @apply bs-th-icon;
+        font-size: 1.3rem;
+        display: inline-block;
+        content: "\00a0\00a0\F127";
+    }
+    th.orderable.desc > a::after {
+        @apply bs-th-icon;
+        font-size: 1.3rem;
+        content: "\00a0\00a0\F128";
+    }
+    th.orderable.asc > a::after {
+        @apply bs-th-icon;
+        font-size: 1.3rem;
+        content: "\00a0\00a0\F148";
+    }
+
+    details.filter-dropdown > summary::after {
+        font-family: "bootstrap-icons";
+        position: relative;
+        top: 0.1rem;
+        content: "\F229";
+    }
+    details[open].filter-dropdown > summary::after {
+        font-family: "bootstrap-icons";
+        position: relative;
+        top: 0.1rem;
+        content: "\F235";
+    }
+}
+@utility hero-bg {
     @apply hero min-h-screen h-full;
-  }
-  .hero-bg-gradient {
+}
+/* Hero images get this gradient to fade out at the end */
+@utility hero-bg-gradient {
     @apply hero-bg;
     background-image: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0) 0 60%,
-      rgba(0, 0, 0, 1)
+        to bottom,
+        rgba(0, 0, 0, 0) 0 60%,
+        rgba(0, 0, 0, 1)
     );
-  }
-  /* Link buttons for hero sections */
-  .hero-button {
-    @apply btn btn-lg rounded-btn bg-opacity-70 border-none;
-    height: 3rem;
-  }
-
-  .hero-button-text {
+}
+/* Link buttons for hero sections */
+@utility hero-button-text {
     @apply lg:hidden ml-5 text-3xl text-success-content;
-  }
-  .hero-button-text-unhidden {
+}
+@utility hero-button-text-unhidden {
     @apply ml-5 text-3xl text-success-content;
-  }
+}
 
-  .hero-button-icon {
-    @apply justify-self-center self-center text-success-content;
-    font-family: "bootstrap-icons";
-  }
-
-  /* Stat cards in hero sections */
-  .hero-stat {
-    @apply card stats text-success-content items-center text-center lg:items-start lg:text-left lg:mr-20 bg-opacity-70;
-  }
-  .hero-stat-title {
+/* Stat cards in hero sections */
+@utility hero-stat-title {
     @apply stat-title card-title text-5xl lg:text-lg justify-center lg:justify-start text-success-content;
-  }
-  .hero-stat-icon {
+}
+@utility hero-stat-icon {
     @apply text-xl lg:text-2xl text-success-content;
-  }
-
-  /*
-  * Info cards in carousels
-  * Used for events, charities, etc 
-  */
-  .carousel-card {
-    @apply carousel-item card card-compact bg-base-200 max-w-sm;
-  }
-
-  /* Order icons in table headers */
-  .bs-th-icon {
+}
+@utility bs-th-icon {
     font-family: "bootstrap-icons";
     position: relative;
     top: 0.2rem;
-  }
-  th.orderable > a::after {
-    @apply bs-th-icon;
-    font-size: 1.3rem;
-    display: inline-block;
-    content: "\00a0\00a0\F127";
-  }
-  th.orderable.desc > a::after {
-    @apply bs-th-icon;
-    font-size: 1.3rem;
-    content: "\00a0\00a0\F128";
-  }
-  th.orderable.asc > a::after {
-    @apply bs-th-icon;
-    font-size: 1.3rem;
-    content: "\00a0\00a0\F148";
-  }
+}
 
-  /* External links that are not icons should have this class */
-  .external-link {
-    @apply link;
-  }
-  .external-link::after {
-    display: inline-block;
-    font-family: "bootstrap-icons";
-    font-size: 0.8rem;
-    content: "\00a0\00a0\F1C5";
-    position: relative;
-    bottom: 0.1rem;
-    text-decoration: none;
-  }
-
-  /* List page filter dropdowns */
-  .filter-dropdown {
+/* List page filter dropdowns */
+@utility filter-dropdown {
     @apply dropdown lg:ml-5 ml-3;
-  }
-  .filter-summary {
+}
+@utility filter-summary {
     @apply text-xl btn m-1 btn-outline mb-5;
-  }
-  details.filter-dropdown > summary::after {
-    font-family: "bootstrap-icons";
-    position: relative;
-    top: 0.1rem;
-    content: "\F229";
-  }
-  details[open].filter-dropdown > summary::after {
-    font-family: "bootstrap-icons";
-    position: relative;
-    top: 0.1rem;
-    content: "\F235";
-  }
-  .filter-submit {
+}
+@utility filter-submit {
     @apply my-5 text-xl;
-  }
-  .filter-submit::after {
-    display: inline-block;
-    font-family: "bootstrap-icons";
-    content: "\00a0\F3E1";
-  }
-  .filter-field {
+    &::after {
+        display: inline-block;
+        font-family: "bootstrap-icons";
+        content: "\00a0\F3E1";
+    }
+}
+@utility filter-field {
     @apply mb-3 ml-2 text-xl;
-  }
-  .filter-textbox {
-    @apply filter-field input input-md input-bordered;
-  }
+}
+@utility filter-textbox {
+    @apply filter-field input input-md;
+}
+
+@layer utilities {
 }

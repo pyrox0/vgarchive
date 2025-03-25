@@ -1,17 +1,22 @@
 {% load icons %}
-<footer class="footer bg-base-300 text-base-content p-10 lg:mt-20">
+<footer class="footer footer-horizontal bg-base-300 text-base-content p-10 lg:mt-20">
   <aside class="lg:ml-20">
     {% icon 'joystick' extra_classes="text-5xl fill-current lg:ml-1" %}
     <p class="text-2xl">VGArchive</p>
-    <p>All non-VGArchive branding marks are copyright and trademark of their respective owners.</p>
+    <p>
+      All non-VGArchive branding marks are copyright and trademark of
+      their respective owners.
+    </p>
   </aside>
   <nav>
     <p class="footer-title text-base-content">Join Us!</p>
     <div class="grid grid-flow-col gap-4">
       <a href="https://github.com/pyrox0/vgarchive"
-         aria-label="VGArchive Git Repo">{% icon 'github' extra_classes="text-base-content text-4xl" tabindex="-1" %}</a>
+         aria-label="VGArchive Git Repo">{% icon 'github' extra_classes="text-base-content text-4xl"
+      tabindex="-1" %}</a>
       <a href="https://discord.gg/g4eK3vtsfh"
-         aria-label="VGArchive Discord Server">{% icon 'discord' extra_classes="text-info text-4xl" tabindex="-1" %}</a>
+         aria-label="VGArchive Discord Server">{% icon 'discord' extra_classes="text-info text-4xl"
+      tabindex="-1" %}</a>
     </div>
     <p class="mt-1">VGArchive, © 2024 dish & VGArchive Contributors</p>
   </nav>

@@ -1,11 +1,10 @@
 {% load icons %}
-<nav class="navbar bg-base-200 border-b-2 border-accent">
+<nav class="navbar bg-base-200 border-b-2 border-accent/50">
   <div class="navbar-start">
     <a href="{% url 'home' %}" role="button" aria-label="Home">
-      <button class="btn btn-primary btn-block w-[4rem] sm:w-[8rem] lg:w-[16rem]"
-              aria-hidden="true"
-              tabindex="-1">
-        {% icon 'joystick' extra_classes='float-start text-3xl mt-0.5' %}
+      <button class="btn btn-primary btn-lg" aria-hidden="true" tabindex="-1">
+        {% icon 'joystick' extra_classes='float-start text-3xl mt-0.5'
+        %}
         <p class="text-xl text-base hidden lg:block">VGArchive</p>
       </button>
     </a>
@@ -26,46 +25,68 @@
       </li>
     </ul>
     {% if user.is_staff %}
-      <div>
-        <details class="dropdown dropdown-end">
-          <summary tabindex="0" role="menu" class="navbar-tab">
-            Management
-            <i class="bi bi-caret-down-fill"></i>
-          </summary>
-          <ul role="menu"
-              class="menu menu-sm dropdown-content border-2 border-secondary bg-base-300 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-            <li role="menuitem">
-              <a class="text-xl" href="{% url 'create-charity' %}">Charity</a>
-            </li>
-            <li role="menuitem">
-              <a class="text-xl" href="{% url 'create-game' %}">Game</a>
-            </li>
-            <li role="menuitem">
-              <a class="text-xl" href="{% url 'create-event' %}">Event</a>
-            </li>
-            <li role="menuitem">
-              <a class="text-xl" href="{% url 'create-organization' %}">Organization</a>
-            </li>
-            <li role="menuitem">
-              <a class="text-xl" href="{% url 'create-runner' %}">Runner</a>
-            </li>
-            <li role="menuitem">
-              <a class="text-xl" href="{% url 'create-run' %}">Run</a>
-            </li>
-          </ul>
-        </details>
-      </div>
+      <details class="dropdown dropdown-end">
+        <summary tabindex="0" role="menu" class="navbar-tab">
+          Management
+          <i class="bi bi-caret-down-fill"></i>
+        </summary>
+        <ul role="menu" class="menu dropdown-content z-10">
+          <li role="menuitem">
+            <details>
+              <summary class="text-xl">Manual Creation</summary>
+              <ul role="menu dropdown-content">
+                <li role="menuitem">
+                  <a class="text-xl" href="{% url 'create-charity' %}">Charity</a>
+                </li>
+                <li role="menuitem">
+                  <a class="text-xl" href="{% url 'create-game' %}">Game</a>
+                </li>
+                <li role="menuitem">
+                  <a class="text-xl" href="{% url 'create-event' %}">Event</a>
+                </li>
+                <li role="menuitem">
+                  <a class="text-xl" href="{% url 'create-organization' %}">Organization</a>
+                </li>
+                <li role="menuitem">
+                  <a class="text-xl" href="{% url 'create-runner' %}">Runner</a>
+                </li>
+                <li role="menuitem">
+                  <a class="text-xl" href="{% url 'create-run' %}">Run</a>
+                </li>
+              </ul>
+            </details>
+          </li>
+          <li>
+            <details>
+              <summary class="text-xl">Tracker Import</summary>
+              <ul role="menu">
+                <li role="menuitem">
+                  <a class="text-xl"
+                     href="https://localhost:8000/manage/import/organization">Organization</a>
+                </li>
+                <li role="menuitem">
+                  <a class="text-xl" href="https://localhost:8000/manage/import/event">Event</a>
+                </li>
+                <li role="menuitem">
+                  <a class="text-xl" href="https://localhost:8000/manage/import/run">Run</a>
+                </li>
+              </ul>
+            </details>
+          </li>
+        </ul>
+      </details>
     {% endif %}
   </div>
   {% comment %}
-  <div class="lg:navbar-end">
-    <form method="get" action="{% url 'search' %}" class="-mt-[0.35rem] -mb-1.5 hover:bg-transparent active:bg-transparent">
-      <label class="input input-md input-bordered flex items-center" aria-label="Search Bar">
-        <input type="text" placeholder="Search" class="placeholder:text-base-content placeholder:text-lg w-96" />
-        {% icon 'search' extra_classes="text-2xl text-neutral" tabindex="-1" %}
-      </label>
-    </form>
-  </div>
+    <div class="lg:navbar-end">
+        <form method="get" action="{% url 'search' %}" class="-mt-[0.35rem] -mb-1.5 hover:bg-transparent active:bg-transparent">
+            <label class="input input-md flex items-center" aria-label="Search Bar">
+                <input type="text" placeholder="Search" class="placeholder:text-base-content placeholder:text-lg w-96" />
+                {% icon 'search' extra_classes="text-2xl text-neutral"
+                tabindex="-1" %}
+            </label>
+        </form>
+    </div>
   {% endcomment %}
   <div class="navbar-end flex flex-initial">
     <div class="md:hidden">

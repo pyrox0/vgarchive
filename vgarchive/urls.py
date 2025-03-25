@@ -53,6 +53,9 @@ urlpatterns = [
     path("manage/create/runner", RunnerCreate.as_view(), name="create-runner"),
     path("manage/create/run", RunCreate.as_view(), name="create-run"),
     # Tracker Import Views
+    # path("manage/import/organization", OrganizationImport.as_view(), name="import-organization")
+    # path("manage/import/event", EventImport.as_view(), name="import-event")
+    # path("manage/import/run", RunImport.as_view(), name="import-run")
     # Hot reload
     path("__reload__/", include("django_browser_reload.urls")),
     # Index
