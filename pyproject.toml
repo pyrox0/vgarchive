@@ -41,7 +41,7 @@ dependencies = [
   "django-tailwind-4~=0.1.4",
   "django~=5.1.7",
   "docutils~=0.21.0",
-  "pillow~=11.1.0",
+  "pillow~=11.2.1",
   "requests~=2.32.3",
 ]
 
