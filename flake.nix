@@ -53,6 +53,7 @@
                 caddy
                 djlint
                 just
+                lightningcss
                 nixfmt-rfc-style
                 nodejs
                 pre-commit

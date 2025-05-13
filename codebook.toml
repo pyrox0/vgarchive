@@ -2,6 +2,8 @@ dictionaries = []
 words = [
     "catppuccin",
     "daisyui",
+    "endfor",
+    "floatformat",
     "hypercorn",
     "imagekit",
     "orderable",
@@ -14,6 +16,7 @@ words = [
     "videogames",
     "vod",
     "vods",
+    "youtube",
 ]
 flag_words = []
 ignore_paths = []

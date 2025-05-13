@@ -13,42 +13,42 @@
       <div class="hero-overlay bg-base-100/60"></div>
       <div class="hero-content flex-col lg:flex-row">
         <div class="flex flex-col lg:mx-20 lg:mr-40">
-          <h1 class="text-7xl font-mono lg:text-6xl self-end py-5 ml-20 mt-5 w-full font-bold text-base-content text-nowrap bg-base-100/60 rounded-md text-center">
+          <h1 class="text-7xl font-mono lg:text-6xl self-end py-5 ml-20 mt-5 w-full font-bold text-base-content text-nowrap bg-base-100/60 text-center">
             {{ object.short_name }}
           </h1>
         </div>
         <div class="flex flex-col w-full lg:ml-10 space-y-5">
           {% if object.homepage %}
-            <a class="hero-button btn-info" href="{{ object.homepage }}">
-              {% icon 'globe2' extra_classes="text-[2.25rem] hero-button-icon" tabindex="-1" %}
+            <a class="hero-button btn-info bg-info/80" href="{{ object.homepage }}">
+              {% icon 'globe2' extra_classes="text-3xl hero-button-icon" tabindex="-1" %}
               <p class="hero-button-text-unhidden">Website</p>
             </a>
           {% endif %}
           {% if object.youtube_playlist %}
-            <a class="hero-button btn-error"
+            <a class="hero-button btn-error bg-error/80"
                role="button"
                href="{{ object.youtube_playlist }}">
-              {% icon 'youtube' extra_classes="text-[2.5rem] hero-button-icon" tabindex="-1" %}
+              {% icon 'youtube' extra_classes="text-3xl hero-button-icon" tabindex="-1" %}
               <p class="hero-button-text-unhidden">VOD Playlist</p>
             </a>
           {% endif %}
-          <a class="hero-button btn-success"
+          <a class="hero-button btn-success bg-success/80"
              role="button"
              href="{% url 'charity-detail' object.charity.id %}">
-            {% icon 'bank' extra_classes="text-[2.5rem] hero-button-icon" tabindex="-1" %}
+            {% icon 'bank' extra_classes="text-3xl hero-button-icon" tabindex="-1" %}
             <p class="hero-button-text-unhidden">Supported Charity</p>
           </a>
-          <div class="bg-transparent hero-stat my-5 lg:max-w-sm">
-            <div class="stat bg-success/70 card-body">
-              <div class="hero-stat-title">
+          <div class="bg-transparent hero-stat my-5 lg:max-w-md">
+            <div class="stat bg-success/80 card-body">
+              <div class="hero-stat-title w-full">
                 {% icon 'cash-stack' extra_classes="hero-stat-icon"
                 tabindex="-1" %} Total Raised
               </div>
               <p class="stat-value">${{ object.donation_total|floatformat:"-2g" }}</p>
             </div>
           </div>
-          <div class="bg-transparent hero-stat lg:float-right lg:max-w-xs">
-            <div class="stat bg-info/70 card-body">
+          <div class="bg-transparent hero-stat lg:float-right lg:max-w-md">
+            <div class="stat bg-info/80 card-body w-full!">
               <div class="hero-stat-title">
                 {% icon 'people-fill' extra_classes="hero-stat-icon"
                 tabindex="-1" %} Donation Count

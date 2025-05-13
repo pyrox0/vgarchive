@@ -139,10 +139,13 @@ COMPRESS_ENABLED = True
 COMPRESS_FILTERS = {
     "css": [
         "compressor.filters.css_default.CssAbsoluteFilter",
-        "compressor.filters.cssmin.rCSSMinFilter",
+        "vgarchive.utils.compressor_filters.LightningCSSFilter",
     ],
     "js": ["compressor.filters.jsmin.rJSMinFilter"],
 }
+
+COMPRESS_LIGHTNING_CSS_BINARY = "lightningcss"
+COMPRESS_LIGHTNING_CSS_ARGUMENTS = "--minify"
 
 # django-filter
 

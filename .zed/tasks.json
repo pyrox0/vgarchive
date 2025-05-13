@@ -1,0 +1,55 @@
+// Static tasks configuration.
+//
+// Example:
+[
+  {
+    "label": "dev server",
+    "command": "uv run ./manage.py runserver",
+    "use_new_terminal": true,
+    "allow_concurrent_runs": false,
+    "reveal": "no_focus",
+    "reveal_target": "dock",
+    "hide": "never",
+    "shell": "system"
+  },
+  {
+    "label": "dev server - caddy",
+    "command": "caddy run",
+    "use_new_terminal": true,
+    "allow_concurrent_runs": false,
+    "reveal": "no_focus",
+    "reveal_target": "dock",
+    "hide": "never",
+    "shell": "system"
+  },
+  {
+    "label": "dev server - tailwind",
+    "command": "uv run ./manage.py tailwind start",
+    "use_new_terminal": true,
+    "allow_concurrent_runs": false,
+    "reveal": "no_focus",
+    "reveal_target": "dock",
+    "hide": "never",
+    "shell": "system"
+  },
+  {
+    "label": "create migrations",
+    "command": "uv run ./manage.py migrate",
+    "use_new_terminal": true,
+    "allow_concurrent_runs": false,
+    "reveal": "no_focus",
+    "reveal_target": "dock",
+    "hide": "on_success",
+    "shell": "system"
+  },
+  {
+    "label": "apply migrations",
+    "command": "uv run ./manage.py makemigrations",
+    "use_new_terminal": true,
+    "allow_concurrent_runs": false,
+    "reveal": "no_focus",
+    "reveal_target": "dock",
+    "hide": "on_success",
+    "shell": "system"
+  }
+]

@@ -1,0 +1,19 @@
+<div class="carousel-item card card-xs bg-base-200 max-w-sm">
+  <a class="card-body" href="{% url 'event-detail' event.id %}">
+    {% if event.banner %}
+      <img class="max-h-1/2"
+           src="{{ event.banner.url }}"
+           alt="Banner for the event {{ e.name }}." />
+    {% endif %}
+    {% if event.short_name %}
+      <p class="card-title text-3xl mt-1">{{ event.short_name }}</p>
+    {% else %}
+      <p class="card-title text-3xl mt-1">{{ event.name }}</p>
+    {% endif %}
+    <div class="lg:mb-5 text-wrap lg:ml-5 lg:-mt-5">
+      <p class="text-success lg:-ml-5 font-bold text-2xl">${{ event.donation_total|floatformat:"-2g" }}</p>
+      <a class="text-lg lg:-ml-1 link link-info"
+         href="{% url 'charity-detail' event.charity.id %}">{{ event.charity.name }}</a>
+    </div>
+  </a>
+</div>
